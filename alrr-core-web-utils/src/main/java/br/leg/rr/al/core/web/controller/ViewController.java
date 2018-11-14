@@ -1,0 +1,418 @@
+package br.leg.rr.al.core.web.controller;
+
+import java.io.Serializable;
+import java.sql.SQLException;
+
+import javax.persistence.EntityExistsException;
+import javax.persistence.PersistenceException;
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
+import br.leg.rr.al.core.CoreUtilsValidationMessages;
+import br.leg.rr.al.core.dao.JPADaoStatus;
+import br.leg.rr.al.core.domain.NavigationOutcomeDefault;
+import br.leg.rr.al.core.jpa.EntityStatus;
+import br.leg.rr.al.core.web.util.FacesMessageUtils;
+import br.leg.rr.al.core.web.util.FacesUtils;
+
+/**
+ * @author Ednil Libanio da Costa Junior
+ * @date 17-04-2018
+ * @param <T>
+ * @param <ID>
+ */
+public abstract class ViewController<T extends EntityStatus<ID>, ID extends Serializable>
+		extends EntityStatusBaseController<T, ID> {
+
+	private static final long serialVersionUID = -3680839734379111991L;
+
+	protected String jaExisteMsg = "Entidade já existe.";
+
+	/**
+	 * Método secundário chamado pelo método {@link #preSalvar() } que preenche uma
+	 * entidade com valores customizados antes de serem validados e salvo na base de
+	 * dados. <br>
+	 * Por exemplo, preencher a data de cadastro do usuário.
+	 */
+	protected void preInserir() {
+
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #inserir()} que cria uma nova
+	 * entidade e lança uma mensagem de sucesso após inserir na base de dados.
+	 * 
+	 * @see #inserir()
+	 */
+	protected void posInserir() {
+		FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_SALVO_COM_SUCESSO);
+		setEntity(createEntity());
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #preSalvar()} que atualiza
+	 * valores customizados na entidade antes de serem validados e salvo na base de
+	 * dados. <br>
+	 * Por exemplo, preencher a data do último acesso do usuário.
+	 */
+	protected void preAtualizar() {
+
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #atualizar()} que lança uma
+	 * mensagem de sucesso após atualizar os dados da entidade na base de dados.
+	 * 
+	 * @see #atualizar()
+	 */
+	protected void posAtualizar() {
+		FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_ATUALIZADO_COM_SUCESSO);
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #salvar()} que chama os métodos
+	 * de {@link #preInserir()} e {@link #preAtualizar()}. <br>
+	 * Nesse momento faz todas as inserções e atualizações customizadas na entidade,
+	 * antes de chamar o método {@code salvar()}.
+	 * 
+	 */
+	protected void preSalvar() {
+		if (isEditar()) {
+			preAtualizar();
+		} else {
+			preInserir();
+		}
+	}
+
+	/**
+	 * Método secundário que preenche variáveis, componentes, campos dos controller
+	 * com valores da entidade antes de chamar a view ou dialog de edição. <br>
+	 * Além disso pode fazer qualquer outra customização ou configuração antes da
+	 * edição. Por exemplo, chamar o método <code>bean.retrieve(entidade)</code>
+	 * para deixar os dados atualizados para edição. <br>
+	 * <b>Exemplo:</b>
+	 * 
+	 * <pre>
+	 * Entidade entidadeSelecionada = getEntity();
+	 * 
+	 * // Atualiza os dados para edição.
+	 * setEntity(bean.retrieve(entidadeSelecionada));
+	 * setNome(getEntity.getNome());
+	 * </pre>
+	 * 
+	 */
+	protected void preEditar() {
+
+	}
+
+	/**
+	 * Método secundário que preenche variáveis, componentes, campos dos controller
+	 * com valores da entidade antes de chamar a view ou dialog de detalhes. <br>
+	 * Além disso pode fazer qualquer outra customização ou configuração antes de
+	 * mostrar os detalhes da entidade. Por exemplo, chamar o método
+	 * <code>bean.retrieve(entidade)</code> para carregar os dados atualizados da
+	 * entidade. <br>
+	 * <b>Exemplo:</b> <blockquote>
+	 * 
+	 * <pre>
+	 * Entidade entidadeSelecionada = getEntity();
+	 * 
+	 * // Carrega os dados atualizados.
+	 * setEntity(bean.retrieve(entidadeSelecionada));
+	 * 
+	 * </pre>
+	 * 
+	 * </blockquote>
+	 */
+	protected void preDetalhes() {
+
+	}
+
+	/**
+	 * <p>
+	 * Este método é responsável por buscar novamente a entidade trazendo os dados
+	 * atualizados. O método é chamado pelo método
+	 * {@link #renovarRegistroDataModel()}. Não há necessidade de alterar o método
+	 * {@link #renovarRegistroDataModel()} após sovrescrever esse método.
+	 * </p>
+	 * <p>
+	 * Caso queira carregar (fetch) as outras entidades associadas, o método
+	 * {@link #preRenovarRegistroDatalModel()} deverá ser sobrescrito.
+	 * </p>
+	 * 
+	 * @return entidade que será substituída pela grid de pesquisa.
+	 * @see ViewController#renovarRegistroDataModel()
+	 */
+	protected T preRenovarRegistroDatalModel() {
+		return getBean().buscar(getEntity());
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #preSalvar()} que verifica se a
+	 * entidade está carregada com os valores da base de dados. Também pode ser
+	 * chamado por outros métodos em determinadas situações.
+	 * 
+	 * @return <code>true</code> se entidade está com valores da base de dados. Caso
+	 *         contrário, <code>false</code>.
+	 */
+	protected Boolean isEditar() {
+		return (getEntity() != null && getEntity().getId() != null);
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #salvar()} e que insere uma nova
+	 * entidade na base de dados. <br>
+	 * Após inserir na base de dados, o método {@link #posInserir()} é chamado.
+	 */
+	protected void inserir() {
+		getBean().salvar(getEntity());
+		posInserir();
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #salvar()} e que atualiza uma
+	 * entidade já existente na base de dados. <br>
+	 * Após atualizar os dados da entidade na base de dados, o método
+	 * {@link #posAtualizar()} é chamado.
+	 */
+	protected void atualizar() {
+		getBean().atualizar(getEntity());
+		posAtualizar();
+	}
+
+	/**
+	 * Método que cria uma nova entidade e exibe um dialog ou uma view para inserir
+	 * os dados.
+	 */
+	public String novo() {
+		return null;
+	}
+
+	/**
+	 * <p>
+	 * Método responsável por incluir ou atualizar os dados de uma entidade na base
+	 * de dados. Antes de inserir ou atualizar os dados, o método {@link #validar()}
+	 * é executado. Se validado, chama o método
+	 * {@link JPADaoStatus#jaExiste(EntityStatus)} que verifica se já existe os
+	 * dados informados.
+	 * </p>
+	 * <p>
+	 * O método {@link JPADaoStatus#jaExiste(EntityStatus)} deve ser implementado
+	 * para cada <code>Service</code> e satisfazer aos dois fluxos: atualizar e
+	 * inserir. No caso do fluxo atualizar, deve-se incluir como condição na
+	 * verificação o atributo <code>id</code> da entidade para evitar que a própria
+	 * entidade seja pesquisada. Por exemplo:
+	 * </p>
+	 * 
+	 * <pre>
+	 * <code>
+	 * if (entidade.getId() != null){
+	 * 	Predicate cond = cb.notEqual(root.get(Entidade_.id), entidade.getId());
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * Caso não seja tratado para o fluxo atualizar, ocorrerá erro na hora de
+	 * atualizar os dados.
+	 * 
+	 * @return Navegação da view de acordo com a ação:<br>
+	 *         <ul>
+	 *         <li>Se for <strong>inserido</strong> com sucesso, retorna
+	 *         {@value NavigationOutcomeDefault#INSERIDO_COM_SUCCESSO}.</li>
+	 *         <li>Se for <strong>atualizado</strong> com sucesso, retorna
+	 *         {@value NavigationOutcomeDefault#ATUALIZADO_COM_SUCCESSO}.</li> Caso
+	 *         contrário, {@value NavigationOutcomeDefault#FALHA}.
+	 */
+	public String salvar() {
+		preSalvar();
+
+		if (validar()) {
+			try {
+				if (!getBean().jaExiste(getEntity())) {
+
+					if (isEditar()) {
+						atualizar();
+						if (getEntities() != null) {
+							if (getEntities().size() > 0) {
+								int pos = getDataModel().getIndex();
+								if (pos >= 0) {
+									getEntities().set(pos, getEntity());
+								}
+							}
+						}
+						return NavigationOutcomeDefault.ATUALIZADO_COM_SUCCESSO.toString();
+					} else {
+						inserir();
+						return NavigationOutcomeDefault.INSERIDO_COM_SUCCESSO.toString();
+					}
+
+				} else {
+
+					FacesMessageUtils.addFatal(jaExisteMsg);
+					return NavigationOutcomeDefault.FALHA.toString();
+				}
+				/*
+				 * } catch (ControllerException e) { throw e;
+				 */
+
+			} catch (ConstraintViolationException e) {
+				FacesMessageUtils.addFatal(e.getMessage());
+			} catch (EntityExistsException e) {
+				FacesMessageUtils.addFatal(e.getMessage());
+			} catch (PersistenceException e) {
+				// FIXME Terminar de arrumar o tratamento de exceção.
+				// nunca cai nessa exceção. vamos ver quando cairá.s
+				Throwable t = ExceptionUtils.getRootCause(e);
+				if (t instanceof SQLException) {
+					SQLException ex = (SQLException) t;
+					if (ex.getErrorCode() == 23505 || ex.getSQLState().equals("23505")) {
+						throw new PersistenceException(CoreUtilsValidationMessages.REGISTRO_JA_EXISTE);
+					}
+					if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
+						throw new ValidationException(ex.getMessage());
+					}
+				} else {
+					FacesMessageUtils.addFatal(t.getMessage());
+				}
+
+			} catch (Exception e) {
+				Throwable t = ExceptionUtils.getRootCause(e);
+				if (t instanceof SQLException) {
+					SQLException ex = (SQLException) t;
+					// Tratamento de exceção para entidade que já existe na base
+					// de dados. Ocorre quando o sistema não verifica
+					// corretamente se já
+					// existe a entidade antes de tentar inserir na base de
+					// dados.
+					if (ex.getErrorCode() == 23505 || ex.getSQLState().equals("23505")) {
+						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.REGISTRO_JA_EXISTE);
+					}
+					// Tratamento de exceção para coluna que possui constraint
+					// que não permite nulo.
+					if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
+						String entidade = StringUtils.substringAfterLast(getEntity().getClass().toString(), ".");
+						String campo = StringUtils.substringBetween(ex.getMessage(), "\"");
+						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.DB_ERROR_NOT_NULL_CONSTRAINT, entidade,
+								campo);
+
+					}
+				}
+			}
+		}
+
+		return null;
+
+	}
+
+	/**
+	 * Método que exibe o dialog de edição ou redireciona para a view de edição.
+	 * Caso haja alguma configuração especifica, deve ser definido no método
+	 * {@link #preEditar}.
+	 * 
+	 * @return
+	 */
+	public String editar() {
+		return null;
+	}
+
+	/**
+	 * Método chamado após a confirmação de exclusão. Exclui a "entidade"
+	 * selecionada e fecha o dialog de exclusão ou limpa a view de exlusão. Caso
+	 * <i>entidade</i> seja vazia, retorna uma mensagem de erro.
+	 * 
+	 * @return
+	 */
+	public String excluir() {
+		return null;
+	}
+
+	/**
+	 * Limpa a view inteira. Não usar para Dialog. Usar o método cancelar() em vez
+	 * disso.
+	 * 
+	 * @return TODO
+	 */
+	public String limpar() {
+		FacesUtils.getViewMap().clear();
+		return null;
+	}
+
+	/**
+	 * Método que pesquisa todos os registros na base de dados.
+	 */
+	public String pesquisar() {
+		getBean().flush();
+		setEntities(getBean().buscarTodos());
+
+		if (getEntities().size() > 0) {
+			createDataModel(getEntities());
+		} else {
+			FacesMessageUtils.addError(CoreUtilsValidationMessages.REGISTRO_NAO_ENCONTRADO);
+		}
+		return null;
+	}
+
+	/**
+	 * Recarrega a entidade com os dados atualizados e exibe o Dialog de Detalhes.
+	 * Ativar com ActionListener.
+	 * 
+	 */
+	public String detalhes() {
+		return null;
+	}
+
+	/**
+	 * Método que atualiza os dados da entidade já existente.
+	 * 
+	 * @return
+	 */
+	public String renovar() {
+		carregarEntity();
+		FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_RENOVADO_COM_SUCESSO);
+		return null;
+	}
+
+	public String renovarRegistroDataModel() {
+		if (isEditar()) {
+
+			// captura o indice para trocar na lista a entidade.
+			if (getEntities().size() > 0) {
+				int pos = getDataModel().getIndex();
+
+				if (pos >= 0) {
+					// busca a entidade atualizada.
+					preRenovarRegistroDatalModel();
+					getEntities().set(pos, getEntity());
+					FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_RENOVADO_COM_SUCESSO);
+				}
+			}
+
+		}
+
+		return null;
+	}
+
+	public Boolean isEditavel() {
+		return isEditar();
+	}
+
+	public Boolean isNotEditavel() {
+		return (!isEditar());
+	}
+
+	/**
+	 * TODO: Colocar comentário
+	 */
+	/* public abstract void limpar(); */
+
+	public String getJaExisteMsg() {
+		return jaExisteMsg;
+	}
+
+	public void setJaExisteMsg(String jaExisteMsg) {
+		this.jaExisteMsg = jaExisteMsg;
+	}
+}
