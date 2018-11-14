@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>alrr-core</artifactId>
+	<packaging>pom</packaging>
+	<name>alrr-core</name>
+	<developers>
+		<developer>
+			<id>ednil</id>
+			<name>Ednil Libanio da Costa Junior</name>
+			<email>ednil.libanio@gmail.com</email>
+		</developer>
+	</developers>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>br.leg.rr.al.core</groupId>
+				<artifactId>alrr-core-utils</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.leg.rr.al.core</groupId>
+				<artifactId>alrr-core-web-utils</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.leg.rr.al.core</groupId>
+				<artifactId>alrr-core-web-template</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+		<module>alrr-core-utils</module>
+		<module>alrr-core-web-template</module>
+		<module>alrr-core-web-utils</module>
+	</modules>
+	<parent>
+		<groupId>br.leg.rr.al</groupId>
+		<artifactId>alrr-bibliotecas</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<groupId>br.leg.rr.al.core</groupId>
+</project>
