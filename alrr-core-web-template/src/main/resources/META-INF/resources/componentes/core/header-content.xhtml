@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<cc:interface>
+	<cc:attribute name="titulo" type="java.lang.String"
+		displayName="titulo"
+		shortDescription="Informe o titulo que ficará acima do formulário." />
+	<cc:attribute name="info" type="java.lang.String"
+		shortDescription="Informações que expliquem como funciona a funcionalidade." />
+</cc:interface>
+
+<cc:implementation>
+
+	<!-- <div class="al-titulo-separator ui-g ui-g-nopad">
+		<h1 class="al-main-titulo">
+			<strong>#{cc.attrs.titulo}</strong>
+		</h1>
+	</div> -->
+	<div class="ui-g nopad">
+
+		<div class="ui-g-12 ui-g-nopad">
+			<p:commandLink id="lnkInfo"
+				styleClass="fa fa-info-circle fa-lg fa-4x"
+				style="font-size:48px; float: right" />
+		</div>
+		<div class="ui-g-12">
+			<p:overlayPanel for="lnkInfo" showCloseIcon="true"
+				styleClass="al-manual ui-g-8">
+				<cc:insertChildren />
+			</p:overlayPanel>
+		</div>
+	</div>
+</cc:implementation>
+
+</html>

@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:alcore="http://al.rr.leg.br/facelets/core">
+
+	<o:methodParam name="actionListener" value="#{confirmarActionListener}" />
+
+	<p:confirmDialog header="#{header}" severity="alert"
+		widgetVar="#{widgetVar}" responsive="true" escape="true">
+		<f:facet name="message">
+			<h:outputFormat value="#{message}">
+				<f:param value="#{paramMessage}" />
+			</h:outputFormat>
+		</f:facet>
+		<alcore:botao-nao onclick="#{onclickNao}" />
+		<alcore:botao-sim actionListener="#{actionListener}"
+			update="#{update}" />
+	</p:confirmDialog>
+
+</ui:composition>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+/****************************************************************************************
+* ALE-RR Licença																		*
+* Copyright (C) 2018, ALE-RR															*
+* Boa Vista, RR - Brasil																*
+* Todos os direitos reservados.															*
+* 																						*
+* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
+* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+****************************************************************************************/
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:shiro="http://shiro.apache.org/tags">
+<!--
+/****************************************************************************************
+* Autor: Ednil Libanio da Costa Junior													*
+* Data: 29-08-2018																		*
+* 																						*
+****************************************************************************************/
+-->
+<cc:interface displayName="Menu Item Editar" name="menuitem-editar"
+	shortDescription="Componente que cria um menu item para editar uma entidade.">
+	<cc:attribute name="process" default="@this" />
+	<cc:attribute name="update" />
+	<cc:attribute name="action"
+		method-signature="java.lang.String action()" targets="mnuitem-editar" />
+</cc:interface>
+
+<cc:implementation>
+	<p:menuitem id="mnuitem-editar" value="#{core['btn.editar.value']}"
+		icon="#{core['btn.editar.icon']}" update="#{cc.attrs.update}"
+		process="#{cc.attrs.process}" action="#{cc.attrs.action}">
+	</p:menuitem>
+
+</cc:implementation>
+
+</html>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment id="alrr_core_web_template_id"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-fragment_3_1.xsd"
+	version="3.1">
+	<name>alrr_core_web_template</name>
+	<ordering>
+		<before>
+			<others />
+		</before>
+	</ordering>
+	<!-- <context-param> <param-name>javax.faces.CONFIG_FILES</param-name> <param-value>/WEB-INF/lib/alrr-core-web-template-1.0.0.jar/META-INF/alrr-core-web-config.xml</param-value> 
+		</context-param> -->
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+	<!-- <context-param> <param-name>javax.faces.FACELETS_LIBRARIES</param-name> 
+		<param-value>/META-INF/core.taglib.xml;</param-value> </context-param> -->
+	<context-param>
+		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+		<param-value>1</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<!-- Parâmetro foi aumentado pois o buffer não estava suficiente para os 
+		componentes compostos sendo criados -->
+	<context-param>
+		<param-name>javax.faces.FACELETS_BUFFER_SIZE</param-name>
+		<param-value>1048576</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.FACELETS_VIEW_MAPPINGS</param-name>
+		<param-value>*.xhtml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.ajax4jsf.COMPRESS_STYLE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.FONT_AWESOME</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>omega</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.TRANSFORM_METADATA</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<!-- Esse parametro serve para mover os scripts para baixo da página. Além 
+		disso, é responsável por corrigir o erro que acontece quando se usa o layout. 
+		Conforme sugestão do próprio primefaces -->
+	<!-- https://github.com/primefaces/primefaces/issues/3457 -->
+	<context-param>
+		<param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.omnifaces.EXCEPTION_TYPES_TO_UNWRAP</param-name>
+		<param-value>javax.ejb.EJBException,javax.persistence.RollbackException</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<enabled>true</enabled>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>facesExceptionFilter</filter-name>
+		<filter-class>org.omnifaces.filter.FacesExceptionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>facesExceptionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/access-denied.xhtml</location>
+	</error-page>
+
+	<!-- NOT FOUND -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.xhtml</location>
+	</error-page>
+	<!-- INTERNAL SERVER ERROR -->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.xhtml</location>
+	</error-page>
+
+	<!-- SERVIÇO INDISPONÍVEL -->
+	<error-page>
+		<error-code>503</error-code>
+		<location>/503.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+		<location>/sessao-expirada.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.RuntimeException</exception-type>
+		<location>/error.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/500.xhtml</location>
+	</error-page>
+</web-fragment>

@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>alrr-core-web-template</artifactId>
+	<name>alrr-core-web-template</name>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>br.leg.rr.al.core</groupId>
+		<artifactId>alrr-core</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<developers>
+		<developer>
+			<id>ednil</id>
+			<name>Ednil Libanio da Costa Junior</name>
+			<email>ednil.libanio@gmail.com</email>
+		</developer>
+	</developers>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId> 
+				<configuration> <file>${project.basedir}/src/main/resources/omega-menu-1.1.4.jar</file> 
+				<groupId>org.primefaces</groupId> <artifactId>omega-menu</artifactId> <version>1.1.4</version> 
+				<packaging>jar</packaging> </configuration> <executions> <execution> <id>install-jar-file</id> 
+				<goals> <goal>install-file</goal> </goals> <phase>validate</phase> </execution> 
+				</executions> </plugin> -->
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.el</groupId>
+			<artifactId>jboss-el-api_3.0_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>omega-menu</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+	</dependencies>
+</project>

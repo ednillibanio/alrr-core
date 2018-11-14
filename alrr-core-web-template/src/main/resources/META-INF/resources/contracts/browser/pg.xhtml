@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
+	xmlns:o="http://omnifaces.org/ui" lang="pt-br" id="page">
+
+<f:view locale="pt_BR" contentType="text/html; charset=UTF-8"
+	encoding="UTF-8">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<f:facet name="first">
+			<h:outputStylesheet library="css" name="template.css" />
+			<h:outputStylesheet library="css" name="site.css" />
+			<h:outputStylesheet library="font-awesome"
+				name="css/font-awesome.min.css" />
+			<h:outputStylesheet library="css" name="primeflex/primeflex.css" />
+		</f:facet>
+
+
+		<ui:insert name="head">
+			<ui:include src="head.xhtml" />
+		</ui:insert>
+	</h:head>
+
+
+
+	<h:body id="body">
+
+
+		<div class="ui-g ui-responsive ui-g-nopad al-default-layout">
+
+
+			<!--  D I V   H E A D E R  -->
+			<header
+				class="ui-g-12 ui-md-12 ui-lg-12 ui-g-nopad al-default-header">
+				<ui:include src="header.xhtml" />
+			</header>
+
+
+			<!--  D I V   M E N U  -->
+			<aside class="ui-g-12 ui-md-12 ui-lg-2 ui-g-nopad al-default-menu">
+				<ui:insert name="menu">
+					<ui:include src="menu.xhtml" />
+				</ui:insert>
+			</aside>
+
+
+			<div class="ui-g-12 ui-md-12 ui-lg-10 ui-g-nopad al-default-content">
+
+
+				<!--  D I V   C O N T E N T  -->
+				<div class="ui-g-12 ui-md-12 ui-lg-12 ui-g-nopad al-default-main">
+					<ui:insert name="content">
+						<!-- DIV DO CONTENT -->
+						<div class="ui-g ui-responsive">
+
+
+							<!-- ESPAÇAMENTO DO LADO ESQUERDO -->
+							<div class="ui-lg-1 ui-g-nopad" />
+
+
+							<!-- M A I N -->
+							<div class="ui-g-12 ui-lg-10 ui-g-nopad">
+
+
+								<!--  H E A D E R   F O R M  -->
+								<ui:insert name="header-content" />
+
+
+								<!--  F O R M  -->
+								<div class="ui-g ui-responsive">
+									<div class="ui-lg-1 ui-g-nopad" />
+									<div class="ui-g-12 ui-lg-10 ui-g-nopad">
+
+										<!--  F O R M   C O N T E N T  -->
+										<ui:insert name="form-content" />
+									</div>
+									<div class="ui-lg-1 ui-g-nopad" />
+								</div>
+
+
+							</div>
+
+
+							<!-- ESPAÇAMENTO DO LADO DIREITO -->
+							<div class="ui-lg-1" />
+						</div>
+					</ui:insert>
+
+				</div>
+
+				<!--  D I V   F O O T E R  -->
+				<footer class="ui-g-12 ui-md-12 ui-lg-12 al-default-footer">
+					<p:separator />
+					<ui:include src="footer.xhtml" />
+					<h:outputScript library="js" name="contextMenu.js" />
+					<ui:insert name="js-footer">
+						<!-- inserção de java scripts. -->
+					</ui:insert>
+				</footer>
+
+			</div>
+		</div>
+
+	</h:body>
+
+</f:view>
+</html>

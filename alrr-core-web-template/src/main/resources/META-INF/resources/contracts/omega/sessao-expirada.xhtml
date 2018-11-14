@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>Assembleia Legislativa de Roraima</title>
+</h:head>
+
+<h:body styleClass="exception-body">
+	<div class="exception-wrapper access">
+		<p:graphicImage name="access.png" library="images" />
+
+		<p class="message-title">Sessão Expirada!</p>
+		<p class="message-summary">Please contact system administrator</p>
+
+		<p:link outcome="home">
+			<i class="fa fa-home"></i>
+			<span>Página Inicial</span>
+		</p:link>
+
+		<div class="login-footer">PrimeFaces Omega</div>
+	</div>
+
+	<h:outputStylesheet name="layout.css" library="css" />
+</h:body>
+
+</html>

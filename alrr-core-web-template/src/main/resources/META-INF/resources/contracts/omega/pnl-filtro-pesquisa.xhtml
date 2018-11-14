@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:al="http://xmlns.jcp.org/jsf/composite/componentes/core"
+	xmlns:o="http://omnifaces.org/ui" lang="pt-br" id="pnl-filtro">
+
+<!-- FILTRO DE PESQUISA -->
+<p:panel id="filtros" header="Filtros" toggleable="true"
+	styleClass="ui-fluid">
+
+	<!-- BLOCO QUE CONTÉM OS CAMPOS DE PESQUISA -->
+	<ui:insert name="filtros" />
+
+
+	<!-- BLOCO QUE CONTÉM OS BOTÕES DE PESQUISAR E LIMPAR -->
+	<f:facet name="footer">
+		<p:spacer height="15" />
+		<div class="ui-g ui-fluid">
+			<div class="ui-md-2 ui-lg-3" />
+
+			<!-- BLOCO DO BOTÃO LIMPAR -->
+			<div class="ui-g-12 ui-md-4 ui-lg-3">
+				<ui:insert name="btn-limpar" />
+			</div>
+
+			<!-- BLOCO DO BOTÃO PESQUISAR -->
+			<div class="ui-g-12 ui-md-4 ui-lg-3">
+				<ui:insert name="btn-pesquisar" />
+			</div>
+
+			<div class="ui-md-2 ui-lg-3" />
+		</div>
+	</f:facet>
+</p:panel>
+</html>

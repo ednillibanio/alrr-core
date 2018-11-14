@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="action" required="true"
+		method-signature="void action()" />
+	<composite:attribute name="validateClient" />
+	<composite:attribute name="id" />
+	<composite:attribute name="onstart" />
+	<composite:attribute name="oncomplete" />
+	<composite:attribute name="process" />
+	<composite:attribute name="update" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<p:commandButton value="#{bundle_sec['botao.login']}"
+		action="#{cc.attrs.action}" icon="fa fa-fw fa-sign-in"
+		id="#{cc.attrs.id}" onstart="#{cc.attrs.onstart}"
+		oncomplete="#{cc.attrs.oncomplete}"
+		validateClient="#{cc.attrs.validateClient}"
+		process="#{cc.attrs.process}" update="#{cc.attrs.update}">
+	</p:commandButton>
+</composite:implementation>
+</html>
