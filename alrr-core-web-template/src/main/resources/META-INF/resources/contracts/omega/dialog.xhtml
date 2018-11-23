@@ -32,10 +32,10 @@
 ****************************************************************************************/ 
 -->
 <p:dialog id="#{dlgid}" widgetVar="#{widgetVar}" showEffect="clip"
-	hideEffect="clip" closeOnEscape="true" showHeader="false"
+	hideEffect="clip" closeOnEscape="true" showHeader="true"
 	responsive="true" modal="true" resizable="false" closable="false"
-	appendTo="@(body)"
-	styleClass="#{empty styleClass ? 'ui-fluid ui-md-8 ui-lg-8 nopad' : styleClass}"
+	appendTo="@(body)" header="#{panelheader}"
+	styleClass="#{empty styleClass ? 'ui-fluid ui-md-8 ui-lg-8 nopad al-dialog' : styleClass}"
 	fitViewport="true">
 
 
@@ -45,9 +45,7 @@
 		<p:tooltip />
 		<p:growl id="msgs-dialog" />
 		<ui:insert name="form-dialog" />
-		<p:panel header="#{panelheader}">
-
-
+		<p:panel>
 			<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
 				columns="#{columns}" columnClasses="column" cellpadding="10"
 				styleClass="ui-panelgrid-blank" layout="grid">

@@ -192,13 +192,14 @@ span.info {
 	
 }
 
-.al-dlg-confirm {
-	padding: 1px !important;
+.ui-dialog.al-dlg-confirm {
+	padding: 0px !important;
 	margin: 0px !important;
 }
 
-.al-dlg-confirm .ui-dialog-titlebar {
-	background-color: #ffef96 !important;
+.al-dialog.ui-dialog .ui-dialog-titlebar, .ui-dialog.al-dlg-confirm  .ui-dialog-titlebar,
+	.ui-dialog.ui-confirm-dialog .ui-dialog-titlebar {
+	background-color: #464950 !important;
 	margin: 0px !important;
 	-moz-border-radius-bottomright: 3px !important;
 	-webkit-border-bottom-right-radius: 3px !important;
@@ -210,6 +211,13 @@ span.info {
 	border-bottom-left-radius: 3px !important;
 	border-bottom: 2px solid #d6d6d6 !important !important;
 	margin-bottom: 10px !important;
+}
+
+.al-dialog.ui-dialog .ui-dialog-title, .ui-dialog.al-dlg-confirm .ui-dialog-title,
+	.ui-dialog.ui-confirm-dialog .ui-dialog-title {
+	margin: 0.3em 16px 0.1em 5px !important;
+	font-size: 18px !important;
+	color: white !important;
 }
 
 .al-dlg-confirm-mensagem>span::before {
@@ -298,18 +306,6 @@ span.info {
 	}
 }
 
-.btn-limpar {
-	
-}
-
-.btn-pesquisar {
-	
-}
-
-.result {
-	
-}
-
-.contextmenu {
+.btn-limpar, .btn-pesquisar, .filtro, .result, .contextmenu {
 	
 }
