@@ -19,7 +19,7 @@ class PrimeFacesUtils {
 	 * componentes pelos clientIds.
 	 * 
 	 * 
-	 * @param arg0 cliendId
+	 * @param arg0 cliendId do componente.
 	 */
 	public static void update(String... arg0) {
 		PrimeFaces.current().ajax().update(arg0);

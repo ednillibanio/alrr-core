@@ -181,7 +181,7 @@ public class FacesUtils implements Serializable {
 	/**
 	 * Atualiza o componente informado.
 	 * 
-	 * @param name nome do componente que deve ser atualizado.
+	 * @param arg0 id do componente que deve ser atualizado.
 	 */
 	public static void update(String... arg0) {
 		PrimeFacesUtils.update(arg0);
