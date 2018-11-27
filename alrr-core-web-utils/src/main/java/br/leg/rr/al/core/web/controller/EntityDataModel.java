@@ -7,38 +7,38 @@ import javax.faces.model.ListDataModel;
 
 import org.primefaces.model.SelectableDataModel;
 
-import br.leg.rr.al.core.jpa.EntityStatus;
+import br.leg.rr.al.core.jpa.Entity;
 
 /**
  * @author Ednil Libanio
  * @date 15/07/2012
  * 
  */
-public class EntityStatusDataModel<T extends EntityStatus<ID>, ID extends Serializable> extends ListDataModel<T>
-		implements SelectableDataModel<EntityStatus<ID>>, Serializable {
+public class EntityDataModel<T extends Entity<ID>, ID extends Serializable> extends ListDataModel<T>
+		implements SelectableDataModel<Entity<ID>>, Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8477436959691032346L;
+	private static final long serialVersionUID = 7120373657959697907L;
 
 	private int index;
 
-	public EntityStatusDataModel() {
+	public EntityDataModel() {
 		super();
 	}
 
-	public EntityStatusDataModel(List<T> data) {
+	public EntityDataModel(List<T> data) {
 		super(data);
 	}
 
 	@Override
-	public EntityStatus<ID> getRowData(String entidadeId) {
+	public Entity<ID> getRowData(String entidadeId) {
 
 		@SuppressWarnings("unchecked")
 		List<T> entities = ((List<T>) getWrappedData());
 
-		for (EntityStatus<ID> entity : entities) {
+		for (Entity<ID> entity : entities) {
 			if (entity.getId().toString().equals(entidadeId)) {
 				index = entities.indexOf(entity);
 				return entity;
@@ -49,7 +49,7 @@ public class EntityStatusDataModel<T extends EntityStatus<ID>, ID extends Serial
 	}
 
 	@Override
-	public Object getRowKey(EntityStatus<ID> entidade) {
+	public Object getRowKey(Entity<ID> entidade) {
 		if (entidade != null) {
 			return entidade.getId();
 		}
@@ -71,8 +71,7 @@ public class EntityStatusDataModel<T extends EntityStatus<ID>, ID extends Serial
 	}
 
 	/**
-	 * @param index
-	 *            the index to set
+	 * @param index the index to set
 	 */
 	public void setIndex(int index) {
 		this.index = index;

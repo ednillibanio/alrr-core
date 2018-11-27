@@ -2,7 +2,7 @@ package br.leg.rr.al.core.web.controller;
 
 /**
  * @author Ednil Libanio da Costa Junior
- * @date 18-04-2018
+ * @since 1.0.0
  */
 public class ControllerException extends RuntimeException {
 

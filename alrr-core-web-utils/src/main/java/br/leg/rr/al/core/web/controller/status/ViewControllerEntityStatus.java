@@ -1,4 +1,4 @@
-package br.leg.rr.al.core.web.controller;
+package br.leg.rr.al.core.web.controller.status;
 
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -16,17 +16,20 @@ import org.omnifaces.util.Faces;
 import br.leg.rr.al.core.CoreUtilsValidationMessages;
 import br.leg.rr.al.core.dao.JPADaoStatus;
 import br.leg.rr.al.core.domain.NavigationOutcomeDefault;
-import br.leg.rr.al.core.jpa.Entity;
 import br.leg.rr.al.core.jpa.EntityStatus;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
 import br.leg.rr.al.core.web.util.FacesUtils;
 
-public class ViewController<T extends Entity<ID>, ID extends Serializable> extends BaseController<T, ID> {
+/**
+ * @author Ednil Libanio da Costa Junior
+ * @date 17-04-2018
+ * @param <T>
+ * @param <ID>
+ */
+public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID extends Serializable>
+		extends BaseControllerEntityStatus<T, ID> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5243769425224774474L;
+	private static final long serialVersionUID = -3680839734379111991L;
 
 	protected String jaExisteMsg = "Entidade já existe.";
 

@@ -6,15 +6,15 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.omnifaces.util.Faces;
 
 import br.leg.rr.al.core.domain.NavigationOutcomeDefault;
-import br.leg.rr.al.core.jpa.EntityStatus;
+import br.leg.rr.al.core.jpa.Entity;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
 
-public class CrudViewController<T extends EntityStatus<ID>, ID extends Serializable> extends ViewController<T, ID> {
+public class CrudViewController<T extends Entity<ID>, ID extends Serializable> extends ViewController<T, ID> {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1203944215885392305L;
+	private static final long serialVersionUID = 327306033243843312L;
 
 	@Override
 	protected void preInserir() {

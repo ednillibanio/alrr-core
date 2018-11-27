@@ -1,4 +1,4 @@
-package br.leg.rr.al.core.web.controller;
+package br.leg.rr.al.core.web.controller.status;
 
 import java.io.Serializable;
 import java.lang.reflect.Modifier;
@@ -21,8 +21,8 @@ import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.EntityStatus;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
 
-public abstract class EntityStatusBaseController<T extends EntityStatus<ID>, ID extends Serializable>
-		extends BaseController {
+public abstract class BaseControllerEntityStatus<T extends EntityStatus<ID>, ID extends Serializable>
+		implements Serializable {
 
 	/**
 	 * 
@@ -143,6 +143,42 @@ public abstract class EntityStatusBaseController<T extends EntityStatus<ID>, ID 
 		} catch (Exception e) {
 			FacesMessageUtils.addError(e.getMessage());
 		}
+		return null;
+	}
+
+	/**
+	 * <p>
+	 * Este método é responsável por buscar novamente a entidade trazendo os dados
+	 * atualizados. O método é chamado pelo método
+	 * {@link #renovarRegistroDataModel()}. Não há necessidade de alterar o método
+	 * {@link #renovarRegistroDataModel()} após sovrescrever esse método.
+	 * </p>
+	 * <p>
+	 * Caso queira carregar (fetch) as outras entidades associadas, o método
+	 * {@link #preRenovarRegistroDatalModel()} deverá ser sobrescrito.
+	 * </p>
+	 * 
+	 * @return entidade que será substituída pela grid de pesquisa.
+	 * @see ViewControllerEntityStatus#renovarRegistroDataModel()
+	 */
+	protected T preRenovarRegistroDatalModel() {
+		return getBean().buscar(getEntity());
+	}
+
+	public String renovarRegistroDataModel() {
+
+		// captura o indice para trocar na lista a entidade.
+		if (getEntities().size() > 0) {
+			int pos = getDataModel().getIndex();
+
+			if (pos >= 0) {
+				// busca a entidade atualizada.
+				preRenovarRegistroDatalModel();
+				getEntities().set(pos, getEntity());
+				FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_RENOVADO_COM_SUCESSO);
+			}
+		}
+
 		return null;
 	}
 

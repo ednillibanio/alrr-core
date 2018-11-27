@@ -1,22 +1,16 @@
-package br.leg.rr.al.core.web.controller;
-
-import javax.inject.Inject;
-import javax.validation.ValidatorFactory;
+package br.leg.rr.al.core.web.controller.status;
 
 import br.leg.rr.al.core.CoreUtilsValidationMessages;
 import br.leg.rr.al.core.jpa.EntityStatus;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
 import br.leg.rr.al.core.web.util.FacesUtils;
 
-public class DominioController<T extends EntityStatus<Integer>> extends ViewController<T, Integer> {
+public class DominioController<T extends EntityStatus<Integer>> extends ViewControllerEntityStatus<T, Integer> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -434743169223803479L;
-
-	@Inject
-	protected ValidatorFactory validatorFactory;
 
 	private String painelGeralName;
 
@@ -97,7 +91,7 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 
 	/*
 	 * 
-	 * @see ViewController#posInserir()
+	 * @see ViewControllerEntityStatus#posInserir()
 	 */
 	@Override
 	protected void posInserir() {
@@ -172,8 +166,7 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	/**
 	 * Retorna o nome do Dialogo Editar.
 	 * 
-	 * @param widgetVar
-	 *            valor da variavel 'widgetVar'.
+	 * @param widgetVar valor da variavel 'widgetVar'.
 	 */
 	public void setEditarDialogName(String widgetVar) {
 		this.editarDialogName = widgetVar;
@@ -189,8 +182,7 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	/**
 	 * Retorna o nome do Dialogo Detalhes.
 	 * 
-	 * @param widgetVar
-	 *            valor da variavel 'widgetVar'.
+	 * @param widgetVar valor da variavel 'widgetVar'.
 	 */
 	public void setDetalhesDialogName(String widgetVar) {
 		this.detalhesDialogName = widgetVar;
@@ -206,8 +198,7 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	/**
 	 * Retorna o nome do Dialogo Excluir.
 	 * 
-	 * @param widgetVar
-	 *            valor da variavel 'widgetVar'.
+	 * @param widgetVar valor da variavel 'widgetVar'.
 	 */
 	public void setExcluirDialogName(String widgetVar) {
 		this.excluirDialogName = widgetVar;
@@ -223,8 +214,7 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	/**
 	 * Retorna o nome do Dialogo Novo.
 	 * 
-	 * @param widgetVar
-	 *            valor da variavel 'widgetVar'.
+	 * @param widgetVar valor da variavel 'widgetVar'.
 	 */
 	public void setNovoDialogName(String widgetVar) {
 		this.novoDialogName = widgetVar;
