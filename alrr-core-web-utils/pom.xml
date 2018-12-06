@@ -8,6 +8,7 @@
 		<groupId>br.leg.rr.al.core</groupId>
 		<artifactId>alrr-core</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<build>
 		<plugins>
