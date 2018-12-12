@@ -3,6 +3,7 @@ package br.leg.rr.al.core.web.util;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -242,6 +243,10 @@ public class FacesUtils implements Serializable {
 		PrimeFacesUtils.openDialog(outcome);
 	}
 
+	public static void openDynamic(String outcome, Map<String, Object> options, Map<String, List<String>> params) {
+		PrimeFacesUtils.openDynamic(outcome, options, params);
+	}
+
 	public static UIComponent findComponent(String componentId) {
 
 		UIViewRoot root = getViewRoot();
@@ -337,12 +342,22 @@ public class FacesUtils implements Serializable {
 		getFacesContextInstance().getMessages().remove();
 	}
 
+	/**
+	 * @see javax.servlet.ServletContext.getContextPath()
+	 */
 	public static String getContextPath() {
 		return getServletContext().getContextPath();
 	}
 
 	public static void redirect(String url) throws IOException {
 		getExternalContext().redirect(url);
+	}
+
+	/**
+	 * @see javax.faces.component.UIComponent.getAttributes()
+	 */
+	public static Map<String, Object> getAttributes(ActionEvent event) {
+		return event.getComponent().getAttributes();
 	}
 
 }

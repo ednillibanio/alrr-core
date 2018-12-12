@@ -21,7 +21,7 @@ import br.leg.rr.al.core.utils.StringHelper;
 
 /**
  * @author Ednil Libanio da Costa Junior
- * @date 09-04-2018
+ * @since 1.0.0
  */
 @Named
 @RequestScoped

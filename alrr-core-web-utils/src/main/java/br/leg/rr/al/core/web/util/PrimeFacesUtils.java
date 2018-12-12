@@ -1,5 +1,8 @@
 package br.leg.rr.al.core.web.util;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.behavior.AjaxBehavior;
 
@@ -43,6 +46,10 @@ class PrimeFacesUtils {
 
 	public static void openDialog(String outcome) {
 		PrimeFaces.current().dialog().openDynamic(outcome);
+	}
+
+	public static void openDynamic(String outcome, Map<String, Object> options, Map<String, List<String>> params) {
+		PrimeFaces.current().dialog().openDynamic(outcome, options, params);
 	}
 
 	public static void showMessageInDialog(FacesMessage msg) {
