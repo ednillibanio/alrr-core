@@ -179,6 +179,17 @@ public abstract class BaseController<T extends Entity<ID>, ID extends Serializab
 		return null;
 	}
 
+	/**
+	 * Limpa a view inteira. Não usar para Dialog. Usar o método cancelar() em vez
+	 * disso.
+	 * 
+	 * @return TODO
+	 */
+	public String limpar() {
+		FacesUtils.getViewMap().clear();
+		return null;
+	}
+
 	public T getEntity() {
 		return entity;
 	}

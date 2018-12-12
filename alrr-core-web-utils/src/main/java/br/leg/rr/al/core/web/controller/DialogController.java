@@ -371,6 +371,32 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	}
 
 	/**
+	 * Indica que um campo na view pode ser editável.
+	 * 
+	 * @return true se existe o registro(entidade) e o campo pode ser editável.
+	 *         Retorna false se não existir o registro.
+	 */
+	public Boolean isEditavel() {
+		if (getEntity() != null && getEntity().getId() != null) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Indica que um campo na view não pode ser editável.
+	 * 
+	 * @return true se existir registro o campo não pode ser editável. Retorna false
+	 *         se não existir registro.
+	 */
+	public Boolean isNotEditavel() {
+		if (getEntity() != null && getEntity().getId() != null) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Retorna o valor da variavel 'widgetVar' do Dialogo Editar.
 	 */
 	public String getEditarDialogName() {

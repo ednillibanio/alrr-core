@@ -20,6 +20,7 @@ import br.leg.rr.al.core.dao.JPADaoStatus;
 import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.EntityStatus;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
+import br.leg.rr.al.core.web.util.FacesUtils;
 
 public abstract class BaseControllerEntityStatus<T extends EntityStatus<ID>, ID extends Serializable>
 		implements Serializable {
@@ -143,6 +144,17 @@ public abstract class BaseControllerEntityStatus<T extends EntityStatus<ID>, ID 
 		} catch (Exception e) {
 			FacesMessageUtils.addError(e.getMessage());
 		}
+		return null;
+	}
+
+	/**
+	 * Limpa a view inteira. Não usar para Dialog. Usar o método cancelar() em vez
+	 * disso.
+	 * 
+	 * @return TODO
+	 */
+	public String limpar() {
+		FacesUtils.getViewMap().clear();
 		return null;
 	}
 

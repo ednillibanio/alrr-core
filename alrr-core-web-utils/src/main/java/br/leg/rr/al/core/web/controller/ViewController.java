@@ -19,7 +19,6 @@ import br.leg.rr.al.core.domain.NavigationOutcomeDefault;
 import br.leg.rr.al.core.jpa.Entity;
 import br.leg.rr.al.core.jpa.EntityStatus;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
-import br.leg.rr.al.core.web.util.FacesUtils;
 
 public class ViewController<T extends Entity<ID>, ID extends Serializable> extends BaseController<T, ID> {
 
@@ -319,17 +318,6 @@ public class ViewController<T extends Entity<ID>, ID extends Serializable> exten
 	public String excluir() {
 		FacesMessageUtils.addError("Método \"excluir\" não implementado");
 		throw new NotImplementedException("Método não implementado");
-	}
-
-	/**
-	 * Limpa a view inteira. Não usar para Dialog. Usar o método cancelar() em vez
-	 * disso.
-	 * 
-	 * @return TODO
-	 */
-	public String limpar() {
-		FacesUtils.getViewMap().clear();
-		return null;
 	}
 
 	/**
