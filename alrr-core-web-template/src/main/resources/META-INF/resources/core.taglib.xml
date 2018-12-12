@@ -216,6 +216,11 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
    <description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
    <name>immediate</name>
   </attribute>
+  <attribute>
+   <name>process</name>
+   <required>false</required>
+   <type>java.lang.String</type>
+  </attribute>
  </tag>
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para salvar os valores preenchidos nos formulário. Serve tanto para uma nova entidade quanto para manutenção dos dados existentes.</description>
@@ -545,6 +550,31 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
   <attribute>
    <description>Preenche o atributo onclick do botão Não.</description>
    <name>onclickNao</name>
+  </attribute>
+ </tag>
+ <tag>
+  <description>Este componente implementa o commandButton do primefaces. É usado para transformar a primeira letra de cada palavra em maiúscula.</description>
+  <tag-name>botao-capitalizar</tag-name>
+  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-capitalizar.xhtml</source>
+  <attribute>
+   <description>Atributo que passa o texto para o método que faz a transformação das palavras.</description>
+   <name>param</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+   <name>update</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo target do componente commandBunton do primefaces. Indica onde que será atualizado o texto.</description>
+   <name>target</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+   <name>process</name>
+   <type>java.lang.String</type>
   </attribute>
  </tag>
 </facelet-taglib>
