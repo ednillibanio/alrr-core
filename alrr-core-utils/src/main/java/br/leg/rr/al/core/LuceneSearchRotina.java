@@ -10,8 +10,6 @@
 package br.leg.rr.al.core;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -22,9 +20,6 @@ import org.hibernate.search.jpa.Search;
  * @author Ednil Libanio da Costa Junior
  * @date 10-04-2018
  */
-
-@Startup
-@Singleton
 public class LuceneSearchRotina {
 
 	@PersistenceContext
