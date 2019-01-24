@@ -166,10 +166,8 @@ public final class DataUtils implements Serializable {
 	 * 
 	 * O valor retornado ser o dia 02/06/2009.
 	 * 
-	 * @param dataBase
-	 *            a data a ser usada como base para o c lculo.
-	 * @param numDias
-	 *            quantidade de dias a ser adicionado/subtraido da data base
+	 * @param dataBase a data a ser usada como base para o c lculo.
+	 * @param numDias  quantidade de dias a ser adicionado/subtraido da data base
 	 * @return
 	 */
 	public static Date trocarData(Date dataBase, int numDias) {
@@ -183,9 +181,8 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Calcula uma nova data a partir de hoje.
 	 * 
-	 * @param numDias
-	 *            Número de dias do mês somado/subtraido. Valor pode ser negativo ou
-	 *            positivo.
+	 * @param numDias Número de dias do mês somado/subtraido. Valor pode ser
+	 *                negativo ou positivo.
 	 * @return retorna uma data a partir dos dias informados no parametro.
 	 */
 	public static Date trocarData(int numDias) {
@@ -207,10 +204,8 @@ public final class DataUtils implements Serializable {
 	 * 
 	 * O valor retornado será o dia 26/05/2009 às 15:34.
 	 *
-	 * @param data
-	 *            a data a ser usada como base para o cálculo.
-	 * @param numHoras
-	 *            quantidade de horas a ser adicionado/subtraído da data base
+	 * @param data     a data a ser usada como base para o cálculo.
+	 * @param numHoras quantidade de horas a ser adicionado/subtraído da data base
 	 * @return
 	 */
 	public static Date adicionarHoras(Date data, int numHoras) {
@@ -307,12 +302,9 @@ public final class DataUtils implements Serializable {
 	 * Verifica se uma data esta no per odo informado pela dataInicio e dataFim.
 	 * 
 	 * @author <a href="mailto:carlos.manoel@pdcase.com.br">Carlos Manoel</a>.
-	 * @param dataInicio
-	 *            data inicio do periodo
-	 * @param dataFim
-	 *            data final do periodo
-	 * @param data
-	 *            dentro a ser averiguada dentro do periodo informado.
+	 * @param dataInicio data inicio do periodo
+	 * @param dataFim    data final do periodo
+	 * @param data       dentro a ser averiguada dentro do periodo informado.
 	 * @return true se:
 	 *         <li>dataInicio e dataFim forem nulas;
 	 *         <li>a dataInicio for nula e a data estiver anterior a dataFim;
@@ -495,10 +487,8 @@ public final class DataUtils implements Serializable {
 	 * Obtém a diferença entre duas datas, de um mesmo dia, formatada segundo o
 	 * padrão "[-]99:99".
 	 * 
-	 * @param data1
-	 *            primeira data
-	 * @param data2
-	 *            segunda data
+	 * @param data1 primeira data
+	 * @param data2 segunda data
 	 * @return diferença entre datas formatada
 	 */
 	public static String getDiferencaIntevalo(final Date data1, final Date data2) {
@@ -611,8 +601,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Obtem o dia do mes da data especificada.
 	 * 
-	 * @param data
-	 *            a data da qual sera obtido o dia do mes.
+	 * @param data a data da qual sera obtido o dia do mes.
 	 * @return dia do mes
 	 */
 	public static int getDia(final Date data) {
@@ -622,8 +611,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Obtem o dia da semana (2 = segunda, 3 = terca, etc) da data especificada.
 	 * 
-	 * @param data
-	 *            a data da qual sera obtido o dia da semana.
+	 * @param data a data da qual sera obtido o dia da semana.
 	 * @return representacao numerica do dia da semana
 	 */
 	public static int getDiaSemana(final Date data) {
@@ -667,8 +655,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Obtem o ano da data especificada.
 	 * 
-	 * @param data
-	 *            a data da qual sera obtido o ano
+	 * @param data a data da qual sera obtido o ano
 	 * @return ano da data especificada
 	 */
 	public static int getAno(final Date data) {
@@ -679,14 +666,11 @@ public final class DataUtils implements Serializable {
 	 * Obtem um dia da semana qualquer, numa semana qualquer, a partir da data
 	 * especificada.
 	 * 
-	 * @param date
-	 *            a data a partir da qual sera obtida o proximo dia da semana
-	 *            desejado
-	 * @param diaSemana
-	 *            dia da semana para a data a ser obtida
-	 * @param semana
-	 *            numero que identifica a ordem da semana em relacao ao data
-	 *            especificada
+	 * @param date      a data a partir da qual sera obtida o proximo dia da semana
+	 *                  desejado
+	 * @param diaSemana dia da semana para a data a ser obtida
+	 * @param semana    numero que identifica a ordem da semana em relacao ao data
+	 *                  especificada
 	 * @return a proxima data cujo dia da semana e igual ao especificado e na semana
 	 *         desejada
 	 */
@@ -706,10 +690,8 @@ public final class DataUtils implements Serializable {
 	 * Verifica se todas as datas contidas na lista informada sao maiores que
 	 * <code>dataFim</code>.
 	 * 
-	 * @param datas
-	 *            lista de datas a ser verificada
-	 * @param dataFim
-	 *            a data a ser comparada as datas listadas
+	 * @param datas   lista de datas a ser verificada
+	 * @param dataFim a data a ser comparada as datas listadas
 	 * @return <code>true</code> se todas as datas da lista forem maiores que
 	 *         <code>dataFim</code>, caso contrario <code>false</code>
 	 */
@@ -729,11 +711,9 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Copia horas e minutos da hora informada para a data especificada.
 	 * 
-	 * @param data
-	 *            a data que tera sua hora/minutos alterados de acordo com a hora
-	 *            informada
-	 * @param hora
-	 *            a hora a serem copiada para a data
+	 * @param data a data que tera sua hora/minutos alterados de acordo com a hora
+	 *             informada
+	 * @param hora a hora a serem copiada para a data
 	 * @return data com a hora igual a hora informada
 	 */
 	public static Calendar copiaHorasEMinutos(final Date data, final Date hora) {
@@ -817,10 +797,8 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Verifica se a hora inicio e menor que a hora fim.
 	 * 
-	 * @param horaInicio
-	 *            hora de inicio
-	 * @param horaFim
-	 *            hora de fim
+	 * @param horaInicio hora de inicio
+	 * @param horaFim    hora de fim
 	 * @return <code>true</code> se horaInicio for menor que horaFim, caso contrario
 	 *         <code>false</code>
 	 */
@@ -848,8 +826,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Verifica se a data informada é "hoje".
 	 * 
-	 * @param data
-	 *            Data verificada.
+	 * @param data Data verificada.
 	 * @return retorna true, se data for hoje, e false caso contrário.
 	 */
 	public static boolean isHoje(final Date date) {
@@ -865,8 +842,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Verifica se a data informada é "amanhã".
 	 * 
-	 * @param data
-	 *            Data verificada.
+	 * @param data Data verificada.
 	 * @return retorna <i>true</i>, se data for amanhã, e <i>false</i> caso
 	 *         contrário.
 	 */
@@ -887,8 +863,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Verifica se a data informada é "depois" da data de hoje.
 	 * 
-	 * @param data
-	 *            Data verificada.
+	 * @param data Data verificada.
 	 * @return retorna true, se data for antes de hoje, e false caso contrário.
 	 */
 	public static boolean isDepoisHoje(final Date data) {
@@ -904,8 +879,7 @@ public final class DataUtils implements Serializable {
 	/**
 	 * Verifica se a data informada é "antes" da data de hoje.
 	 * 
-	 * @param data
-	 *            Data verificada.
+	 * @param data Data verificada.
 	 * @return retorna true, se data for depois de hoje, e false caso contrário.
 	 */
 	public static boolean isAntesHoje(final Date data) {
@@ -981,14 +955,21 @@ public final class DataUtils implements Serializable {
 
 		int dia = Integer.valueOf(value);
 
-		return (dia > 0 && dia < 32);
+		return isDia(dia);
+	}
+
+	public static boolean isDia(Integer value) {
+		if (value == null) {
+			return true;
+		}
+
+		return (value > 0 && value < 32);
 	}
 
 	/**
 	 * Transforma uma Data com horário, em apenas uma string no formato HH:mm.
 	 * 
-	 * @param data
-	 *            data que contém o horário.
+	 * @param data data que contém o horário.
 	 * @return String formatada HH:mm.
 	 */
 	public static String getHoraMinuto(Date data) {
