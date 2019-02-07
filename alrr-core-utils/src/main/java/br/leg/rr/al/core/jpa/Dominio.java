@@ -4,36 +4,28 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
-import org.apache.lucene.analysis.br.BrazilianStemFilterFactory;
-import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
-import org.apache.lucene.analysis.core.StopFilterFactory;
-import org.apache.lucene.analysis.miscellaneous.ASCIIFoldingFilterFactory;
-import org.apache.lucene.analysis.ngram.EdgeNGramFilterFactory;
-import org.apache.lucene.analysis.standard.StandardTokenizerFactory;
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Analyzer;
-import org.hibernate.search.annotations.AnalyzerDef;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Parameter;
-import org.hibernate.search.annotations.Store;
-import org.hibernate.search.annotations.TokenFilterDef;
-import org.hibernate.search.annotations.TokenizerDef;
-
 /**
+ * <p>
+ * Uma classe do tipo Doninio representa uma entidade de banco de dados que
+ * serve como uma tabela ou uma lista de dados auxiliares. Por exemplo,
+ * entidades: Profissão, EstadoCivil, Bairro, entre outros. São objetos que não
+ * podem ser apagados da base de dados porque possuem muitos relacionamentos a
+ * outra entidades que podemos chama-las de primárias.
+ * </p>
+ * <p>
+ * Quando um objeto do tipo Dominio deixar de ser útil ou parar de permitir que
+ * seja associado a outros novos objetos, deve-se mudar a situação para
+ * 'inativa'. Está situação indica que o objeto não faz mais parte do cadastro
+ * de novas entidades que possuem qualquer relacionamento com este objeto. Por
+ * exemplo, para não exibir o estado civil 'solteiro/a' num cadastro de Pessoa
+ * Física, basta desabilitar ou inativar o objeto 'solteiro/a'. 'solteiro/a'. OS
+ * cadastros que já possuem este estado civil associado, continuarão tendo.
+ * </p>
+ * 
  * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
  *         Junior</a>
  * @since 1.0.0
  */
-@AnalyzerDef(name = "NomeAnalyzer", tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class), filters = {
-		@TokenFilterDef(factory = LowerCaseFilterFactory.class),
-		@TokenFilterDef(factory = BrazilianStemFilterFactory.class),
-		@TokenFilterDef(factory = StopFilterFactory.class, params = {
-				@Parameter(name = "words", value = "stopwords.txt"), @Parameter(name = "ignoreCase", value = "true") }),
-		@TokenFilterDef(factory = EdgeNGramFilterFactory.class, params = {
-				@Parameter(name = "minGramSize", value = "3"), @Parameter(name = "maxGramSize", value = "8") }),
-		@TokenFilterDef(factory = ASCIIFoldingFilterFactory.class) })
-
 @MappedSuperclass
 public abstract class Dominio extends BaseEntityStatus<Integer> {
 
@@ -42,16 +34,16 @@ public abstract class Dominio extends BaseEntityStatus<Integer> {
 	 */
 	private static final long serialVersionUID = 7280917544480281174L;
 
-	public static final String NOME_ANALYZER = "NomeAnalyzer";
 	/**
-	 * 
+	 * Nome do dominio instânciado.
 	 */
-	@Analyzer(definition = NOME_ANALYZER)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@NotNull(message = "Nome: campo obrigatório.")
 	@Column(nullable = false, length = 250)
 	protected String nome;
 
+	/**
+	 * Breve descrição do dominio instânciado.
+	 */
 	@Column(nullable = true, length = 500)
 	protected String descricao;
 

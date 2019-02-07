@@ -12,10 +12,12 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 /**
- * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa Junior</a>
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
  * @since 1.0.0
  * @param <ID>
  */
+// TODO: falta javadoc
 @MappedSuperclass
 public abstract class BaseEntityAudit<ID extends Serializable> extends BaseEntityStatus<ID> {
 

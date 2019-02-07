@@ -14,6 +14,7 @@ import javax.persistence.MappedSuperclass;
  * @since 1.0.0
  * @param <ID>
  */
+//TODO: falta javadoc
 @MappedSuperclass
 public abstract class BaseEntityNoSQL<ID extends Serializable> implements Entity<ID> {
 
