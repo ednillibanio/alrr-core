@@ -59,8 +59,18 @@ import br.leg.rr.al.core.utils.EnumAttributeConverter;
  */
 public interface BasicEnum<K extends Enum<K>> extends Serializable {
 
+	/**
+	 * Valor a ser exibido para o usuário.
+	 * 
+	 * @return label do Enum
+	 */
 	public String getLabel();
 
+	/**
+	 * Valores que são salvos no banco de dados.
+	 * 
+	 * @return Retorna uma lista com todos os valores.
+	 */
 	public EnumMap<K, ?> getEnumMap();
 
 }

@@ -37,6 +37,12 @@ package br.leg.rr.al.core.jpa;
  */
 public interface BasicEnumType<K extends Enum<K>> extends BasicEnum<K> {
 
+	/**
+	 * Valor a ser exibido para o usúario. Esse valor não é o valor que é salvo no
+	 * banco de dados. É valor de exibição.
+	 * 
+	 * @return value do Enum.
+	 */
 	public String getValue();
 
 }

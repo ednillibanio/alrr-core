@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
 import br.leg.rr.al.core.CoreUtilsValidationMessages;
-import br.leg.rr.al.core.domain.StatusConverter;
+import br.leg.rr.al.core.domain.StatusTypeConverter;
 import br.leg.rr.al.core.domain.StatusType;
 
 /**
@@ -46,7 +46,7 @@ public abstract class BaseEntityStatus<ID extends Serializable> extends BaseEnti
 	 */
 	@NotNull(message = CoreUtilsValidationMessages.INFORME_A_SITUACAO)
 	@Column(length = 1, nullable = false)
-	@Convert(converter = StatusConverter.class)
+	@Convert(converter = StatusTypeConverter.class)
 	protected StatusType situacao = StatusType.ATIVO;
 
 	@Override
