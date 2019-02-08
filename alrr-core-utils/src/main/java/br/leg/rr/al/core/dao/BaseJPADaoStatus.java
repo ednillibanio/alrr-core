@@ -1,6 +1,9 @@
 package br.leg.rr.al.core.dao;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +12,18 @@ import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.EntityStatus;
 
 //TODO: COLOCAR O TRATAMENTO DE LANÇAR EXCEÇÕES no SISTEMA. PASSAR A EXCEÇÃO PARA SER TRATADO NA CAMADA DE VIEW. IMPORTANTISSIMO!!!
+/**
+ * Além desta classe abstrata herdar as características da classe abstrata
+ * BaseJPADao, ela implementa métodos para tratar entidade do tipo EntityStatus.
+ * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
+ *
+ * @param <T> Entidade a ser manipulada
+ * @param <ID> Tipo da chave-primária ou identificador único.
+ */
 public abstract class BaseJPADaoStatus<T extends EntityStatus<ID>, ID extends Serializable> extends BaseJPADao<T, ID>
 		implements JPADaoStatus<T, ID> {
 
@@ -41,6 +56,33 @@ public abstract class BaseJPADaoStatus<T extends EntityStatus<ID>, ID extends Se
 	@Override
 	public T desativar(T dominio) throws BeanException {
 		return mudarSituacao(StatusType.INATIVO, dominio);
+	}
+
+	@Override
+	public List<T> getInativos() {
+		return buscarPorSituacao(StatusType.INATIVO);
+	}
+
+	@Override
+	public List<T> getAtivos() {
+		return buscarPorSituacao(StatusType.ATIVO);
+
+	}
+
+	@Override
+	public List<T> getAtivos(List<T> excluidos) {
+		List<T> resultado = getAtivos();
+		if (excluidos != null && !resultado.isEmpty()) {
+			resultado.removeAll(excluidos);
+		}
+		return resultado;
+	}
+
+	@Override
+	public List<T> buscarPorSituacao(StatusType situacao) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put(PESQUISAR_PARAM_SITUACAO, situacao);
+		return pesquisar(params);
 	}
 
 }

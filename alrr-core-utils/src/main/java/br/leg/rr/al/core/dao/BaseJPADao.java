@@ -13,6 +13,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -25,9 +26,20 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 import br.leg.rr.al.core.jpa.Entity;
-import br.leg.rr.al.core.jpa.EntityStatus;
 
 //TODO: COLOCAR O TRATAMENTO DE LANÇAR EXCEÇÕES no SISTEMA. PASSAR A EXCEÇÃO PARA SER TRATADO NA CAMADA DE VIEW. IMPORTANTISSIMO!!!
+/**
+ * Esta classe abstrata implementa os métodos básicos que são reutilizaveis por
+ * seus sucessores. Ela implementa os conceitos do framework JPA para manipular
+ * os dados das entidades.
+ * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * @since 1.0.0
+ *
+ * @param <T> Entidade a ser manipulada
+ * @param <ID> Tipo da chave-primária ou identificador único.
+ */
 public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> implements JPADao<T, ID> {
 
 	/**
@@ -69,7 +81,6 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		return ((Integer) q.getSingleResult()).intValue();
 	}
 
-	@Override
 	public void excluir(Collection<T> entities) {
 		for (T entity : entities) {
 			try {
@@ -80,7 +91,6 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		}
 	}
 
-	@Override
 	public void excluir(T entidade) throws PersistenceException {
 		T entityToRemove = getEntityManager().merge(entidade);
 		getEntityManager().remove(entityToRemove);
@@ -92,26 +102,9 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		try {
 			return getEntityManager().createNamedQuery(namedQuery).getResultList();
 		} catch (Exception e) {
-			logger.error(fatal, e.getMessage());
-			return null;
+			throw e;
 		}
 
-	}
-
-	@SuppressWarnings("unchecked")
-	protected List<T> buscarPorNamedQuery(String namedQuery, EntityStatus<ID> params) {
-		try {
-			Query query = getEntityManager().createNamedQuery(namedQuery);
-
-			// TODO: antes estava do jeito que encontra comentado abaixo. Mas
-			// não sei se funciona. Achei uma outra maneira que faz mais sentido
-			// e coloquei no lugar.
-			// QueryUtils.setQueryParameters(query, params);
-			return query.getResultList();
-		} catch (Exception ex) {
-			logger.error(fatal, ex.getMessage());
-		}
-		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -121,10 +114,9 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 			QueryUtils.setQueryParameters(query, params);
 
 			return query.getResultList();
-		} catch (Exception ex) {
-			logger.error(fatal, ex.getMessage());
+		} catch (Exception e) {
+			throw e;
 		}
-		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -133,10 +125,9 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 			Query query = getEntityManager().createNamedQuery(namedQuery);
 			query.setParameter(param, value);
 			return query.getResultList();
-		} catch (Exception ex) {
-			logger.error(fatal, ex.getMessage());
+		} catch (Exception e) {
+			throw e;
 		}
-		return null;
 	}
 
 	/**
@@ -146,35 +137,14 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 	 */
 	// FIXME: tratar a exceção de quanto não possui nenhum registro encontrado.
 	@SuppressWarnings("unchecked")
-	protected T buscarEntidade(String namedQuery) {
+	protected T buscarEntidadePorNamedQuery(String namedQuery) {
 		try {
 			return (T) getEntityManager().createNamedQuery(namedQuery).getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		} catch (Exception e) {
-			logger.error(fatal, e.getMessage());
+			throw e;
 		}
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param namedQuery
-	 * @param params
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	protected T buscarEntidade(String namedQuery, EntityStatus<ID> params) {
-		try {
-			Query query = getEntityManager().createNamedQuery(namedQuery);
-			QueryUtils.setQueryParameters(query, params);
-			return (T) query.getSingleResult();
-		} catch (NoResultException e) {
-			return null;
-		} catch (Exception e) {
-			logger.error(fatal, e.getMessage());
-		}
-		return null;
 	}
 
 	/**
@@ -185,7 +155,7 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected T buscarEntidade(String namedQuery, String param, Object value) {
+	protected T buscarEntidadePorNamedQuery(String namedQuery, String param, Object value) {
 		try {
 			Query query = getEntityManager().createNamedQuery(namedQuery);
 			query.setParameter(param, value);
@@ -193,9 +163,8 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		} catch (NoResultException e) {
 			return null;
 		} catch (Exception e) {
-			logger.error(fatal, e.getMessage());
+			throw e;
 		}
-		return null;
 	}
 
 	/**
@@ -205,7 +174,7 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected T buscarEntidade(String namedQuery, Map<String, Object> params) {
+	protected T buscarEntidadePorNamedQuery(String namedQuery, Map<String, Object> params) {
 		try {
 			Query query = getEntityManager().createNamedQuery(namedQuery);
 			QueryUtils.setQueryParameters(query, params);
@@ -290,12 +259,6 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		return entity;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see br.leg.rr.al.core.dao.JPADaoStatus#persistir(br.leg.rr.al.core.jpa.
-	 * EntityStatus)
-	 */
 	@Override
 	public T persistir(T entidade) throws BeanException {
 		getEntityManager().persist(entidade);
@@ -304,25 +267,18 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 
 	@Override
 	public List<T> buscarPorNome(String nome) {
-		CriteriaBuilder cb = getCriteriaBuilder();
+
 		CriteriaQuery<T> cq = getCriteriaBuilder().createQuery(entityClass);
 		Root<T> root = cq.from(entityClass);
 		cq.select(root);
+		Expression<String> exp = getCriteriaBuilder().lower(root.get("nome"));
+		Predicate like = getCriteriaBuilder().like(exp, "%" + nome.toLowerCase().trim() + "%");
 
-		Predicate cond1 = cb.like(cb.lower(root.get("nome")), "%" + nome.toLowerCase().trim() + "%");
+		cq.where(like);
 
-		cq.where(cond1);
-		TypedQuery<T> q = getEntityManager().createQuery(cq);
-		return q.getResultList();
+		return getResultList(cq);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * br.leg.rr.al.core.dao.JPADaoStatus#carregarEntidade(br.leg.rr.al.core.jpa.
-	 * EntityStatus)
-	 */
 	@Override
 	public T carregar(T entidade) {
 		return buscar(entidade);
@@ -348,24 +304,37 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		return result;
 	}
 
+	/**
+	 * Retorna a instância do EntityManager que manipula a entidade.
+	 * 
+	 * @return EntityManager instância
+	 */
 	protected EntityManager getEntityManager() {
 		return entityManager;
 	}
 
+	/**
+	 * Retorna uma instância do CriteriaBuilder para a criação da CriteriaQuery.
+	 * 
+	 * @return CriteriaBuilder instância
+	 */
 	protected CriteriaBuilder getCriteriaBuilder() {
 		return getEntityManager().getCriteriaBuilder();
 	}
 
+	/**
+	 * Cria uma CriteriaQuery objeto com o tipo do resultado esperado.
+	 * 
+	 * @return objeto do criteria query
+	 */
 	protected CriteriaQuery<T> createCriteriaQuery() {
 		return getEntityManager().getCriteriaBuilder().createQuery(entityClass);
 	}
 
 	/**
-	 * Monta a query a partir do EntityManager, faz a busca e retorna as entidades
-	 * encontradas.
+	 * Método de reutilização que executa uma query SELECT e retorna uma lista.
 	 * 
-	 * @param cq
-	 *            Query que foi montada para ser executada.
+	 * @param cq Query que foi montada para ser executada.
 	 * @return Retorna uma lista de entidades encontradas a partir do CriteriaQuery
 	 *         informada.
 	 */
@@ -374,6 +343,15 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		return q.getResultList();
 	}
 
+	/**
+	 * Método de reutilização que executa uma query SELECT e retorna um único
+	 * objeto.
+	 * 
+	 * @param cq argumento usado para criar a query
+	 * @return entidade encontrada ou null caso não encontrada. A exceção
+	 *         NoResultException não é lançada neste cenário. Em vez disso é
+	 *         retornado null.
+	 */
 	protected T getSingleResult(CriteriaQuery<T> cq) {
 		try {
 			TypedQuery<T> q = getEntityManager().createQuery(cq);
@@ -381,34 +359,9 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 		} catch (NoResultException e) {
 			return null;
 		} catch (Exception e) {
-			logger.error(fatal, e.getMessage());
+			throw e;
 		}
-		return null;
 
 	}
-
-	/**
-	 * Retorna uma lista de parametros usado na query.
-	 * 
-	 * @param query
-	 * @return
-	 */
-	/*
-	 * private String[] createParameterList(final String query) { final Matcher
-	 * matcher = Pattern.compile(":[^\\s]*").matcher(query); List<String> paramList
-	 * = new ArrayList<String>(); while (matcher.find()) { paramList
-	 * .add(this.hql.substring(matcher.start() + 1, matcher.end())); }
-	 * 
-	 * return paramList.toArray(new String[paramList.size()]); }
-	 * 
-	 * private void setQueryParameters(Query query, String[] params) { Field field;
-	 * for (int i = 0; i < params.length; i++) { try { field =
-	 * entityClass.getDeclaredField(params[i]); field.setAccessible(true);
-	 * 
-	 * query.setParameter(params[i], (null != field.get(value)) ? field.get(value) :
-	 * ""); } catch (final NoSuchFieldException e) { throw new
-	 * SystemException(e.getMessage()); } catch (final IllegalAccessException e) {
-	 * throw new SystemException(e.getMessage()); } } }
-	 */
 
 }

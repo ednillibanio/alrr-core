@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -24,36 +23,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.leg.rr.al.core.domain.StatusType;
-import br.leg.rr.al.core.jpa.Dominio;
+import br.leg.rr.al.core.jpa.DominioIndexado;
 
 /**
- * FIXME: depois tem que alinhar as duas classes BaseJPADaoStatus com essa daqui, pois
- * havia metodos duplicados nas duas e eu resolvi fazer um extend. ver certinho
- * se é isso mesmo que tem que fazer
+ * Além desse classe herdar as caracteristicas da classe abstrata
+ * BaseJPADaoStatus, ela implementa métodos básicos que manipulam entidades do
+ * tipo DominioIndexado, como por exemplo, pesquisas pelo campo 'nome'.
  * 
- * @author ednil
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
  *
- * @param <T>
+ * @param <T> Entidade que será manipulada
  */
-public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoStatus<T, Integer> implements DominioDaoStatus<T> {
+public abstract class BaseDominioIndexadoDao<T extends DominioIndexado> extends BaseJPADaoStatus<T, Integer>
+		implements DominioIndexadoDao<T> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8054203563918294954L;
 
-	Logger logger = LoggerFactory.getLogger(DominioJPADaoStatus.class);
-
-	@Override
-	public List<T> getInativos() {
-		return buscarPorSituacao(StatusType.INATIVO);
-	}
-
-	@Override
-	public List<T> getAtivos() {
-		return buscarPorSituacao(StatusType.ATIVO);
-
-	}
+	Logger logger = LoggerFactory.getLogger(BaseDominioIndexadoDao.class);
 
 	@Override
 	public List<T> getAtivosPorNome(String nome) {
@@ -65,18 +57,12 @@ public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoS
 	}
 
 	@Override
-	public List<T> buscarPorNome(String nome) {
-
-		CriteriaQuery<T> cq = getCriteriaBuilder().createQuery(entityClass);
-		Root<T> root = cq.from(entityClass);
-		cq.select(root);
-		Expression<String> exp = getCriteriaBuilder().lower(root.get("nome"));
-		Predicate like = getCriteriaBuilder().like(exp, "%" + nome.toLowerCase().trim() + "%");
-
-		cq.where(like);
-
-		return getResultList(cq);
-
+	public List<T> getAtivosPorNome(String nome, List<T> excluidos) {
+		List<T> resultado = getAtivosPorNome(nome);
+		if (excluidos != null && !resultado.isEmpty()) {
+			resultado.removeAll(excluidos);
+		}
+		return resultado;
 	}
 
 	@Override
@@ -96,7 +82,8 @@ public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoS
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * br.leg.rr.al.core.dao.DominioDaoStatus#buscarPeloNomeIndexado(java.lang.String)
+	 * br.leg.rr.al.core.dao.DominioIndexadoIndexadoDaoStatus#buscarPeloNomeIndexado
+	 * (java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -108,7 +95,7 @@ public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoS
 
 		QueryBuilder qb = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(entityClass).get();
 
-		Analyzer analyzer = fullTextEntityManager.getSearchFactory().getAnalyzer(Dominio.NOME_ANALYZER);
+		Analyzer analyzer = fullTextEntityManager.getSearchFactory().getAnalyzer(DominioIndexado.NOME_ANALYZER);
 		TokenStream token;
 		String query = null;
 		try {
@@ -139,8 +126,8 @@ public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoS
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * br.leg.rr.al.core.dao.DominioDaoStatus#buscarPeloNomeIndexado(java.lang.String,
-	 * br.leg.rr.al.core.jpa.Dominio)
+	 * br.leg.rr.al.core.dao.DominioIndexadoIndexadoDaoStatus#buscarPeloNomeIndexado
+	 * (java.lang.String, br.leg.rr.al.core.jpa.DominioIndexado)
 	 */
 	@Override
 	public List<T> buscarPeloNomeIndexado(String texto, List<T> excluidos) {
@@ -156,13 +143,6 @@ public abstract class DominioJPADaoStatus<T extends Dominio> extends BaseJPADaoS
 		}
 
 		return result;
-	}
-
-	@Override
-	public List<T> buscarPorSituacao(StatusType situacao) {
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(PESQUISAR_PARAM_SITUACAO, situacao);
-		return pesquisar(params);
 	}
 
 	@Override
