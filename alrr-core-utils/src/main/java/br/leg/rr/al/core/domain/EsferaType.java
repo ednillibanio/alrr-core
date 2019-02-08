@@ -14,24 +14,43 @@
  */
 package br.leg.rr.al.core.domain;
 
+import java.util.EnumMap;
+
+import br.leg.rr.al.core.jpa.BasicEnum;
+
 /**
- * Tipos de indice
+ * Enum que representa a esfera da entidade ou do órgão público.
  *
  * @author <a href="mailto:alfredo.furtado@pdcase.com.br">Alfredo Furtado</a>.
- * @version $Revision: 1.0 $
+ * @version 1.0.0
  */
-public enum EsferaType {
+public enum EsferaType implements BasicEnum<EsferaType> {
 
 	FEDERAL("Federal"), MUNICIPAL("Municipal"), ESTADUAL("Estadual");
 
-	private String descricao;
-
-	private EsferaType(String descricao) {
-		this.descricao = descricao;
+	private EsferaType(String label) {
+		this.label = label;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	private String label;
+
+	@Override
+	public String getLabel() {
+		return label;
+	}
+
+	@Override
+	public String toString() {
+		return label;
+	}
+
+	@Override
+	public EnumMap<EsferaType, String> getEnumMap() {
+		EnumMap<EsferaType, String> map = new EnumMap<EsferaType, String>(EsferaType.class);
+		map.put(EsferaType.FEDERAL, "1");
+		map.put(EsferaType.ESTADUAL, "2");
+		map.put(EsferaType.MUNICIPAL, "3");
+		return map;
 	}
 
 }

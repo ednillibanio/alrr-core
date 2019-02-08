@@ -11,6 +11,6 @@ import br.leg.rr.al.core.utils.EnumAttributeConverter;
  * @since 1.0.0
  * 
  */
-public class EmailTypeConverter extends EnumAttributeConverter<EmailType> {
+public class StatusTypeConverter extends EnumAttributeConverter<StatusType> {
 
 }

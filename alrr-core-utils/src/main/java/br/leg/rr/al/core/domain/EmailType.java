@@ -5,13 +5,16 @@ import java.util.EnumMap;
 import br.leg.rr.al.core.jpa.BasicEnum;
 
 /**
+ * Enum que representa os tipos de email.
  * 
- * @author ednil
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
  *
  */
 public enum EmailType implements BasicEnum<EmailType> {
-
-	DANFE("DANFE"), LOJA_VIRTUAL("Loja Virtual"), COBRANCA("Cobrança"), PESSOAL("Pessoal");
+	PESSOAL("Pessoal"), COBRANCA("Cobrança"), COMERCIAL("Comercial");
 
 	private EmailType(String label) {
 		this.label = label;
@@ -29,18 +32,12 @@ public enum EmailType implements BasicEnum<EmailType> {
 		return label;
 	}
 
-	/**
-	 * Contém os valores das chaves que serão armazenados no banco de dados.
-	 * 
-	 * @return Retorna uma lista com todos os TelefoneType.
-	 */
 	@Override
 	public EnumMap<EmailType, String> getEnumMap() {
 		EnumMap<EmailType, String> map = new EnumMap<EmailType, String>(EmailType.class);
 		map.put(EmailType.PESSOAL, "1");
 		map.put(EmailType.COBRANCA, "2");
-		map.put(EmailType.LOJA_VIRTUAL, "3");
-		map.put(EmailType.DANFE, "4");
+		map.put(EmailType.COMERCIAL, "3");
 		return map;
 	}
 

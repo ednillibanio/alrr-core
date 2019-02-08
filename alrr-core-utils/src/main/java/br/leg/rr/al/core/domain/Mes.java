@@ -1,26 +1,28 @@
-/*******************************************************************************
- * Copyright (c) 2017, KMDR Consultoria e Serviços, Boa Vista, RR - Brasil.
- * Todos os direitos reservados. Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.
- ******************************************************************************/
 package br.leg.rr.al.core.domain;
 
 import java.util.EnumMap;
 
-import br.leg.rr.al.core.jpa.BasicEnum;
+import br.leg.rr.al.core.jpa.BasicEnumType;
 
-public enum Mes implements BasicEnum<Mes> {
+/**
+ * Enum que representa os meses do ano.
+ *
+ * @author <a href="mailto:alfredo.furtado@pdcase.com.br">Alfredo Furtado</a>.
+ * @version 1.0.0
+ */
+public enum Mes implements BasicEnumType<Mes> {
 
-	JANEIRO("Janeiro", 1), FEVEREIRO("Fevereiro", 2), MARCO("Março", 3), ABRIL("Abril", 4), MAIO("Maio", 5), JUNHO(
-			"Junho", 6), JULHO("Julho", 7), AGOSTO("Agosto", 8), SETEMBRO("Setembro",
-					9), OUTUBRO("Outubro", 10), NOVEMBRO("Novembro", 11), DEZEMBRO("Dezembro", 12);
+	JANEIRO("Janeiro", "1"), FEVEREIRO("Fevereiro", "2"), MARCO("Março", "3"), ABRIL("Abril", "4"), MAIO("Maio", "5"),
+	JUNHO("Junho", "6"), JULHO("Julho", "7"), AGOSTO("Agosto", "8"), SETEMBRO("Setembro", "9"),
+	OUTUBRO("Outubro", "10"), NOVEMBRO("Novembro", "11"), DEZEMBRO("Dezembro", "12");
 
-	private Mes(String label, int value) {
+	private Mes(String label, String value) {
 		this.label = label;
 		this.value = value;
 	}
 
 	private String label;
-	private int value;
+	private String value;
 
 	/**
 	 * Retorna o mês no formato texto. Ex. Janeiro, Fevereiro, Março.
@@ -30,7 +32,7 @@ public enum Mes implements BasicEnum<Mes> {
 		return label;
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -39,11 +41,6 @@ public enum Mes implements BasicEnum<Mes> {
 		return label;
 	}
 
-	/**
-	 * Contém os valores das chaves que serão armazenados no banco de dados.
-	 * 
-	 * @return Retorna uma lista com todos os Mes.
-	 */
 	@Override
 	public EnumMap<Mes, String> getEnumMap() {
 		EnumMap<Mes, String> map = new EnumMap<Mes, String>(Mes.class);

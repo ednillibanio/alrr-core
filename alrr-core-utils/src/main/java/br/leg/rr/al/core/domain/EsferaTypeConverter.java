@@ -9,8 +9,7 @@ import br.leg.rr.al.core.utils.EnumAttributeConverter;
  *         Junior</a>
  * 
  * @since 1.0.0
- * 
  */
-public class EmailTypeConverter extends EnumAttributeConverter<EmailType> {
+public class EsferaTypeConverter extends EnumAttributeConverter<EsferaType> {
 
 }

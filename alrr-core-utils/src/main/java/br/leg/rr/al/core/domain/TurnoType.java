@@ -1,16 +1,22 @@
-/*******************************************************************************
- * Copyright (c) 2017, KMDR Consultoria e Serviços, Boa Vista, RR - Brasil.
- * Todos os direitos reservados. Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.
- ******************************************************************************/
 package br.leg.rr.al.core.domain;
 
 import java.util.EnumMap;
 
 import br.leg.rr.al.core.jpa.BasicEnum;
 
+/**
+ * Enum que representa todos os turnos diurnos.
+ * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
+ *
+ * 
+ */
 public enum TurnoType implements BasicEnum<TurnoType> {
 
-	MATUTINO("Matutino"), VESPERTINO("Vespertino"), NOTURNO("Noturno");
+	MATUTINO("Matutino"), VESPERTINO("Vespertino"), NOTURNO("Noturno"), MADRUGRADA("Madrugada");
 
 	private TurnoType(String label) {
 		this.label = label;
@@ -31,9 +37,10 @@ public enum TurnoType implements BasicEnum<TurnoType> {
 	@Override
 	public EnumMap<TurnoType, ?> getEnumMap() {
 		EnumMap<TurnoType, String> map = new EnumMap<TurnoType, String>(TurnoType.class);
-		map.put(TurnoType.MATUTINO, "M");
-		map.put(TurnoType.VESPERTINO, "V");
-		map.put(TurnoType.NOTURNO, "N");
+		map.put(TurnoType.MATUTINO, "1");
+		map.put(TurnoType.VESPERTINO, "2");
+		map.put(TurnoType.NOTURNO, "3");
+		map.put(TurnoType.MADRUGRADA, "4");
 		return map;
 	}
 }
