@@ -10,6 +10,10 @@ import br.leg.rr.al.core.util.comparator.BeanPropertyComparator;
 /**
  * Utilizado para ordenacao de listas.
  * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
  */
 public class ListUtils {
 
@@ -17,16 +21,12 @@ public class ListUtils {
 	}
 
 	/**
-	 * Metodo que retorna uma sublista, baseando-se nos valores a sere
-	 * utilizados como limite e offset, sempre considerando tambem o tamanho
-	 * maximo da lista
+	 * Metodo que retorna uma sublista, baseando-se nos valores a sere utilizados
+	 * como limite e offset, sempre considerando tambem o tamanho maximo da lista
 	 * 
-	 * @param lista
-	 *            Lista original
-	 * @param limite
-	 *            Tamanho maximo da lista a ser retornada
-	 * @param offset
-	 *            Offset a ser utilizado
+	 * @param lista  Lista original
+	 * @param limite Tamanho maximo da lista a ser retornada
+	 * @param offset Offset a ser utilizado
 	 * @return Sublista da lista original
 	 */
 	public static final <T> List<T> sublista(List<T> lista, Integer limite, Integer offset) {
@@ -50,13 +50,10 @@ public class ListUtils {
 	}
 
 	/**
-	 * Ordena uma lista, de acordo com a propriedade definida, em ordem
-	 * crescente
+	 * Ordena uma lista, de acordo com a propriedade definida, em ordem crescente
 	 * 
-	 * @param lista
-	 *            Lista a ser ordenada
-	 * @param propriedade
-	 *            Propriedade a ser utilizada na comparacao
+	 * @param lista       Lista a ser ordenada
+	 * @param propriedade Propriedade a ser utilizada na comparacao
 	 * @return Lista ordenada
 	 */
 	public static final <T> List<T> ordenaLista(List<T> lista, String propriedade) {
@@ -64,13 +61,10 @@ public class ListUtils {
 	}
 
 	/**
-	 * Ordena uma lista, de acordo com a propriedade definida, em ordem
-	 * crescente
+	 * Ordena uma lista, de acordo com a propriedade definida, em ordem crescente
 	 * 
-	 * @param lista
-	 *            Lista a ser ordenada
-	 * @param propriedade
-	 *            Propriedade a ser utilizada na comparacao
+	 * @param lista       Lista a ser ordenada
+	 * @param propriedade Propriedade a ser utilizada na comparacao
 	 * @return Lista ordenada
 	 */
 	public static final <T> List<T> ordenaLista(List<T> lista, String propriedade, boolean crescente) {
@@ -80,15 +74,11 @@ public class ListUtils {
 	/**
 	 * Ordena uma lista, de acordo com a propriedade definida
 	 * 
-	 * @param lista
-	 *            Lista a ser ordenada
-	 * @param propriedade
-	 *            Propriedade a ser utilizada na comparacao
-	 * @param crescente
-	 *            Indica se a ordenacao sera crescente
-	 * @param novaLista
-	 *            Indica se uma nova lista deve ser criada ou se a propria lista
-	 *            de entrada deve ser ordenada
+	 * @param lista       Lista a ser ordenada
+	 * @param propriedade Propriedade a ser utilizada na comparacao
+	 * @param crescente   Indica se a ordenacao sera crescente
+	 * @param novaLista   Indica se uma nova lista deve ser criada ou se a propria
+	 *                    lista de entrada deve ser ordenada
 	 * @return Lista ordenada
 	 */
 	public static final <T> List<T> ordenaLista(List<T> lista, String propriedade, boolean crescente,
@@ -107,21 +97,16 @@ public class ListUtils {
 
 	/**
 	 * Metodo que retorna uma sublista ordenada, baseando-se nos valores a sere
-	 * utilizados como limite e offset, sempre considerando tambem o tamanho
-	 * maximo da lista.
+	 * utilizados como limite e offset, sempre considerando tambem o tamanho maximo
+	 * da lista.
 	 * 
 	 * @see sublista(java.util.List, java.lang.Integer, java.lang.Integer)
 	 * @see ordenaLista(java.util.List, java.lang.String, boolean)
-	 * @param lista
-	 *            Lista original
-	 * @param limite
-	 *            Tamanho maximo da lista a ser retornada
-	 * @param offset
-	 *            Offset a ser utilizado
-	 * @param propriedade
-	 *            Propriedade a ser utilizada na comparacao
-	 * @param ascendente
-	 *            Indica se a ordenacao sera crescente
+	 * @param lista       Lista original
+	 * @param limite      Tamanho maximo da lista a ser retornada
+	 * @param offset      Offset a ser utilizado
+	 * @param propriedade Propriedade a ser utilizada na comparacao
+	 * @param ascendente  Indica se a ordenacao sera crescente
 	 * @return Sublista ordenada
 	 */
 	public static final <T> List<T> sublistaOrdenada(List<T> lista, Integer limite, Integer offset, String propriedade,
@@ -141,15 +126,15 @@ public class ListUtils {
 
 	/**
 	 * Encontra o indice do proximo elemento na lista, caso o elemento exista na
-	 * lista retorna o indice do proximo, caso nao exista encontra a "posicao"
-	 * onde o elemento estaria na lista e retorna o proximo indice. Caso a lista
-	 * esteja vazia ou o elemento seja o ultimo da lista retorna -1
+	 * lista retorna o indice do proximo, caso nao exista encontra a "posicao" onde
+	 * o elemento estaria na lista e retorna o proximo indice. Caso a lista esteja
+	 * vazia ou o elemento seja o ultimo da lista retorna -1
 	 * 
 	 * @param items
 	 * @param valor
 	 * @param comparator
-	 * @return posicao do proximo elemento da lista ou -1 caso a lista esteja
-	 *         vazia ou o elemento seja o ultimo
+	 * @return posicao do proximo elemento da lista ou -1 caso a lista esteja vazia
+	 *         ou o elemento seja o ultimo
 	 */
 	public static final <T> int nextIndex(List<T> items, T valor, Comparator<T> comparator) {
 		int inicio = 0;

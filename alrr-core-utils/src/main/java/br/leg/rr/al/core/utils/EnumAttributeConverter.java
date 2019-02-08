@@ -10,6 +10,31 @@ import javax.persistence.AttributeConverter;
 
 import br.leg.rr.al.core.jpa.BasicEnum;
 
+/**
+ * <p>
+ * Esta classe abstrata deve ser herdada por classes que convertam os valores
+ * dos enums que são salvos ou recuperados de uma base de dados. Não é
+ * necessário realizar sobescrever os métodos já implementados. Basta
+ * extende-la.
+ * 
+ * <pre>
+ * <code>
+ *  	{@literal //}Classe que vai converter o enum Mes
+	public class MesConverter extends EnumAttributeConverter<Mes> {
+
+	}
+ * </code>
+ * </pre>
+ * </p>
+ * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * @since 1.0.0
+ *
+ * @param <E> Enum que será convertido.
+ * @see {@link BasicEnum}
+ * @see javax.persistence.AttributeConverter
+ */
 public abstract class EnumAttributeConverter<E extends BasicEnum<? extends Enum<?>>>
 		implements AttributeConverter<E, String> {
 

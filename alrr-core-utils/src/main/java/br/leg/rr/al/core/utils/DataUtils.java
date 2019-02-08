@@ -1,4 +1,4 @@
-package br.leg.rr.al.core.helper;
+package br.leg.rr.al.core.utils;
 
 import java.io.Serializable;
 import java.text.ParseException;

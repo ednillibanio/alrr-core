@@ -15,8 +15,10 @@ import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.domain.TurnoType;
 
 /**
- * @author Ednil Libanio da Costa Junior
- * @date 19-04-2012
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
  */
 @Named
 public class CoreEnumFactory {

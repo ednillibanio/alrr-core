@@ -10,6 +10,14 @@ import javax.validation.ValidatorFactory;
 import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
 import org.hibernate.validator.resourceloading.PlatformResourceBundleLocator;
 
+/**
+ * 
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
+ *
+ */
 public final class HibernateUtils {
 
 	/**
@@ -43,10 +51,8 @@ public final class HibernateUtils {
 	 * Valida a entidade e retorna as violações encontradas. As mensagens são
 	 * pesquisadas em um ResourceBundle especifico.
 	 * 
-	 * @param resourceBundleName
-	 *            nome do resource bundle que contém as mensagens.
-	 * @param entity
-	 *            entidade que será validada
+	 * @param resourceBundleName nome do resource bundle que contém as mensagens.
+	 * @param entity             entidade que será validada
 	 * @return retorna uma lista de violações.
 	 */
 	public static <T> Set<ConstraintViolation<T>> getViolations(String resourceBundleName, T entity) {
