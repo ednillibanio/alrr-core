@@ -144,6 +144,13 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	}
 
 	/**
+	 * Esse
+	 */
+	protected void posEditar() {
+
+	}
+
+	/**
 	 * Método secundário chamado pelo método {@link #preSalvar()} que verifica se a
 	 * entidade está carregada com os valores da base de dados. Também pode ser
 	 * chamado por outros métodos em determinadas situações.
@@ -202,10 +209,13 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 			FacesMessageUtils.addError("Nome do Dialogo Editar não informado.");
 			return null;
 		}
-		preEditar();
+		// preEditar();
 		if (isEditar()) {
+			// foi movido para cá pra testar se o correto é aqui ou antes.
+			preEditar();
 			setEntity(getBean().carregar(getEntity()));
 			getBean().detached(getEntity());
+			posEditar();
 			FacesUtils.showDialog(getEditarDialogName());
 		} else {
 			FacesMessageUtils.createError(CoreUtilsValidationMessages.REGISTRO_NAO_SELECIONADO);
@@ -231,17 +241,18 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 								}
 							}
 						}
-						return NavigationOutcomeDefault.ATUALIZADO_COM_SUCCESSO.toString();
+						// return NavigationOutcomeDefault.ATUALIZADO_COM_SUCCESSO.toString();
 					} else {
 						inserir();
-						return NavigationOutcomeDefault.INSERIDO_COM_SUCCESSO.toString();
+						// return NavigationOutcomeDefault.INSERIDO_COM_SUCCESSO.toString();
 					}
 
 				} else {
 
 					FacesMessageUtils.addFatal(jaExisteMsg);
-					return NavigationOutcomeDefault.FALHA.toString();
+					// return NavigationOutcomeDefault.FALHA.toString();
 				}
+				return null;
 				/*
 				 * } catch (ControllerException e) { throw e;
 				 */
