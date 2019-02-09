@@ -144,7 +144,27 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	}
 
 	/**
-	 * Esse
+	 * <p>
+	 * Método secundário chamado pelo método {@link #editar()}. Este método é util
+	 * principalmente para preencher campos na view que não fazem parte da uma
+	 * entidade. Por exemplo, um formulário de cadastrar cep, que usa uma variavel
+	 * 'numero' que serve pra pesquisar cep numa base de dados qualquer na internet.
+	 * Quando retorna o valor, preenche os outros campos da entidade Cep. Este mesmo
+	 * formulário de cadastro de Cep, é utilizado para editar. Quando o usuário
+	 * clica em editar Cep, os dados da entidade Cep são carregados. Porém o sistema
+	 * não sabe que o numero do cep é exibido num campo 'numero' e não na entidade.
+	 * Neste caso, deve-se chamar o método {@link #posEditar()} para inserir este
+	 * valor de forma manual na variavel 'numero'.
+	 * 
+	 * <pre>
+	<code>
+	{@literal @Override}
+	protected void posEditar() {
+		this.numero = cep.getNumero();
+	} 
+	</code>
+	 * </pre>
+	 * </p>
 	 */
 	protected void posEditar() {
 
