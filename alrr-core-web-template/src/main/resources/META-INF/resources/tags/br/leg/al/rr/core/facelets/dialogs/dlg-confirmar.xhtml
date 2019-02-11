@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<!--
+/****************************************************************************************
+* ALE-RR Licença																		*
+* Copyright (C) 2018, ALE-RR															*
+* Boa Vista, RR - Brasil																*
+* Todos os direitos reservados.															*
+* 																						*
+* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
+* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+*****************************************************************************************
+* Autor:  Ednil Libanio da Costa Junior													*
+* Versão: 1.0.0 																		*
+****************************************************************************************/
+-->
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -5,18 +20,21 @@
 	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
 	xmlns:alcore="http://al.rr.leg.br/facelets/core">
 
-	<o:methodParam name="actionListener" value="#{confirmarActionListener}" />
+	<!--  C O N F I R M   D I A L O G  -->
+	<p:confirmDialog severity="alert" responsive="true" escape="true"
+		global="true">
 
-	<p:confirmDialog header="#{header}" severity="alert"
-		widgetVar="#{widgetVar}" responsive="true" escape="true">
-		<f:facet name="message">
-			<h:outputFormat value="#{message}">
-				<f:param value="#{paramMessage}" />
-			</h:outputFormat>
-		</f:facet>
-		<alcore:botao-nao onclick="#{onclickNao}" />
-		<alcore:botao-sim actionListener="#{actionListener}"
-			update="#{update}" />
+		<!--  B O T Ã O   N Ã O  -->
+		<p:commandButton id="btn-nao" type="button"
+			value="#{core['btn.nao.value']}" title="#{core['btn.nao.title']}"
+			icon="#{core['btn.nao.icon']}"
+			styleClass="ui-confirmdialog-no #{core['btn.nao.styleClass']}" />
+
+		<!--  B O T Ã O   S I M  -->
+		<p:commandButton id="btn-sim" type="button"
+			value="#{core['btn.sim.value']}" title="#{core['btn.sim.title']}"
+			icon="#{core['btn.sim.icon']}"
+			styleClass="ui-confirmdialog-yes #{core['btn.sim.styleClass']}" />
 	</p:confirmDialog>
 
 </ui:composition>
