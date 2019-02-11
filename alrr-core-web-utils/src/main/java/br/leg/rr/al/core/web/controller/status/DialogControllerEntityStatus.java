@@ -36,10 +36,6 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Detalhes.
 	 */
 	private String detalhesDialogName;
-	/**
-	 * Informe o valor da variavel 'widgetVar' do Dialogo Excluir.
-	 */
-	private String excluirDialogName;
 
 	/**
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Novo.
@@ -366,14 +362,11 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 		} else {
 			try {
 				getBean().excluir(getEntity());
-				if (getEntities().remove(getEntity())) {
-					getDataModel().setWrappedData(getEntities());
+				if (getEntities() != null && getEntities().contains(getEntity())) {
+					if (getEntities().remove(getEntity())) {
+						FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_EXCLUIDO_COM_SUCESSO);
+					}
 				}
-				FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_EXCLUIDO_COM_SUCESSO);
-				FacesUtils.closeDialog(getExcluirDialogName());
-
-				// Atualiza para exibir a mensagem de excluido com sucesso.
-				FacesUtils.update(getPainelGeralName());
 
 			} catch (Exception e) {
 				FacesMessageUtils.addFatal(e.getMessage());
@@ -430,22 +423,6 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	 */
 	public void setDetalhesDialogName(String widgetVar) {
 		this.detalhesDialogName = widgetVar;
-	}
-
-	/**
-	 * Retorna o valor da variavel 'widgetVar' do Dialogo Excluir.
-	 */
-	public String getExcluirDialogName() {
-		return excluirDialogName;
-	}
-
-	/**
-	 * Retorna o nome do Dialogo Excluir.
-	 * 
-	 * @param widgetVar valor da variavel 'widgetVar'.
-	 */
-	public void setExcluirDialogName(String widgetVar) {
-		this.excluirDialogName = widgetVar;
 	}
 
 	/**

@@ -25,11 +25,6 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	private String detalhesDialogName;
 
 	/**
-	 * Informe o valor da variavel 'widgetVar' do Dialogo Excluir.
-	 */
-	private String excluirDialogName;
-
-	/**
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Novo.
 	 */
 	private String novoDialogName;
@@ -125,7 +120,6 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	 * selecionada e fecha o dialog de exclusão. Caso <i>entity</i> seja vazio,
 	 * retorna uma mensagem de erro.
 	 */
-	@Override
 	public String excluir() {
 
 		if (getEntity() == null) {
@@ -133,14 +127,11 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 		} else {
 			try {
 				getBean().excluir(getEntity());
-				if (getEntities().remove(getEntity())) {
-					getDataModel().setWrappedData(getEntities());
+				if (getEntities() != null && getEntities().contains(getEntity())) {
+					if (getEntities().remove(getEntity())) {
+						FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_EXCLUIDO_COM_SUCESSO);
+					}
 				}
-				FacesMessageUtils.addInfo(CoreUtilsValidationMessages.REGISTRO_EXCLUIDO_COM_SUCESSO);
-				FacesUtils.execute("PF('".concat(getExcluirDialogName().concat("').hide()")));
-
-				// Atualiza para exibir a mensagem de excluido com sucesso.
-				FacesUtils.update(getPainelGeralName());
 
 			} catch (Exception e) {
 				FacesMessageUtils.addFatal(e.getMessage());
@@ -186,22 +177,6 @@ public class DominioController<T extends EntityStatus<Integer>> extends ViewCont
 	 */
 	public void setDetalhesDialogName(String widgetVar) {
 		this.detalhesDialogName = widgetVar;
-	}
-
-	/**
-	 * Retorna o valor da variavel 'widgetVar' do Dialogo Excluir.
-	 */
-	public String getExcluirDialogName() {
-		return excluirDialogName;
-	}
-
-	/**
-	 * Retorna o nome do Dialogo Excluir.
-	 * 
-	 * @param widgetVar valor da variavel 'widgetVar'.
-	 */
-	public void setExcluirDialogName(String widgetVar) {
-		this.excluirDialogName = widgetVar;
 	}
 
 	/**
