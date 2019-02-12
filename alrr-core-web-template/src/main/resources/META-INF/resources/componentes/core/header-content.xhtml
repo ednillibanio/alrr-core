@@ -12,18 +12,17 @@
 
 <cc:implementation>
 
-	<div class="ui-g nopad">
+	<div class="ui-g nopad" id="manual">
 
 		<div class="ui-g-12 ui-g-nopad">
-			<p:commandLink id="lnkInfo" onclick="PF('manualWV').show()"
-				styleClass="fa fa-info-circle fa-lg fa-4x"
+			<p:commandLink id="lnkInfo" onclick="PF('manualWV').show();"
+				process="@none" styleClass="fa fa-info-circle fa-lg fa-4x"
 				style="font-size:48px; float: right" />
 		</div>
-		<div class="ui-g-12">
-			<al:manual-dialog header="Manual do Usuário" widgetVar="manualWV">
-				<cc:insertChildren />
-			</al:manual-dialog>
-		</div>
+		<al:manual-dialog header="MANUAL DO USUÁRIO" widgetVar="manualWV">
+			<cc:insertChildren />
+		</al:manual-dialog>
+
 	</div>
 </cc:implementation>
 

@@ -20,18 +20,25 @@ import br.leg.rr.al.core.web.util.FacesUtils;
 
 public class DialogController<T extends Entity<ID>, ID extends Serializable> extends BaseController<T, ID> {
 
+	private static final long serialVersionUID = -2456392375830932895L;
+
+	/**
+	 * Mensagem padrão exibida quando tenta inserir uma entidade/registro que já
+	 * existe na base de dados. Pode ser sobrescrita por uma mensagem mais
+	 * especifica.
+	 */
+	protected String jaExisteMsg = "Entidade já existe.";
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2456392375830932895L;
-
-	protected String jaExisteMsg = "Entidade já existe.";
-
 	private String painelGeralName;
+
 	/**
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Editar.
 	 */
 	private String editarDialogName;
+
 	/**
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Detalhes.
 	 */
@@ -227,7 +234,6 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 		}
 		// preEditar();
 		if (isEditar()) {
-			// foi movido para cá pra testar se o correto é aqui ou antes.
 			preEditar();
 			setEntity(getBean().carregar(getEntity()));
 			getBean().detached(getEntity());
@@ -321,15 +327,18 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	}
 
 	public String detalhes() {
-		preDetalhes();
+
+		if (getDetalhesDialogName() == null) {
+			FacesMessageUtils.addError("Nome do Dialogo Editar não informado.");
+			return null;
+		}
+
 		if (getEntity() != null && getEntity().getId() != null) {
+			preDetalhes();
 			carregarEntity();
 			FacesUtils.showDialog(getDetalhesDialogName());
 		} else {
-			// TODO: Colocar um pop-up informando que tem que selecionar um
-			// registro.
-			// Implementar algo que mostre uma msg dialog dizendo para
-			// selecionar uma entidade.
+			FacesMessageUtils.createError(CoreUtilsValidationMessages.REGISTRO_NAO_SELECIONADO);
 		}
 		return null;
 	}

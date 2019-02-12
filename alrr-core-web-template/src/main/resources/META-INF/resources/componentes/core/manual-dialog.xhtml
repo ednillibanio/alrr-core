@@ -46,8 +46,10 @@
 	<p:dialog widgetVar="#{cc.attrs.widgetVar}" showEffect="clip"
 		hideEffect="clip" closeOnEscape="true" showHeader="true"
 		responsive="true" modal="true" resizable="false" closable="true"
-		appendTo="@(body)" header="#{cc.attrs.header}" fitViewport="true">
+		positionType="absolute" appendTo="@(manual)"
+		header="#{cc.attrs.header}">
 		<cc:insertChildren />
 	</p:dialog>
+
 </cc:implementation>
 </html>

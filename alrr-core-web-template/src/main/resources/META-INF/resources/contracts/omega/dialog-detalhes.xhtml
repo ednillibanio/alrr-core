@@ -18,6 +18,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:alcore="http://al.rr.leg.br/facelets/core"
 	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
 	xmlns:o="http://omnifaces.org/ui" lang="pt-br" id="page">
 
@@ -26,8 +27,7 @@
 * @autor:	Ednil Libanio da Costa Junior												*
 * @since:	1.0.0 																		*
 * 																						*
-* Template do componente Dialog usado para cadastrar ou editar os dados de registro 	*
-* selecionado.																			*
+* Template do componente Dialog usado para apenas exibir dados não editaveis.			*
 *																						*
 ****************************************************************************************/ 
 -->
@@ -43,7 +43,7 @@
 
 		<!-- Serve para exibir mensagem de erro -->
 		<p:tooltip />
-		<p:growl id="msgs-dialog" />
+
 		<ui:insert name="form-dialog" />
 		<p:panel>
 			<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
@@ -59,21 +59,15 @@
 			<f:facet name="footer">
 
 				<ui:insert name="dialog-footer">
-
-					<p:panelGrid columns="2" layout="grid"
-						styleClass="ui-panelgrid-blank">
-
-						<h:panelGroup>
+					<div class="ui-g">
+						<div class="ui-md-3 ui-g-3 ui-xl-3" />
+						<div class="ui-g-12 ui-md-6 ui-g-6 ui-xl-6">
 							<!--   B O T Ã O:   F E C H A R   -->
-							<ui:insert name="btn-esquerda" />
-						</h:panelGroup>
-
-						<h:panelGroup>
-							<!--   B O T Ã O:   S A L V A R   -->
-							<ui:insert name="btn-direita" />
-						</h:panelGroup>
-
-					</p:panelGrid>
+							<alcore:botao-fechar id="btnfechar"
+								oncomplete="PF('#{widgetVar}').hide();" immediate="true" />
+						</div>
+						<div class="ui-md-3 ui-g-3 ui-xl-3" />
+					</div>
 
 				</ui:insert>
 
