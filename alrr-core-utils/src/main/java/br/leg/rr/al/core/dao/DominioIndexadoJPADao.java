@@ -16,7 +16,17 @@ import br.leg.rr.al.core.jpa.DominioIndexado;
  * @param <T> entidade que deve ser manipulada por esse Dao.
  * @see {@link DominioIndexado}
  */
-public interface DominioIndexadoDao<T extends DominioIndexado> extends JPADaoStatus<T, Integer> {
+public interface DominioIndexadoJPADao<T extends DominioIndexado> extends JPADaoStatus<T, Integer> {
+
+	/**
+	 * Busca todos os objetos que contém parte do nome informado.
+	 * 
+	 * @param nome valor a ser pesquisado.
+	 * @return uma lista de entidades que satisfazem o valor do parametro nome.
+	 * @throws BeanException
+	 */
+	@Override
+	public List<T> buscarPorNome(String nome) throws BeanException;
 
 	/**
 	 * Busca todos os registros que a 'situacao' seja igual a

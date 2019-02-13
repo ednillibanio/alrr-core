@@ -42,25 +42,21 @@ public abstract class Dominio extends BaseEntityStatus<Integer> {
 	protected String nome;
 
 	/**
-	 * Breve descrição do dominio instânciado.
+	 * Obtém o valor do campo nome.
+	 * 
+	 * @return valor do campo nome.
 	 */
-	@Column(nullable = true, length = 500)
-	protected String descricao;
-
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Define o nome .
+	 * 
+	 * @param nome valor do nome.
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 }

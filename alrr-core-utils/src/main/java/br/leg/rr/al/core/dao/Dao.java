@@ -82,8 +82,8 @@ public interface Dao<T extends Entity<ID>, ID extends Serializable> extends Seri
 	 * usando esse método, é obrigado criar as constraints que restringe a criação
 	 * do mesmo registro por dois usuários diferentes.
 	 * 
-	 * @param entidade
-	 * @return
+	 * @param entidade objeto a ser verificado se já existe.
+	 * @return true se já existe. False caso contrário.
 	 */
 	public Boolean jaExiste(T entidade);
 

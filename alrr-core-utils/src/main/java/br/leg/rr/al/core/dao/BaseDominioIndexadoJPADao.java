@@ -37,15 +37,15 @@ import br.leg.rr.al.core.jpa.DominioIndexado;
  *
  * @param <T> Entidade que será manipulada
  */
-public abstract class BaseDominioIndexadoDao<T extends DominioIndexado> extends BaseJPADaoStatus<T, Integer>
-		implements DominioIndexadoDao<T> {
+public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> extends BaseJPADaoStatus<T, Integer>
+		implements DominioIndexadoJPADao<T> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8054203563918294954L;
 
-	Logger logger = LoggerFactory.getLogger(BaseDominioIndexadoDao.class);
+	Logger logger = LoggerFactory.getLogger(BaseDominioIndexadoJPADao.class);
 
 	@Override
 	public List<T> getAtivosPorNome(String nome) {

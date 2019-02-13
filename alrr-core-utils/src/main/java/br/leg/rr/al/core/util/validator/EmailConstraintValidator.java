@@ -12,8 +12,10 @@ import br.leg.rr.al.core.CoreUtilsValidationMessages;
 import br.leg.rr.al.core.utils.MessageUtils;
 
 /**
- * @author Ednil Libanio da Costa Junior
- * @date 11-04-2018
+ * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
+ *         Junior</a>
+ * 
+ * @since 1.0.0
  */
 public class EmailConstraintValidator implements ConstraintValidator<Email, String> {
 

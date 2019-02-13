@@ -21,7 +21,7 @@ import br.leg.rr.al.core.jpa.EntityStatus;
  * @param <T> entidade que deve ser manipulada por esse Dao.
  * @param <ID> tipo da chave-primária ou identificador único da entidade.
  * @see {@link DominioIndexado}, {@link Dominio},
- *      {@link DominioIndexadoDao}
+ *      {@link DominioIndexadoJPADao}
  */
 public interface DaoStatus<T extends EntityStatus<ID>, ID extends Serializable> extends Dao<T, ID> {
 
