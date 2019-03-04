@@ -2,6 +2,7 @@ package br.leg.rr.al.core.web.controller.status;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.PersistenceException;
@@ -32,6 +33,12 @@ public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID 
 	private static final long serialVersionUID = -3680839734379111991L;
 
 	protected String jaExisteMsg = "Entidade já existe.";
+
+	/**
+	 * Campo utilizado pelo método {@link #pesquisar()}. Ele pode ser utilizado ou
+	 * chamado dentro do método secundário {@link #prePesquisar()}.
+	 */
+	private Map<String, Object> filtros;
 
 	/**
 	 * Método secundário chamado pelo método {@link #preSalvar() } que preenche uma
@@ -86,6 +93,16 @@ public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID 
 	 * Por exemplo, preencher a data do último acesso do usuário.
 	 */
 	protected void preAtualizar() {
+
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #pesquisar()} que faz a pesquisa
+	 * na base de dados de acordo com os filtros informados. Esse método é o local
+	 * ideal para definir os filtros que serão usados na pesquisa. <br>
+	 * Por exemplo, preencher a data do último acesso do usuário.
+	 */
+	protected void prePesquisar() {
 
 	}
 
@@ -355,13 +372,37 @@ public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID 
 	 * Método que pesquisa todos os registros na base de dados.
 	 */
 	public String pesquisar() {
-		getBean().flush();
-		setEntities(getBean().buscarTodos());
+		try {
+			prePesquisar();
 
-		if (getEntities().size() > 0) {
-			createDataModel(getEntities());
-		} else {
-			FacesMessageUtils.addError(CoreUtilsValidationMessages.REGISTRO_NAO_ENCONTRADO);
+			if (filtros == null || filtros.isEmpty()) {
+				getBean().flush();
+				setEntities(getBean().buscarTodos());
+			} else {
+				setEntities(getBean().pesquisar(filtros));
+			}
+
+			if (getEntities().size() > 0) {
+				createDataModel(getEntities());
+			} else {
+				FacesMessageUtils.addError(CoreUtilsValidationMessages.REGISTRO_NAO_ENCONTRADO);
+			}
+		} catch (Exception e) {
+			Throwable t = ExceptionUtils.getRootCause(e);
+			if (t instanceof SQLException) {
+				SQLException ex = (SQLException) t;
+
+				String entidade = "Entidade: "
+						.concat(StringUtils.substringAfterLast(getEntity().getClass().toString(), "."));
+				String cod = ex.getSQLState();
+				String msg = entidade.concat(". SQL State: ").concat(cod).concat(". ").concat(ex.getMessage());
+
+				FacesMessageUtils.addFatal(msg);
+
+			} else {
+				FacesMessageUtils.addFatal(e.getMessage());
+			}
+
 		}
 		return null;
 	}

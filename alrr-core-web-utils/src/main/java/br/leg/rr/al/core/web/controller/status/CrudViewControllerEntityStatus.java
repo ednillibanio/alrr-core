@@ -16,30 +16,6 @@ public class CrudViewControllerEntityStatus<T extends EntityStatus<ID>, ID exten
 	 */
 	private static final long serialVersionUID = 1203944215885392305L;
 
-	@Override
-	protected void preInserir() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void preAtualizar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void preEditar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void preDetalhes() {
-		// TODO Auto-generated method stub
-
-	}
-
 	/**
 	 * Cria uma nova entiade e chama a próxima view.
 	 * 
