@@ -184,8 +184,10 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	 * Após inserir na base de dados, o método {@link #posInserir()} é chamado.
 	 */
 	protected void inserir() {
+
 		getBean().salvar(getEntity());
 		posInserir();
+
 	}
 
 	/**
@@ -228,7 +230,13 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 
 		if (isEditar()) {
 			preEditar();
-			setEntity(getBean().carregar(getEntity()));
+			// setEntity(getBean().carregar(getEntity()));
+			/**
+			 * troquei o método de cima para usar o de baixo para ficar padrão que nem no
+			 * detalhes. Seguindo o padrão pra usar carregarEntity do Controller. A partir
+			 * daqui faz as alterações, pois cada controller carrega de um jeito.
+			 **/
+			carregarEntity();
 			getBean().detached(getEntity());
 			posEditar();
 			FacesUtils.showDialog(getEditarDialogName());
@@ -296,23 +304,35 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 				Throwable t = ExceptionUtils.getRootCause(e);
 				if (t instanceof SQLException) {
 					SQLException ex = (SQLException) t;
-					// Tratamento de exceção para entidade que já existe na base
-					// de dados. Ocorre quando o sistema não verifica
-					// corretamente se já
-					// existe a entidade antes de tentar inserir na base de
-					// dados.
+
+					/**
+					 * Tratamento de exceção para entidade que já existe na base de dados. Ocorre
+					 * quando o sistema não verifica corretamente se já existe a entidade antes de
+					 * tentar inserir na base de dados.
+					 **/
 					if (ex.getErrorCode() == 23505 || ex.getSQLState().equals("23505")) {
 						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.REGISTRO_JA_EXISTE);
 					}
+
 					// Tratamento de exceção para coluna que possui constraint
 					// que não permite nulo.
-					if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
+					else if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
 						String entidade = StringUtils.substringAfterLast(getEntity().getClass().toString(), ".");
 						String campo = StringUtils.substringBetween(ex.getMessage(), "\"");
 						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.DB_ERROR_NOT_NULL_CONSTRAINT, entidade,
 								campo);
 
+					} else {
+						String entidade = "Entidade: "
+								.concat(StringUtils.substringAfterLast(getEntity().getClass().toString(), "."));
+						String cod = ex.getSQLState();
+						String msg = entidade.concat(". SQL State: ").concat(cod).concat(". ").concat(ex.getMessage());
+
+						FacesMessageUtils.addFatal(msg);
 					}
+
+				} else {
+					FacesMessageUtils.addFatal(e.getMessage());
 				}
 			}
 		}
@@ -321,15 +341,18 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	}
 
 	public String detalhes() {
-		preDetalhes();
+
+		if (getDetalhesDialogName() == null) {
+			FacesMessageUtils.addError("Nome do Dialogo Editar não informado.");
+			return null;
+		}
+
 		if (getEntity() != null && getEntity().getId() != null) {
+			preDetalhes();
 			carregarEntity();
 			FacesUtils.showDialog(getDetalhesDialogName());
 		} else {
-			// TODO: Colocar um pop-up informando que tem que selecionar um
-			// registro.
-			// Implementar algo que mostre uma msg dialog dizendo para
-			// selecionar uma entidade.
+			FacesMessageUtils.createError(CoreUtilsValidationMessages.REGISTRO_NAO_SELECIONADO);
 		}
 		return null;
 	}

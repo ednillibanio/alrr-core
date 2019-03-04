@@ -280,6 +280,7 @@ public class ViewController<T extends Entity<ID>, ID extends Serializable> exten
 								campo);
 
 					}
+					FacesMessageUtils.addFatal(e.getMessage());
 				}
 			}
 		}

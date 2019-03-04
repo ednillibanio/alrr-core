@@ -33,9 +33,11 @@ import br.leg.rr.al.core.web.util.FacesUtils;
  */
 public abstract class BaseController<T extends Entity<ID>, ID extends Serializable> implements Serializable {
 
-	protected static Marker fatal = MarkerFactory.getMarker("FATAL");
+	
 	private static final long serialVersionUID = -7033073413761404445L;
 
+	protected static Marker fatal = MarkerFactory.getMarker("FATAL");
+	
 	private JPADao<T, ID> bean;
 	private ID id;
 	private T entity;

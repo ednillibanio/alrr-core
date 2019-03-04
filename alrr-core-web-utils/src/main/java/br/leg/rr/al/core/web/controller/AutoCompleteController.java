@@ -10,18 +10,13 @@ import br.leg.rr.al.core.dao.JPADao;
 import br.leg.rr.al.core.jpa.Entity;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;
 
-public abstract class CompleteController<T extends Entity<ID>, ID extends Serializable> {
+public abstract class AutoCompleteController<T extends Entity<ID>, ID extends Serializable> {
 
 	private JPADao<T, ID> bean;
 
-	public CompleteController() {
+	public AutoCompleteController() {
 
 	}
-
-	/**
-	 * Definir o bean que irá buscar as entidades por nome;
-	 */
-	public abstract void init();
 
 	/**
 	 * Método usado para buscar Localidades. A busca é realizada por parte do nome
@@ -33,7 +28,7 @@ public abstract class CompleteController<T extends Entity<ID>, ID extends Serial
 	public List<T> completeByNome(String nome) {
 		if (StringUtils.isNotBlank(nome) && (!nome.equals(" - "))) {
 			try {
-				return getBean().buscarPorNome(nome);
+				return bean.buscarPorNome(nome);
 			} catch (BeanException e) {
 				FacesMessageUtils.addFatal(e.getMessage());
 				e.printStackTrace();
@@ -44,11 +39,4 @@ public abstract class CompleteController<T extends Entity<ID>, ID extends Serial
 		return null;
 	}
 
-	public JPADao<T, ID> getBean() {
-		return bean;
-	}
-
-	public void setBean(JPADao<T, ID> bean) {
-		this.bean = bean;
-	}
 }

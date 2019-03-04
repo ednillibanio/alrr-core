@@ -259,31 +259,47 @@ public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID 
 					if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
 						throw new ValidationException(ex.getMessage());
 					}
+					FacesMessageUtils.addFatal(ex.getMessage());
+
 				} else {
+
 					FacesMessageUtils.addFatal(t.getMessage());
 				}
+
+				FacesMessageUtils.addFatal(e.getMessage());
 
 			} catch (Exception e) {
 				Throwable t = ExceptionUtils.getRootCause(e);
 				if (t instanceof SQLException) {
 					SQLException ex = (SQLException) t;
-					// Tratamento de exceção para entidade que já existe na base
-					// de dados. Ocorre quando o sistema não verifica
-					// corretamente se já
-					// existe a entidade antes de tentar inserir na base de
-					// dados.
+
+					/**
+					 * Tratamento de exceção para entidade que já existe na base de dados. Ocorre
+					 * quando o sistema não verifica corretamente se já existe a entidade antes de
+					 * tentar inserir na base de dados.
+					 **/
 					if (ex.getErrorCode() == 23505 || ex.getSQLState().equals("23505")) {
 						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.REGISTRO_JA_EXISTE);
 					}
+
 					// Tratamento de exceção para coluna que possui constraint
 					// que não permite nulo.
-					if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
+					else if (ex.getErrorCode() == 23502 || ex.getSQLState().equals("23502")) {
 						String entidade = StringUtils.substringAfterLast(getEntity().getClass().toString(), ".");
 						String campo = StringUtils.substringBetween(ex.getMessage(), "\"");
 						FacesMessageUtils.addFatal(CoreUtilsValidationMessages.DB_ERROR_NOT_NULL_CONSTRAINT, entidade,
 								campo);
 
+					} else {
+						String entidade = "Entidade: "
+								.concat(StringUtils.substringAfterLast(getEntity().getClass().toString(), "."));
+						String cod = ex.getSQLState();
+						String msg = entidade.concat(". SQL State: ").concat(cod).concat(". ").concat(ex.getMessage());
+
+						FacesMessageUtils.addFatal(msg);
 					}
+				} else {
+					FacesMessageUtils.addFatal(e.getMessage());
 				}
 			}
 		}
