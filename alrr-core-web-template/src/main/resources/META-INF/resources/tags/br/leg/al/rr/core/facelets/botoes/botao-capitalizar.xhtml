@@ -22,13 +22,11 @@
 * @since:	1.0.0																		*
 ****************************************************************************************/
 -->
-<p:commandButton icon="fa fa-text-height"
-	actionListener="#{capitalizeFullyUtils.capitalizeFully}"
+<o:methodParam name="listener" value="#{actionListener}" />
+
+<p:commandButton icon="fa fa-text-height" actionListener="#{listener}"
 	update="#{update}" process="#{process}"
 	title="Transformar primeira letra de cada palavra em Maiúscula.">
-	<f:attribute name="texto" value="#{param}" />
-	<f:setPropertyActionListener
-		value="#{capitalizeFullyUtils.textoCapitalized}" target="#{target}" />
 </p:commandButton>
 
 </html>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
@@ -8,6 +9,11 @@
 * 																						*
 * Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
 * não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+*																						*
+*																						*
+*****************************************************************************************
+* Autor:  Ednil Libanio da Costa Junior													*
+* Versão: 1.0.0 																		*
 ****************************************************************************************/
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -16,13 +22,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:o="http://omnifaces.org/ui">
-<!--
-/****************************************************************************************
-* Autor: Ednil Libanio da Costa Junior													*
-* Data: 30-08-2018																		*
-* 																						*
-****************************************************************************************/
--->
+
 <!-- 
 	Item necessário para que funcione o action do primefaces de forma correta. 
 	A partir daqui, na declaração do atributo no taglib basta informar a assinatura
@@ -30,9 +30,10 @@
 -->
 <o:methodParam name="method" value="#{action}" />
 
-<p:commandButton id="btn-novo" value="#{value}" title="#{title}"
-	icon="#{core['btn.novo.icon']}" tabindex="#{tabindex}"
-	styleClass="#{core['btn.novo.styleClass']}" action="#{method}"
-	oncomplete="#{oncomplete}" update="#{update}" process="#{process}" />
+<p:commandButton value="#{core['btn.renovar.value']}"
+	title="#{core['btn.renovar.title']}" icon="#{core['btn.renovar.icon']}"
+	tabindex="#{tabindex}" styleClass="#{core['btn.renovar.styleClass']}"
+	action="#{method}" oncomplete="#{oncomplete}" update="#{update}"
+	process="#{process}" rendered="#{rendered}" />
 
 </html>

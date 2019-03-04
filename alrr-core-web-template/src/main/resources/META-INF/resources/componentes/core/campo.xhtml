@@ -12,6 +12,10 @@
 <cc:interface displayName="Campo"
 	shortDescription="Informe os atributos para configurar um campo no formulário."
 	name="campo">
+
+	<cc:attribute name="panelgroupId" displayName="panelgroupId"
+		shortDescription="Informe o Id do componente panelGroup." />
+
 	<cc:attribute name="value" displayName="value"
 		shortDescription="Informe o valor do label do campo." />
 
@@ -27,7 +31,7 @@
 <cc:implementation>
 
 
-	<h:panelGroup>
+	<h:panelGroup i="#{cc.attrs.panelgroupId}">
 
 		<p:outputLabel value="#{cc.attrs.value}" for="#{cc.attrs.for}"
 			title="#{cc.attrs.title}" />
