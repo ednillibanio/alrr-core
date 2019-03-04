@@ -8,8 +8,8 @@ import br.leg.rr.al.core.jpa.Entity;
 import br.leg.rr.al.core.jpa.EntityStatus;
 
 /**
- * Esta interface do tipo utils, define os métodos que podem ser utlizados por classes que usam
- * JPA e/ou EJB como tecnologia de manipulação dos dados.
+ * Esta interface do tipo utils, define os métodos que podem ser utlizados por
+ * classes que usam JPA e/ou EJB como tecnologia de manipulação dos dados.
  * 
  * @author <a href="mailto:ednil.libanio@gmail.com"> Ednil Libanio da Costa
  *         Junior</a>
@@ -24,7 +24,8 @@ public interface JPADaoUtils<T extends Entity<ID>, ID extends Serializable> exte
 
 	/**
 	 * Filtro de busca usado no método {@link #pesquisar(java.util.Map)}.<br>
-	 * Nem todas as classes possuem esse filtro.
+	 * Nem todas as classes possuem esse filtro. Consulte antes os atributos da
+	 * entidade para ter certeza de usá-la.
 	 * 
 	 * @value {@literal String};
 	 */

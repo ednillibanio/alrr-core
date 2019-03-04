@@ -20,8 +20,7 @@ import br.leg.rr.al.core.jpa.EntityStatus;
  * 
  * @param <T> entidade que deve ser manipulada por esse Dao.
  * @param <ID> tipo da chave-primária ou identificador único da entidade.
- * @see {@link DominioIndexado}, {@link Dominio},
- *      {@link DominioIndexadoJPADao}
+ * @see {@link DominioIndexado}, {@link Dominio}, {@link DominioIndexadoJPADao}
  */
 public interface DaoStatus<T extends EntityStatus<ID>, ID extends Serializable> extends Dao<T, ID> {
 
@@ -93,6 +92,28 @@ public interface DaoStatus<T extends EntityStatus<ID>, ID extends Serializable> 
 	 *         encontrado, retorna <code>null</code>;
 	 */
 	public List<T> getAtivos(List<T> excluidos);
+
+	/**
+	 * <p>
+	 * Busca todos os registros que a situação seja igual a
+	 * {@code StatusType#ATIVO}, e acrescenta o registro que será carregado mesmo se
+	 * não estiver com a situação ativo. Esse método é util quando não se tem
+	 * certeza de que um registro está com a situação ativa, mas precisa carregá-lo
+	 * mesmo assim.
+	 * </p>
+	 * <p>
+	 * Por exemplo, editar uma entidade 'Objeto' que possui um 'Modulo' vinculado.
+	 * Quando exibir o dialog de edição, a entidade Objeto precisa carregar todos os
+	 * registros do tipo Modulo (numa dropdown) que estejam ativo. Porém não se sabe
+	 * se o modulo vinculado ao objeto ainda está ativo. Para garantir que este
+	 * registro seja carregado, passe-o como parametro a este método.
+	 * </p>
+	 * 
+	 * @param entidade valor a ser incluído da lista de entidades ativas.
+	 * @return lista de entidades ativas, mais a entidade passada como parâmetro.
+	 *         Caso contrário, retorna null.
+	 */
+	public List<T> getAtivos(T entidade);
 
 	/**
 	 * Busca todas as entidades de acordo com a situação informada.

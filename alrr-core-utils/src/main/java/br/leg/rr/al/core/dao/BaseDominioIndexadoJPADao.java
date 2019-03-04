@@ -48,7 +48,7 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	Logger logger = LoggerFactory.getLogger(BaseDominioIndexadoJPADao.class);
 
 	@Override
-	public List<T> getAtivosPorNome(String nome) {
+	public List<T> buscarAtivosPorNome(String nome) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put(PESQUISAR_PARAM_NOME, StatusType.ATIVO);
 		params.put(PESQUISAR_PARAM_NOME, nome);
@@ -57,8 +57,8 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	}
 
 	@Override
-	public List<T> getAtivosPorNome(String nome, List<T> excluidos) {
-		List<T> resultado = getAtivosPorNome(nome);
+	public List<T> buscarAtivosPorNome(String nome, List<T> excluidos) {
+		List<T> resultado = buscarAtivosPorNome(nome);
 		if (excluidos != null && !resultado.isEmpty()) {
 			resultado.removeAll(excluidos);
 		}
@@ -66,9 +66,9 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	}
 
 	@Override
-	public List<T> buscarAtivosPeloNomeIndexado(String texto) {
+	public List<T> buscarAtivosPorNomeIndexado(String texto) {
 
-		List<T> result = buscarPeloNomeIndexado(texto);
+		List<T> result = buscarPorNomeIndexado(texto);
 
 		if (result != null && result.size() > 0) {
 			result = result.stream().filter(entidade -> entidade.getSituacao().equals(StatusType.ATIVO))
@@ -87,7 +87,7 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> buscarPeloNomeIndexado(String texto) {
+	public List<T> buscarPorNomeIndexado(String texto) {
 		EntityManager em = getEntityManager();
 		List<T> result = null;
 
@@ -130,9 +130,9 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	 * (java.lang.String, br.leg.rr.al.core.jpa.DominioIndexado)
 	 */
 	@Override
-	public List<T> buscarPeloNomeIndexado(String texto, List<T> excluidos) {
+	public List<T> buscarPorNomeIndexado(String texto, List<T> excluidos) {
 
-		List<T> result = buscarPeloNomeIndexado(texto);
+		List<T> result = buscarPorNomeIndexado(texto);
 
 		if (result != null && result.size() > 0) {
 			result = result.stream().filter(entidade -> entidade.getSituacao().equals(StatusType.ATIVO))

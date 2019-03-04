@@ -42,7 +42,7 @@ public interface DominioIndexadoJPADao<T extends DominioIndexado> extends JPADao
 	 *         satisfaça a condição do parametro nome. Caso nenhum valor seja
 	 *         encontrado, retorna <code>null</code>;
 	 */
-	List<T> getAtivosPorNome(String nome);
+	List<T> buscarAtivosPorNome(String nome);
 
 	/**
 	 * <p>
@@ -65,7 +65,7 @@ public interface DominioIndexadoJPADao<T extends DominioIndexado> extends JPADao
 	 *         encontrado, retorna {@code null};
 	 * 
 	 */
-	List<T> getAtivosPorNome(String nome, List<T> excluidos);
+	List<T> buscarAtivosPorNome(String nome, List<T> excluidos);
 
 	/**
 	 * <p>
@@ -85,10 +85,10 @@ public interface DominioIndexadoJPADao<T extends DominioIndexado> extends JPADao
 	 * @return lista de entidades com o nome que satisfaz o argumento query
 	 *         informado.
 	 */
-	List<T> buscarAtivosPeloNomeIndexado(String texto);
+	List<T> buscarAtivosPorNomeIndexado(String texto);
 
-	List<T> buscarPeloNomeIndexado(String texto);
+	List<T> buscarPorNomeIndexado(String texto);
 
-	List<T> buscarPeloNomeIndexado(String texto, List<T> excluidos);
+	List<T> buscarPorNomeIndexado(String texto, List<T> excluidos);
 
 }

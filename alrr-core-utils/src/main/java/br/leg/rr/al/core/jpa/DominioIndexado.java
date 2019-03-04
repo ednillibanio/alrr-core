@@ -68,7 +68,7 @@ import org.hibernate.search.annotations.TokenizerDef;
 		@TokenFilterDef(factory = StopFilterFactory.class, params = {
 				@Parameter(name = "words", value = "stopwords.txt"), @Parameter(name = "ignoreCase", value = "true") }),
 		@TokenFilterDef(factory = EdgeNGramFilterFactory.class, params = {
-				@Parameter(name = "minGramSize", value = "3"), @Parameter(name = "maxGramSize", value = "8") }),
+				@Parameter(name = "minGramSize", value = "1"), @Parameter(name = "maxGramSize", value = "15") }),
 		@TokenFilterDef(factory = ASCIIFoldingFilterFactory.class) })
 
 @MappedSuperclass
@@ -83,6 +83,7 @@ public abstract class DominioIndexado extends BaseEntityStatus<Integer> {
 	 * Nome definido no @AnalyzerDef da classe Dominio.
 	 */
 	public static final String NOME_ANALYZER = "NomeAnalyzer";
+
 	/**
 	 * Além de representar o nome do objeto, esse campo implementar o conceito da
 	 * pesquisa hibernate-search-annotation. A tag @Analyzer serve para informar

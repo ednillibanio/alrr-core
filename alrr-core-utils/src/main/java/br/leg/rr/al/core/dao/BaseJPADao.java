@@ -254,15 +254,18 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 
 	@Override
 	public T atualizar(T entity) throws PersistenceException {
+
 		entity = getEntityManager().merge(entity);
-		// getEntityManager().flush();
 		return entity;
+
 	}
 
 	@Override
 	public T persistir(T entidade) throws BeanException {
+
 		getEntityManager().persist(entidade);
 		return entidade;
+
 	}
 
 	@Override

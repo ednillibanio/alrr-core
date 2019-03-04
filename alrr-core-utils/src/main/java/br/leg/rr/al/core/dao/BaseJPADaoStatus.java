@@ -1,9 +1,12 @@
 package br.leg.rr.al.core.dao;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,10 +82,29 @@ public abstract class BaseJPADaoStatus<T extends EntityStatus<ID>, ID extends Se
 	}
 
 	@Override
+	public List<T> getAtivos(T entidade) {
+		List<T> resultado = getAtivos();
+
+		if (resultado != null && !resultado.isEmpty()) {
+			if (!resultado.contains(entidade)) {
+				resultado.add(entidade);
+			}
+		}
+		return resultado;
+	}
+
+	@Override
 	public List<T> buscarPorSituacao(StatusType situacao) {
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(PESQUISAR_PARAM_SITUACAO, situacao);
-		return pesquisar(params);
+
+		CriteriaBuilder cb = getCriteriaBuilder();
+		CriteriaQuery<T> cq = getCriteriaBuilder().createQuery(entityClass);
+		Root<T> root = cq.from(entityClass);
+		cq.select(root);
+
+		Predicate cond = cb.equal(root.get("situacao"), situacao);
+		cq.where(cond);
+
+		return getResultList(cq);
 	}
 
 }
