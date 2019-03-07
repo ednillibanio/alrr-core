@@ -12,7 +12,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter(value = "anoConverter")
-public class AnoConverter implements Converter, Serializable {
+public class AnoConverter implements Converter<Object>, Serializable {
 
 	/**
 	 * 

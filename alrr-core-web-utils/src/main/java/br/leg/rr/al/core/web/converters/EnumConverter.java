@@ -12,7 +12,7 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter(value = "enumConverter")
-public class EnumConverter implements Converter {
+public class EnumConverter implements Converter<Object> {
 
 	private static final String ATTRIBUTE_ENUM_TYPE = "EnumConverter.enumType";
 

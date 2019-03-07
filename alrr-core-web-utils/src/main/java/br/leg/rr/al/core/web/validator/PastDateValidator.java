@@ -10,7 +10,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-import br.leg.rr.al.core.helper.DataUtils;
+import br.leg.rr.al.core.utils.DataUtils;
 import br.leg.rr.al.core.utils.MessageUtils;
 import br.leg.rr.al.core.web.CoreWebUtilsValidationMessages;
 import br.leg.rr.al.core.web.util.FacesMessageUtils;

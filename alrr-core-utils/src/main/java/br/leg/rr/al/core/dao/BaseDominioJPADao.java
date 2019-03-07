@@ -39,7 +39,7 @@ public abstract class BaseDominioJPADao<T extends Dominio> extends BaseJPADaoSta
 	Logger logger = LoggerFactory.getLogger(BaseDominioJPADao.class);
 
 	@Override
-	public List<T> getAtivosPorNome(String nome) {
+	public List<T> buscarAtivosPorNome(String nome) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put(PESQUISAR_PARAM_NOME, StatusType.ATIVO);
 		params.put(PESQUISAR_PARAM_NOME, nome);
@@ -48,8 +48,8 @@ public abstract class BaseDominioJPADao<T extends Dominio> extends BaseJPADaoSta
 	}
 
 	@Override
-	public List<T> getAtivosPorNome(String nome, List<T> excluidos) {
-		List<T> resultado = getAtivosPorNome(nome);
+	public List<T> buscarAtivosPorNome(String nome, List<T> excluidos) {
+		List<T> resultado = buscarAtivosPorNome(nome);
 		if (excluidos != null && !resultado.isEmpty()) {
 			resultado.removeAll(excluidos);
 		}

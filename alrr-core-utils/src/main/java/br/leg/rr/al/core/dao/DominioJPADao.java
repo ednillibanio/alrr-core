@@ -42,7 +42,7 @@ public interface DominioJPADao<T extends Dominio> extends JPADaoStatus<T, Intege
 	 *         satisfaça a condição do parametro nome. Caso nenhum valor seja
 	 *         encontrado, retorna <code>null</code>;
 	 */
-	List<T> getAtivosPorNome(String nome);
+	List<T> buscarAtivosPorNome(String nome);
 
 	/**
 	 * <p>
@@ -65,6 +65,6 @@ public interface DominioJPADao<T extends Dominio> extends JPADaoStatus<T, Intege
 	 *         encontrado, retorna {@code null};
 	 * 
 	 */
-	List<T> getAtivosPorNome(String nome, List<T> excluidos);
+	List<T> buscarAtivosPorNome(String nome, List<T> excluidos);
 
 }

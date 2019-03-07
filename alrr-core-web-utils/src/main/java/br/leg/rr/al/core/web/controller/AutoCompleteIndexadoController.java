@@ -36,6 +36,21 @@ public abstract class AutoCompleteIndexadoController<T extends DominioIndexado> 
 	}
 
 	/**
+	 * Método que busca no banco de dados pelo nome informado.
+	 * 
+	 * @param nome atributo nome da entidade
+	 * @return lista de entidades encontradas ou null caso contrário.
+	 */
+	public List<T> completarPorNome(String nome) {
+		if (StringUtils.isNotBlank(nome)) {
+			return bean.buscarPorNome(nome);
+		}
+
+		return null;
+
+	}
+
+	/**
 	 * Método que busca as entidades que a situação seja 'ativa'
 	 * (entity.situacao=StatusType.ATIVO) pelo nome indexado usando
 	 * hibernate-search-annotation.

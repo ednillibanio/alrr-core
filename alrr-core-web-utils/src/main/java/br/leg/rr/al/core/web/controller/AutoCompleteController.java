@@ -1,42 +1,61 @@
 package br.leg.rr.al.core.web.controller;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.leg.rr.al.core.dao.BeanException;
-import br.leg.rr.al.core.dao.JPADao;
-import br.leg.rr.al.core.jpa.Entity;
-import br.leg.rr.al.core.web.util.FacesMessageUtils;
+import br.leg.rr.al.core.dao.DominioJPADao;
+import br.leg.rr.al.core.domain.StatusType;
+import br.leg.rr.al.core.jpa.Dominio;
 
-public abstract class AutoCompleteController<T extends Entity<ID>, ID extends Serializable> {
+public abstract class AutoCompleteController<T extends Dominio> {
 
-	private JPADao<T, ID> bean;
+	private DominioJPADao<T> bean;
 
 	public AutoCompleteController() {
 
 	}
 
-	/**
-	 * Método usado para buscar Localidades. A busca é realizada por parte do nome
-	 * informado.
-	 * 
-	 * @param nome
-	 * @return lista de localidades. <code>null </code> se nenhum encontrado.
-	 */
-	public List<T> completeByNome(String nome) {
-		if (StringUtils.isNotBlank(nome) && (!nome.equals(" - "))) {
-			try {
-				return bean.buscarPorNome(nome);
-			} catch (BeanException e) {
-				FacesMessageUtils.addFatal(e.getMessage());
-				e.printStackTrace();
-			}
+	public abstract void init();
 
+	/**
+	 * Método que busca no banco de dados, as entidades que a situação seja 'ativa'
+	 * (entity.situacao=StatusType.ATIVO) pelo nome informado.
+	 * 
+	 * @see StatusType
+	 * @param nome atributo nome da entidade
+	 * @return lista de entidades encontradas ou null caso contrário.
+	 */
+	public List<T> completarAtivoPorNome(String nome) {
+		if (StringUtils.isNotBlank(nome)) {
+			return getBean().buscarAtivosPorNome(nome);
 		}
 
 		return null;
+
+	}
+
+	/**
+	 * Método que busca no banco de dados pelo nome informado.
+	 * 
+	 * @param nome atributo nome da entidade
+	 * @return lista de entidades encontradas ou null caso contrário.
+	 */
+	public List<T> completarPorNome(String nome) {
+		if (StringUtils.isNotBlank(nome)) {
+			return bean.buscarPorNome(nome);
+		}
+
+		return null;
+
+	}
+
+	public DominioJPADao<T> getBean() {
+		return bean;
+	}
+
+	public void setBean(DominioJPADao<T> bean) {
+		this.bean = bean;
 	}
 
 }

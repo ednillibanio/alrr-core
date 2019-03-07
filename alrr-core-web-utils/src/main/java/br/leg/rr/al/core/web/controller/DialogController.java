@@ -2,6 +2,7 @@ package br.leg.rr.al.core.web.controller;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.PersistenceException;
@@ -29,6 +30,13 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	 */
 	protected String jaExisteMsg = "Entidade já existe.";
 
+	/**
+	 * Campo utilizado pelo método {@link #pesquisar()}. Ele pode ser utilizado ou
+	 * chamado dentro do método secundário {@link #prePesquisar()}.
+	 */
+	private Map<String, Object> filtros;
+	
+	
 	/**
 	 * 
 	 */
@@ -98,6 +106,16 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	 * </blockquote>
 	 */
 	protected void preDetalhes() {
+
+	}
+
+	/**
+	 * Método secundário chamado pelo método {@link #pesquisar()} que faz a pesquisa
+	 * na base de dados de acordo com os filtros informados. Esse método é o local
+	 * ideal para definir os filtros que serão usados na pesquisa. <br>
+	 * Por exemplo, preencher a data do último acesso do usuário.
+	 */
+	protected void prePesquisar() {
 
 	}
 
@@ -391,13 +409,37 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 	 * Método que pesquisa todos os registros na base de dados.
 	 */
 	public String pesquisar() {
-		getBean().flush();
-		setEntities(getBean().buscarTodos());
+		try {
+			prePesquisar();
 
-		if (getEntities().size() > 0) {
-			createDataModel(getEntities());
-		} else {
-			FacesMessageUtils.addError(CoreUtilsValidationMessages.REGISTRO_NAO_ENCONTRADO);
+			if (getFiltros() == null || getFiltros().isEmpty()) {
+				getBean().flush();
+				setEntities(getBean().buscarTodos());
+			} else {
+				setEntities(getBean().pesquisar(getFiltros()));
+			}
+
+			if (getEntities().size() > 0) {
+				createDataModel(getEntities());
+			} else {
+				FacesMessageUtils.addError(CoreUtilsValidationMessages.REGISTRO_NAO_ENCONTRADO);
+			}
+		} catch (Exception e) {
+			Throwable t = ExceptionUtils.getRootCause(e);
+			if (t instanceof SQLException) {
+				SQLException ex = (SQLException) t;
+
+				String entidade = "Entidade: "
+						.concat(StringUtils.substringAfterLast(getEntity().getClass().toString(), "."));
+				String cod = ex.getSQLState();
+				String msg = entidade.concat(". SQL State: ").concat(cod).concat(". ").concat(ex.getMessage());
+
+				FacesMessageUtils.addFatal(msg);
+
+			} else {
+				FacesMessageUtils.addFatal(e.getMessage());
+			}
+
 		}
 		return null;
 	}
@@ -482,5 +524,13 @@ public class DialogController<T extends Entity<ID>, ID extends Serializable> ext
 
 	public void setPainelGeralName(String painelGeralName) {
 		this.painelGeralName = painelGeralName;
+	}
+
+	public Map<String, Object> getFiltros() {
+		return filtros;
+	}
+
+	public void setFiltros(Map<String, Object> filtros) {
+		this.filtros = filtros;
 	}
 }

@@ -11,7 +11,7 @@ import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 
 @Named(value = "ceiConverter")
-public class CeiConverter implements Converter {
+public class CeiConverter implements Converter<Object> {
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent component, String value) {

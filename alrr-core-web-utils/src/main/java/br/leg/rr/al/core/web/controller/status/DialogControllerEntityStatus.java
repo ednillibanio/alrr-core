@@ -349,7 +349,8 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 					}
 
 				} else {
-					FacesMessageUtils.addFatal(e.getMessage());
+
+					FacesMessageUtils.addFatal(e.getCause().getMessage());
 				}
 			}
 		}
@@ -424,7 +425,7 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	public String pesquisar() {
 		try {
 			prePesquisar();
-			
+
 			if (filtros == null || filtros.isEmpty()) {
 				getBean().flush();
 				setEntities(getBean().buscarTodos());

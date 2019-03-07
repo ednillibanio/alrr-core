@@ -11,7 +11,7 @@ import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.leg.rr.al.core.helper.DinheiroUtils;
+import br.leg.rr.al.core.utils.DinheiroUtils;
 import br.leg.rr.al.core.web.util.FacesUtils;
 
 @Named
