@@ -8,9 +8,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.EntityStatus;
 
@@ -34,8 +31,6 @@ public abstract class BaseJPADaoStatus<T extends EntityStatus<ID>, ID extends Se
 	 * 
 	 */
 	private static final long serialVersionUID = 8054203563918294954L;
-
-	private final Logger logger = LoggerFactory.getLogger(BaseJPADaoStatus.class);
 
 	@Override
 	public T mudarSituacao(StatusType sit, T entidade) throws BeanException {

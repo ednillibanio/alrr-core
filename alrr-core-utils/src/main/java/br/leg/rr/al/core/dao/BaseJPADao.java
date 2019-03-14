@@ -48,7 +48,8 @@ public abstract class BaseJPADao<T extends Entity<ID>, ID extends Serializable> 
 	private static final long serialVersionUID = -7225343950193770610L;
 
 	protected static Marker fatal = MarkerFactory.getMarker("FATAL");
-	private final Logger logger = LoggerFactory.getLogger(BaseJPADao.class);
+	
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@PersistenceContext
 	private EntityManager entityManager;

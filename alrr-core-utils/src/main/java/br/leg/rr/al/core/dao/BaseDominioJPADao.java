@@ -11,8 +11,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.Dominio;
@@ -29,14 +27,13 @@ import br.leg.rr.al.core.jpa.Dominio;
  *
  * @param <T> Entidade que será manipulada
  */
-public abstract class BaseDominioJPADao<T extends Dominio> extends BaseJPADaoStatus<T, Integer> implements DominioJPADao<T> {
+public abstract class BaseDominioJPADao<T extends Dominio> extends BaseJPADaoStatus<T, Integer>
+		implements DominioJPADao<T> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8054203563918294954L;
-
-	Logger logger = LoggerFactory.getLogger(BaseDominioJPADao.class);
 
 	@Override
 	public List<T> buscarAtivosPorNome(String nome) {

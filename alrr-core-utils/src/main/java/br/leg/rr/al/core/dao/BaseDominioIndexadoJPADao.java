@@ -19,8 +19,6 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.QueryBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import br.leg.rr.al.core.domain.StatusType;
 import br.leg.rr.al.core.jpa.DominioIndexado;
@@ -45,8 +43,8 @@ public abstract class BaseDominioIndexadoJPADao<T extends DominioIndexado> exten
 	 */
 	private static final long serialVersionUID = 8054203563918294954L;
 
-	Logger logger = LoggerFactory.getLogger(BaseDominioIndexadoJPADao.class);
-
+	
+	
 	@Override
 	public List<T> buscarAtivosPorNome(String nome) {
 		Map<String, Object> params = new HashMap<String, Object>();
