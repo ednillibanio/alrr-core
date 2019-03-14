@@ -14,6 +14,8 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
@@ -34,6 +36,8 @@ public abstract class BaseControllerEntityStatus<T extends EntityStatus<ID>, ID 
 	private static final long serialVersionUID = 5110462079044237057L;
 
 	protected static Marker fatal = MarkerFactory.getMarker("FATAL");
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	private JPADaoStatus<T, ID> bean;
 	private ID id;
 	private T entity;
