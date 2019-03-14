@@ -6,7 +6,6 @@
 	<packaging>pom</packaging>
 	<name>alrr-core</name>
 	<groupId>br.leg.rr.al.core</groupId>
-	<version>1.0.0-SNAPSHOT</version>
 	<organization>
 		<name>Assembleia Legislativa de Roraima</name>
 		<url>https://www.al.rr.leg.br</url>
@@ -14,7 +13,7 @@
 	<parent>
 		<groupId>br.leg.rr.al</groupId>
 		<artifactId>alrr-bibliotecas</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<developers>
 		<developer>
