@@ -12,6 +12,7 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -30,7 +31,12 @@
 -->
 <o:methodParam name="method" value="#{action}" />
 
-<p:commandButton id="btn-novo" value="#{value}" title="#{title}"
+<!-- solução temporaria para atribuir valor ao id. Tem que ver se funciona mesmo. -->
+<c:if test="${ empty id }">
+	<c:set var="id" value="btn-novo" />
+</c:if>
+
+<p:commandButton id="#{id}" value="#{value}" title="#{title}"
 	icon="#{core['btn.novo.icon']}" tabindex="#{tabindex}"
 	styleClass="#{core['btn.novo.styleClass']}" action="#{method}"
 	oncomplete="#{oncomplete}" update="#{update}" process="#{process}" />
