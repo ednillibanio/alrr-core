@@ -38,7 +38,7 @@ public abstract class ViewControllerEntityStatus<T extends EntityStatus<ID>, ID 
 	 * Campo utilizado pelo método {@link #pesquisar()}. Ele pode ser utilizado ou
 	 * chamado dentro do método secundário {@link #prePesquisar()}.
 	 */
-	private Map<String, Object> filtros;
+	protected Map<String, Object> filtros;
 
 	/**
 	 * Método secundário chamado pelo método {@link #preSalvar() } que preenche uma

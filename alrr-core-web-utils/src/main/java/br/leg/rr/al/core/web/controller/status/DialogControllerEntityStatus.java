@@ -39,15 +39,15 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 	private String detalhesDialogName;
 
 	/**
-	 * Campo utilizado pelo método {@link #pesquisar()}. Ele pode ser utilizado ou
-	 * chamado dentro do método secundário {@link #prePesquisar()}.
-	 */
-	private Map<String, Object> filtros;
-
-	/**
 	 * Informe o valor da variavel 'widgetVar' do Dialogo Novo.
 	 */
 	private String novoDialogName;
+
+	/**
+	 * Campo utilizado pelo método {@link #pesquisar()}. Ele pode ser utilizado ou
+	 * chamado dentro do método secundário {@link #prePesquisar()}.
+	 */
+	protected Map<String, Object> filtros;
 
 	public DialogControllerEntityStatus() {
 		setEntity(createEntity());
@@ -512,14 +512,6 @@ public class DialogControllerEntityStatus<T extends EntityStatus<ID>, ID extends
 
 	public void setPainelGeralName(String painelGeralName) {
 		this.painelGeralName = painelGeralName;
-	}
-
-	public Map<String, Object> getFiltros() {
-		return filtros;
-	}
-
-	public void setFiltros(Map<String, Object> filtros) {
-		this.filtros = filtros;
 	}
 
 }
