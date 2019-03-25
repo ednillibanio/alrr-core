@@ -17,13 +17,12 @@ public class CrudViewControllerEntityStatus<T extends EntityStatus<ID>, ID exten
 	private static final long serialVersionUID = 1203944215885392305L;
 
 	/**
-	 * Cria uma nova entiade e chama a próxima view.
+	 * Chama a próxima view.
 	 * 
 	 * @return ActionStatusType.NOVO
 	 */
 	@Override
 	public String novo() {
-		setEntity(createEntity());
 		return NavigationOutcomeDefault.NOVO.toString();
 	}
 
