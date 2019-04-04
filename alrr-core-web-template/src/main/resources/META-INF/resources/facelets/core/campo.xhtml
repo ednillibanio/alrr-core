@@ -14,7 +14,15 @@
 	name="campo">
 
 	<cc:attribute name="panelgroupId" displayName="panelgroupId"
+		default="campo"
 		shortDescription="Informe o Id do componente panelGroup." />
+
+	<cc:attribute name="panelGroupStyleClass"
+		displayName="panelGroupStyleClass"
+		shortDescription="Informa o styleClass do componente panelGroup" />
+
+	<cc:attribute name="rendered" displayName="rendered"
+		shortDescription="Indica se o panelGroup deve ser rendered ou não" />
 
 	<cc:attribute name="value" displayName="value"
 		shortDescription="Informe o valor do label do campo." />
@@ -31,7 +39,9 @@
 <cc:implementation>
 
 
-	<h:panelGroup i="#{cc.attrs.panelgroupId}">
+	<h:panelGroup id="#{cc.attrs.panelgroupId}"
+		styleClass="#{cc.attrs.panelGroupStyleClass}"
+		rendered="#{cc.attrs.rendered}">
 
 		<p:outputLabel value="#{cc.attrs.value}" for="#{cc.attrs.for}"
 			title="#{cc.attrs.title}" />
