@@ -1,9 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
+	xmlns:o="http://omnifaces.org/ui" id="page">
 
 <f:view encoding="UTF-8">
 
@@ -18,24 +23,36 @@
 
 		<h:outputScript name="nanoscroller.js" library="js" />
 		<h:outputScript name="layout.js" library="js" />
+		<h:outputScript name="form.js" library="js" />
 		<h:outputScript name="primefaces_pt_br.js" library="js" />
+		<h:outputScript library="js" name="contextMenu.js" />
 
 		<ui:insert name="head">
 			<title>Assembleia Legislativa de Roraima</title>
 		</ui:insert>
 	</h:head>
 
-	<h:body styleClass="main-body #{guestPreferences.menuLayout}">
+
+
+	<h:body id="body" styleClass="main-body">
+
 
 		<div class="wrapper">
+
+
+			<!-- HEADER -->
 			<ui:include src="topbar.xhtml" />
 
 			<ui:insert name="sidebar">
 				<ui:include src="sidebar.xhtml" />
 			</ui:insert>
 
+			<!--  D I V   C O N T E N T  -->
 			<div class="main">
-				<ui:insert name="content" />
+				<ui:insert name="content">
+					<!-- DIV DO CONTENT -->
+					<ui:include src="new-content.xhtml" />
+				</ui:insert>
 			</div>
 
 			<ui:include src="footer.xhtml" />
@@ -57,6 +74,8 @@
 		<h:outputStylesheet name="nanoscroller.css" library="css" />
 		<h:outputStylesheet name="layout.css" library="css" />
 		<h:outputStylesheet name="alrr.css" library="css" />
+
 	</h:body>
+
 </f:view>
 </html>
