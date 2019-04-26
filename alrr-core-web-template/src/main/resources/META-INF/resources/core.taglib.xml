@@ -312,6 +312,10 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <tag-name>botao-remover</tag-name>
   <source>tags/br/leg/al/rr/core/facelets/botoes/botao-remover.xhtml</source>
   <attribute>
+   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+   <name>id</name>
+  </attribute>
+  <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
    <method-signature>java.lang.String action()</method-signature>

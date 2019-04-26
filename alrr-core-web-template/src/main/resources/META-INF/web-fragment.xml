@@ -107,30 +107,48 @@
 		<filter-name>facesExceptionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.omnifaces.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<error-page>
 		<error-code>401</error-code>
 		<location>/access-denied.xhtml</location>
 	</error-page>
+
+
 	<error-page>
 		<error-code>403</error-code>
 		<location>/access-denied.xhtml</location>
 	</error-page>
+
+
 	<!-- NOT FOUND -->
 	<error-page>
 		<error-code>404</error-code>
 		<location>/404.xhtml</location>
 	</error-page>
+
+
 	<!-- INTERNAL SERVER ERROR -->
 	<error-page>
 		<error-code>500</error-code>
 		<location>/500.xhtml</location>
 	</error-page>
 
+
 	<!-- SERVIÇO INDISPONÍVEL -->
 	<error-page>
 		<error-code>503</error-code>
 		<location>/503.xhtml</location>
 	</error-page>
+
+
 	<error-page>
 		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
 		<location>/sessao-expirada.xhtml</location>

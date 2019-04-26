@@ -12,6 +12,7 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -29,8 +30,10 @@
 	do método.
 -->
 <o:methodParam name="method" value="#{action}" />
-
-<p:commandButton id="btn-remover" value="#{core['btn.remover.value']}"
+<c:if test="${ empty id }">
+	<c:set var="id" value="btn-salvar" />
+</c:if>
+<p:commandButton id="#{id}" value="#{core['btn.remover.value']}"
 	title="#{core['btn.remover.title']}" icon="#{core['btn.remover.icon']}"
 	styleClass="#{core['btn.remover.styleClass']}"
 	oncomplete="#{oncomplete}" update="#{update}" action="#{method}"
