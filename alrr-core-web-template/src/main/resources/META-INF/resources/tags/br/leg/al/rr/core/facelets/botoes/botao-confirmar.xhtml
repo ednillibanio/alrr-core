@@ -12,6 +12,7 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -30,8 +31,12 @@
 -->
 <o:methodParam name="method" value="#{action}" />
 
-<p:commandButton id="btn-confirmar" value="#{core['btn.confirmar.value']}"
-	title="#{core['btn.confirmar.title']}" icon="#{core['btn.confirmar.icon']}"
+<c:if test="${ empty id }">
+	<c:set var="id" value="btn-confirmar" />
+</c:if>
+<p:commandButton id="#{id}" value="#{core['btn.confirmar.value']}"
+	title="#{core['btn.confirmar.title']}"
+	icon="#{core['btn.confirmar.icon']}"
 	styleClass="#{core['btn.confirmar.styleClass']}"
 	validateClient="#{validateClient}" update="#{update}"
 	action="#{method}" process="#{process}" />
