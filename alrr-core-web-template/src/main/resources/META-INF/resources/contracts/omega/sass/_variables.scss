@@ -139,3 +139,16 @@ $borderRadius:3px;
     transition:         $transition;
 }
 
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model;
+    -moz-box-sizing: $box-model;
+    box-sizing: $box-model;
+}
+
+@mixin translateX($val) {
+    -webkit-transform: translateX($val);
+    -moz-transform: translateX($val);
+    -o-transform: translateX($val);
+    -ms-transform: translateX($val);
+    transform: translateX($val);
+}

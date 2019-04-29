@@ -28,8 +28,7 @@
 <cc:implementation>
 	<o:importConstants type="br.leg.rr.al.core.domain.StatusType" />
 	<p:selectOneButton id="#{cc.attrs.id}" value="#{cc.attrs.value}"
-		required="#{cc.attrs.required}"
-		converter="omnifaces.GenericEnumConverter">
+		required="#{cc.attrs.required}">
 		<f:selectItem itemValue="#{StatusType.ATIVO}"
 			itemLabel="#{StatusType.ATIVO.label}" />
 		<f:selectItem itemLabel="#{StatusType.INATIVO.label}"

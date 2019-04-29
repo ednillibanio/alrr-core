@@ -2348,7 +2348,7 @@ h2 {
 .landing-wrapper #introduction {
   padding-top: 80px;
   height: 623px;
-  background-image: url("#{resource['images/landing/section1_bg.jpg']}");
+  background-image: url("#{resource['omega-layout:images/landing/section1_bg.jpg']}");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3490,6 +3490,98 @@ body .ui-inputgroup .ui-inputgroup-addon-checkbox {
     left: 50%;
     margin-top: -9px;
     margin-left: -9px; }
+
+body .p-datepicker-panel {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden; }
+  body .p-datepicker-panel .ui-datepicker-group {
+    border: 0 none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0; }
+  body .p-datepicker-panel .ui-datepicker-header .ui-datepicker-prev,
+  body .p-datepicker-panel .ui-datepicker-header .ui-datepicker-next {
+    outline: 0 none; }
+  body .p-datepicker-panel table td a:hover {
+    background: #eeeeee; }
+  body .p-datepicker-panel table td a.ui-state-active {
+    background: #186ba0 !important;
+    filter: none !important;
+    color: #FFFFFF !important; }
+  body .p-datepicker-panel table td a, body .p-datepicker-panel table td span {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  body .p-datepicker-panel table td.ui-datepicker-today a {
+    text-shadow: 1px 1px 1px #156090; }
+  body .p-datepicker-panel.ui-datepicker-multiple-month .ui-datepicker-group {
+    width: 17em; }
+    body .p-datepicker-panel.ui-datepicker-multiple-month .ui-datepicker-group .ui-datepicker-calendar-container {
+      padding: 0 5px; }
+  body .p-datepicker-panel.ui-datepicker-monthpicker .ui-monthpicker .ui-monthpicker-month {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    body .p-datepicker-panel.ui-datepicker-monthpicker .ui-monthpicker .ui-monthpicker-month:hover {
+      background: #eeeeee; }
+    body .p-datepicker-panel.ui-datepicker-monthpicker .ui-monthpicker .ui-monthpicker-month.ui-state-active {
+      background: #186ba0 !important;
+      filter: none !important;
+      color: #FFFFFF !important; }
+  body .p-datepicker-panel .ui-timepicker.ui-widget-header {
+    font-weight: normal;
+    border-top: 1px solid #d9d9d9; }
+    body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-up {
+      color: #1b1d1f;
+      cursor: pointer;
+      background-image: none !important;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-indent: 0px !important;
+      text-align: center;
+      display: block;
+      margin-bottom: .2em; }
+      body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-up:before {
+        content: ""; }
+      body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-up span {
+        display: none; }
+    body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-down {
+      color: #1b1d1f;
+      cursor: pointer;
+      background-image: none !important;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-indent: 0px !important;
+      text-align: center;
+      display: block;
+      margin-top: .2em; }
+      body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-down:before {
+        content: ""; }
+      body .p-datepicker-panel .ui-timepicker.ui-widget-header .ui-picker-down span {
+        display: none; }
+  body .p-datepicker-panel .ui-datepicker-buttonbar {
+    border: 0 none;
+    border-top: 1px solid #d9d9d9; }
+    body .p-datepicker-panel .ui-datepicker-buttonbar .ui-button {
+      width: auto; }
+      body .p-datepicker-panel .ui-datepicker-buttonbar .ui-button:focus, body .p-datepicker-panel .ui-datepicker-buttonbar .ui-button:hover {
+        border: 1px solid #156090;
+        background: #1f89ce;
+        outline: 0 none; }
+
+.ui-dataview .ui-dataview-header .ui-dataview-layout-options .ui-button-icon-only {
+  width: 2.5em; }
 
 /* Add your customizations of theme here */
 /* Add your customizations of layout here */

@@ -898,3 +898,136 @@ body {
         }
     }
 }
+
+// datepicker
+body {
+    .p-datepicker-panel {
+        @include border-radius($borderRadius);
+        overflow: hidden;
+
+        .ui-datepicker-group {
+            border: 0 none;
+            @include border-radius(0);
+        }
+
+        .ui-datepicker-header {
+            .ui-datepicker-prev, 
+            .ui-datepicker-next {
+                outline: 0 none;
+            }
+        }
+
+        table {
+            td {
+                a {
+                    &:hover {
+                        background: #eeeeee;
+                    }
+
+                    &.ui-state-active {
+                        background: #186ba0 !important;
+                        filter: none !important;
+                        color: #FFFFFF !important;
+                    }
+                }
+
+                a,span {
+                    width: 100%;
+                    @include box-sizing(border-box);
+                }
+
+                &.ui-datepicker-today {
+                    a {
+                        text-shadow: 1px 1px 1px #156090;
+                    }
+                }
+            }
+        }
+
+        &.ui-datepicker-multiple-month {            
+            .ui-datepicker-group {
+                width: 17em;
+                
+                .ui-datepicker-calendar-container {
+                    padding: 0 5px;
+                }
+            }
+        }
+        
+        &.ui-datepicker-monthpicker {
+            .ui-monthpicker {
+                .ui-monthpicker-month {
+                    @include box-sizing(border-box);
+                    
+                    &:hover {
+                        background: #eeeeee;
+                    }
+
+                    &.ui-state-active {
+                        background: #186ba0 !important;
+                        filter: none !important;
+                        color: #FFFFFF !important;
+                    }
+                }
+            }
+        }
+        
+        .ui-timepicker {
+            &.ui-widget-header {
+                font-weight: normal;
+                border-top: 1px solid #d9d9d9;
+
+                .ui-picker-up {
+                    color: #1b1d1f;
+                    cursor: pointer;
+                    @include icon_override("\f077");
+                    display: block;
+                    margin-bottom: .2em;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                .ui-picker-down {
+                    color: #1b1d1f;
+                    cursor: pointer;
+                    @include icon_override("\f078");
+                    display: block;
+                    margin-top: .2em;
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+        
+        .ui-datepicker-buttonbar {
+            border: 0 none;
+            border-top: 1px solid #d9d9d9;
+            
+            .ui-button {
+                width: auto;
+                
+                &:focus,
+                &:hover {
+                    border: 1px solid #156090;
+                    background: #1f89ce;
+                    outline: 0 none;
+                }
+            }
+        }
+    }
+}
+
+// dataview
+.ui-dataview {
+    .ui-dataview-header {
+        .ui-dataview-layout-options {
+            .ui-button-icon-only {
+                width: 2.5em;
+            }
+        }
+    }
+}

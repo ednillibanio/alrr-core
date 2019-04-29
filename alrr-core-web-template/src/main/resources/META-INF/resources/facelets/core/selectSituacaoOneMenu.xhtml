@@ -31,9 +31,7 @@
 <cc:implementation>
 	<o:importConstants type="br.leg.rr.al.core.domain.StatusType" />
 	<p:selectOneMenu id="#{cc.attrs.id}" value="#{cc.attrs.value}"
-		required="#{cc.attrs.required}"
-		converter="omnifaces.GenericEnumConverter"
-		tabindex="#{cc.attrs.tabindex}">
+		required="#{cc.attrs.required}" tabindex="#{cc.attrs.tabindex}">
 		<f:selectItem noSelectionOption="true" itemLabel="[Selecione]"
 			itemValue="" />
 		<f:selectItem itemValue="#{StatusType.ATIVO}"
