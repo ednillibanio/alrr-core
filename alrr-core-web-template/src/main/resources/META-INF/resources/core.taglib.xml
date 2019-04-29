@@ -281,6 +281,10 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
    <description>Atributo que preenche o atributo validateClient do componente commandBunton do primefaces.</description>
    <name>validateClient</name>
   </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+   <name>onclick</name>
+  </attribute>
  </tag>
  <tag>
   <description>Este componente implementa o commandButton do primefaces. Pode seer usado para adicionar uma entidade filha a uma entidade pai, por exemplo. Ou adicinoar uma entidade numa lista de entidades.</description>
@@ -311,6 +315,10 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <description>Este componente implementa o commandButton do primefaces. Pode ser usado para remover uma entidade filha a uma entidade pai, por exemplo. Ou remover uma entidade numa lista de entidades.</description>
   <tag-name>botao-remover</tag-name>
   <source>tags/br/leg/al/rr/core/facelets/botoes/botao-remover.xhtml</source>
+  <attribute>
+   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+   <name>id</name>
+  </attribute>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>

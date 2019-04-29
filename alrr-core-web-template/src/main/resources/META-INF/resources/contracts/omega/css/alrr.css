@@ -176,6 +176,15 @@
 	color: red;
 }
 
+.al-label {
+	align-items: center;
+	display: flex;
+}
+
+.al-campo-row {
+	margin-top: 2% !important;
+}
+
 span.info {
 	font-size: 76%;
 }
@@ -278,7 +287,7 @@ span.info {
 }
 
 .al-primeira-linha {
-	margin-top: 1%;
+	margin-top: 3%;
 }
 
 .panel {

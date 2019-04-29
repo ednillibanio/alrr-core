@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+/****************************************************************************************
+* ALE-RR Licença																		*
+* Copyright (C) 2018, ALE-RR															*
+* Boa Vista, RR - Brasil																*
+* Todos os direitos reservados.															*
+* 																						*
+* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
+* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+*																						*
+*																						*
+*****************************************************************************************
+* @author	Ednil Libanio da Costa Junior												*
+* @since 	1.0.0 																		*
+****************************************************************************************/
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
+	xmlns:o="http://omnifaces.org/ui">
+
+<p:dialog id="#{dlgid}" widgetVar="#{widgetVar}" showEffect="clip"
+	hideEffect="clip" closeOnEscape="true" showHeader="true"
+	responsive="true" modal="true" resizable="false" closable="false"
+	appendTo="@(body)" header="#{panelheader}"
+	styleClass="#{empty styleClass ? 'ui-fluid ui-md-8 ui-lg-8 nopad al-dialog' : styleClass}"
+	fitViewport="true">
+
+
+	<p:panel>
+		<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
+			columns="#{columns}" columnClasses="column" cellpadding="10"
+			styleClass="ui-panelgrid-blank" layout="grid">
+
+			<ui:insert name="dialog-content" />
+
+		</p:panelGrid>
+
+
+		<!--   R O D A P É   D O   D I A L O G   -->
+		<f:facet name="footer">
+
+			<ui:insert name="dialog-footer">
+
+				<p:panelGrid columns="2" layout="grid"
+					styleClass="ui-panelgrid-blank">
+
+					<h:panelGroup>
+							  <!-- B O T Ã O:   F E C H A R -->  
+							<ui:insert name="btn-esquerda" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+							 <!--  B O T Ã O:   S A L V A R   -->
+							<ui:insert name="btn-direita" />
+					</h:panelGroup>
+
+				</p:panelGrid>
+
+			</ui:insert>
+
+		</f:facet>
+
+	</p:panel>
+
+</p:dialog>
+</html>
