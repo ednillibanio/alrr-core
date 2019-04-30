@@ -34,18 +34,36 @@
 	fitViewport="true">
 
 
-	<p:panel>
-		<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
-			columns="#{columns}" columnClasses="column" cellpadding="10"
-			styleClass="ui-panelgrid-blank" layout="grid">
+	<!-- <p:panel> -->
+	<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
+		columns="#{columns}" columnClasses="#{columnClasses}"
+		styleClass="ui-panelgrid-blank" layout="grid">
 
-			<ui:insert name="dialog-content" />
+		<ui:insert name="dialog-content" />
 
-		</p:panelGrid>
+	</p:panelGrid>
 
 
-		<!--   R O D A P É   D O   D I A L O G   -->
-		<f:facet name="footer">
+	<div class="ui-g ui-fluid">
+		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
+
+		<!-- BOTÃO QUE FICA DO LADO ESQUERDO DO PANEL -->
+		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+			<!-- B O T Ã O:   F E C H A R -->
+			<ui:insert name="btn-esquerda" />
+		</div>
+
+		<!-- BOTÃO QUE FICA DO LADO DIREITO DO PANEL -->
+		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+			<!-- B O T Ã O:   S A L V A R -->
+			<ui:insert name="btn-direita" />
+		</div>
+
+		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
+	</div>
+
+	<!--   R O D A P É   D O   D I A L O G   -->
+	<!-- <f:facet name="footer">
 
 			<ui:insert name="dialog-footer">
 
@@ -53,13 +71,13 @@
 					styleClass="ui-panelgrid-blank">
 
 					<h:panelGroup>
-							  <!-- B O T Ã O:   F E C H A R -->  
-							<ui:insert name="btn-esquerda" />
+						B O T Ã O:   F E C H A R
+						<ui:insert name="btn-esquerda" />
 					</h:panelGroup>
 
 					<h:panelGroup>
-							 <!--  B O T Ã O:   S A L V A R   -->
-							<ui:insert name="btn-direita" />
+						 B O T Ã O:   S A L V A R  
+						<ui:insert name="btn-direita" />
 					</h:panelGroup>
 
 				</p:panelGrid>
@@ -69,6 +87,6 @@
 		</f:facet>
 
 	</p:panel>
-
+ -->
 </p:dialog>
 </html>
