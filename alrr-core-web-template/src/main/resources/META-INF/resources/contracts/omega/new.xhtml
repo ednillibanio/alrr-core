@@ -41,7 +41,9 @@
 
 
 			<!--  T O P B A R  -->
-			<ui:include src="topbar.xhtml" />
+			<ui:insert name="topbar">
+				<ui:include src="topbar.xhtml" />
+			</ui:insert>
 
 			<!--  S I D E B A R  -->
 			<ui:insert name="sidebar">
@@ -50,10 +52,27 @@
 
 			<!--  D I V   C O N T E N T  -->
 			<div class="main">
-				<ui:insert name="content">
-					<!-- DIV DO CONTENT -->
-					<ui:include src="new-content.xhtml" />
-				</ui:insert>
+				<div class="ui-g ui-responsive">
+
+
+					<!-- ESPAÇAMENTO DO LADO ESQUERDO -->
+					<div class="ui-lg-1 ui-xl-2 ui-g-nopad" />
+
+
+					<!-- M A I N -->
+					<div class="card ui-g-12 ui-lg-10 ui-xl-8 ui-g-nopad">
+
+
+						<!--  F O R M   C O N T E N T  -->
+						<ui:insert name="content" />
+
+
+					</div>
+
+
+					<!-- ESPAÇAMENTO DO LADO DIREITO -->
+					<div class="ui-lg-1 ui-xl-2" />
+				</div>
 			</div>
 
 			<ui:include src="footer.xhtml" />
