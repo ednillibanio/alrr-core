@@ -422,7 +422,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
   <attribute>
    <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
    <name>update</name>
-   <required>true</required>
+   <required>false</required>
    <type>java.lang.String</type>
   </attribute>
   <attribute>
@@ -447,6 +447,10 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
   <attribute>
    <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
    <name>onclick</name>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
+   <name>icon</name>
   </attribute>
  </tag>
  <tag>
@@ -638,5 +642,63 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <tag-name>dialog-confirmar</tag-name>
   <source>tags/br/leg/al/rr/core/facelets/dialogs/dlg-confirmar.xhtml</source>
+ </tag>
+ <tag>
+  <description>Este componente implementa o commandButton do primefaces
+Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma nova entidade.</description>
+  <tag-name>botao-preencher</tag-name>
+  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-preencher.xhtml</source>
+  <attribute>
+   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+   <name>id</name>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
+   <name>value</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
+   <name>title</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+   <name>action</name>
+   <method-signature>java.lang.String action()</method-signature>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+   <name>update</name>
+   <required>false</required>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+   <name>process</name>
+   <type>java.lang.String</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+   <name>oncomplete</name>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo styleClass do componente commandBunton do primefaces.</description>
+   <name>styleClass</name>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo html tabindex.</description>
+   <name>tabindex</name>
+   <required>false</required>
+   <type>java.lang.Integer</type>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+   <name>onclick</name>
+  </attribute>
+  <attribute>
+   <description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
+   <name>icon</name>
+  </attribute>
  </tag>
 </facelet-taglib>

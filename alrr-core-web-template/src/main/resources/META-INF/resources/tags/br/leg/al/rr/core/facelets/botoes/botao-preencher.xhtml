@@ -33,10 +33,10 @@
 
 <!-- solução temporaria para atribuir valor ao id. Tem que ver se funciona mesmo. -->
 <c:if test="${ empty id }">
-	<c:set var="id" value="btn-novo" />
+	<c:set var="id" value="btn-preencher" />
 </c:if>
 <c:if test="${ empty styleClass }">
-	<c:set var="styleClass" value="#{core['btn.novo.styleClass']}" />
+	<c:set var="styleClass" value="#{core['btn.preencher.styleClass']}" />
 </c:if>
 
 <p:commandButton id="#{id}" value="#{value}" title="#{title}"
