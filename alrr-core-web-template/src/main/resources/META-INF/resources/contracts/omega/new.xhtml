@@ -74,8 +74,9 @@
 					<div class="ui-lg-1 ui-xl-2" />
 				</div>
 			</div>
-
-			<ui:include src="footer.xhtml" />
+			<ui:insert name="footer">
+				<ui:include src="footer.xhtml" />
+			</ui:insert>
 		</div>
 
 		<p:ajaxStatus
