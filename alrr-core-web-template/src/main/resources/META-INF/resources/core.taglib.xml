@@ -6,7 +6,7 @@
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para editar os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-editar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-editar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-editar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -28,7 +28,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para excluir entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-excluir</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-excluir.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-excluir.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -50,7 +50,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para exibir os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-detalhes</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-detalhes.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-detalhes.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -72,7 +72,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para atualizar/refresh os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-renovar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-renovar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-renovar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -93,7 +93,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para ativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-ativar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-ativar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-ativar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -118,7 +118,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para desativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
   <tag-name>menuitem-desativar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/menuitems/menuitem-desativar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-desativar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
    <name>action</name>
@@ -143,7 +143,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para limpar os campos de um formulário de uma view ou de um dialog.</description>
   <tag-name>botao-limpar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-limpar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-limpar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -159,7 +159,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para pesquisr as entidades que satisfaçam os valores dos filtros informados.</description>
   <tag-name>botao-pesquisar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-pesquisar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-pesquisar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -186,7 +186,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. Geralmente é usado para cancelar uma transação.</description>
   <tag-name>botao-cancelar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-cancelar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-cancelar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
    <name>oncomplete</name>
@@ -204,7 +204,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para confirmar uma operação.</description>
   <tag-name>botao-confirmar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-confirmar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-confirmar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>
@@ -233,7 +233,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. Geralmente é usado para fechar um dialog.</description>
   <tag-name>botao-fechar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-fechar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-fechar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>
@@ -249,8 +249,6 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <attribute>
    <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
    <name>process</name>
-   <required>false</required>
-   <type>java.lang.String</type>
   </attribute>
   <attribute>
    <description>Atributo que preenche o atributo outcome do componente commandBunton do primefaces.</description>
@@ -260,7 +258,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para salvar os valores preenchidos nos formulário. Serve tanto para uma nova entidade quanto para manutenção dos dados existentes.</description>
   <tag-name>botao-salvar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-salvar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-salvar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>
@@ -293,7 +291,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. Pode seer usado para adicionar uma entidade filha a uma entidade pai, por exemplo. Ou adicinoar uma entidade numa lista de entidades.</description>
   <tag-name>botao-adicionar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-adicionar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-adicionar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -318,7 +316,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. Pode ser usado para remover uma entidade filha a uma entidade pai, por exemplo. Ou remover uma entidade numa lista de entidades.</description>
   <tag-name>botao-remover</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-remover.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-remover.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>
@@ -347,7 +345,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para confirmar alguma ação.</description>
   <tag-name>botao-sim</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-sim.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-sim.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -381,7 +379,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
  <tag>
   <description>Este componente implementa o commandButton do primefaces.</description>
   <tag-name>botao-nao</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-nao.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-nao.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
    <name>oncomplete</name>
@@ -399,7 +397,7 @@ Geralmente o usa no contextmenu que é usado no datatable do resultado da pesqui
   <description>Este componente implementa o commandButton do primefaces
 Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma nova entidade.</description>
   <tag-name>botao-novo</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-novo.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-novo.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>
@@ -457,7 +455,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
   <description>Este componente implementa o commandButton do primefaces
 É usado para atualizar os dados na view.</description>
   <tag-name>botao-renovar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-renovar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-renovar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -494,7 +492,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para transformar a primeira letra de cada palavra em maiúscula.</description>
   <tag-name>botao-capitalizar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-capitalizar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-capitalizar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
    <name>update</name>
@@ -514,7 +512,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para atualizar os valores de uma entidade.</description>
   <tag-name>botao-atualizar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-atualizar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-atualizar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
    <name>action</name>
@@ -535,7 +533,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <description>Este componente implementa o blockUI do primefaces. É usado para bloquear a tela e notificar que a operação está sendo executada. Enquanto estiver executando a operação, o componente informado para ser bloqueado, ficará inacessível.</description>
   <tag-name>ajax-loading</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/ajax-loading.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/ajax-loading.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo block do componente blockUI do primefaces.</description>
    <name>block</name>
@@ -550,7 +548,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <description>Este componente implementa o validateOneOrMore do omnifaces É usado para informar que pelo menos um campo deve ser preenchido.</description>
   <tag-name>validateOneOrMore</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/validateOneOrMore.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/validateOneOrMore.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo components do componente.</description>
    <name>components</name>
@@ -560,7 +558,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  <tag>
   <description>Este componente implementa o commandButton do primefaces. É usado para funcionalidades de importação.</description>
   <tag-name>botao-importar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-importar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-importar.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
    <name>update</name>
@@ -593,7 +591,7 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  </tag>
  <tag>
   <tag-name>dialog-processar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/dialogs/dlg-processar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-processar.xhtml</source>
   <attribute>
    <description>Preenche o atributo widgetVar do dialog processar.</description>
    <name>dlgWidgetVar</name>
@@ -641,13 +639,13 @@ Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma no
  </tag>
  <tag>
   <tag-name>dialog-confirmar</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/dialogs/dlg-confirmar.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-confirmar.xhtml</source>
  </tag>
  <tag>
   <description>Este componente implementa o commandButton do primefaces
 Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma nova entidade.</description>
   <tag-name>botao-preencher</tag-name>
-  <source>tags/br/leg/al/rr/core/facelets/botoes/botao-preencher.xhtml</source>
+  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-preencher.xhtml</source>
   <attribute>
    <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
    <name>id</name>

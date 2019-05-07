@@ -13,6 +13,10 @@
 	<!-- <context-param> <param-name>javax.faces.CONFIG_FILES</param-name> <param-value>/WEB-INF/lib/alrr-core-web-template-1.0.0.jar/META-INF/alrr-core-web-config.xml</param-value> 
 		</context-param> -->
 	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/core.taglib.xml</param-value>
+	</context-param>
+	<context-param>
 		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
 		<param-value>true</param-value>
 	</context-param>

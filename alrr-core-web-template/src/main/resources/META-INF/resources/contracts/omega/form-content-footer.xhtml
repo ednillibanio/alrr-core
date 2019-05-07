@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
-	xmlns:o="http://omnifaces.org/ui" id="form-footer">
+	xmlns:o="http://omnifaces.org/ui">
 
-<div class="ui-g ui-fluid" style="margin-top: 3% !important">
-	<div class="ui-md-2 ui-lg-3 ui-xl-4" />
+	<div class="ui-g ui-fluid" style="margin-top: 3% !important">
+		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
 
-	<!-- BOTÃO QUE FICA DO LADO ESQUERDO DO PANEL -->
-	<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
-		<ui:insert name="btn-esq" />
+		<!-- BOTÃO QUE FICA DO LADO ESQUERDO DO PANEL -->
+		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+			<!-- <ui:insert name="btn-esq" /> -->
+		</div>
+
+		<!-- BOTÃO QUE FICA DO LADO DIREITO DO PANEL -->
+		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+			<!-- <ui:insert name="btn-dir" /> -->
+		</div>
+
+		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
 	</div>
-
-	<!-- BOTÃO QUE FICA DO LADO DIREITO DO PANEL -->
-	<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
-		<ui:insert name="btn-dir" />
-	</div>
-
-	<div class="ui-md-2 ui-lg-3 ui-xl-4" />
-</div>
-</html>
+</ui:composition>
