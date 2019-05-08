@@ -43,7 +43,7 @@
 			</header>
 
 
-			<!--  D I V   M E N U  -->
+			<!--  UI:INSERT   M E N U  -->
 			<aside class="ui-g-12 ui-md-12 ui-lg-2 ui-g-nopad al-default-menu">
 				<ui:insert name="menu">
 					<ui:include src="menu.xhtml" />
@@ -98,12 +98,15 @@
 				<!--  D I V   F O O T E R  -->
 				<footer class="ui-g-12 ui-md-12 ui-lg-12 al-default-footer">
 					<p:separator />
-					<ui:include src="footer.xhtml" />
+					<ui:insert name="footer">
+						<ui:include src="footer.xhtml" />
+					</ui:insert>
 					<h:outputScript library="js" name="contextMenu.js" />
 					<h:outputScript library="js" name="form.js" />
-					<ui:insert name="js-footer">
-						<!-- inserção de java scripts. -->
-					</ui:insert>
+					<!-- inserção de java scripts. -->
+					<ui:insert name="js-footer" />
+
+
 				</footer>
 
 			</div>
