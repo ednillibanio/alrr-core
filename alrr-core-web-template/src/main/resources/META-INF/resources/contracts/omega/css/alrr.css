@@ -374,6 +374,10 @@ span.info {
 	font-size: 90%;
 }
 
+.fa.al-red::before {
+	color: red !important;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media ( min-width : 576px) {
 }
