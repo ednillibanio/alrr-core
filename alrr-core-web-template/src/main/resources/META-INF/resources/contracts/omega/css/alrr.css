@@ -374,9 +374,30 @@ span.info {
 	font-size: 90%;
 }
 
-.fa.al-red::before {
-	color: red !important;
+.fa.al-gray, .fa.al-red, .fa.al-blue, .fa.al-green {
+	font-size: 1.25em;
 }
+
+.fa.al-gray::before, .fa.al-red::before, .fa.al-blue::before, .fa.al-green::before
+	{
+	padding-right: 7px;
+}
+
+.fa.al-gray::before {
+	color: #CCCFD2 !important;
+}
+
+.fa.al-red::before {
+	color: #b8312e !important;
+}
+
+.fa.al-blue::before {
+	color: #1f3b59 !important;
+}
+
+.fa.al-green::before {
+	color: #1f9e53 !important;
+}all
 
 /* Small devices (landscape phones, 576px and up) */
 @media ( min-width : 576px) {
