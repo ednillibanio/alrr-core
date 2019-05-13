@@ -397,9 +397,17 @@ span.info {
 
 .fa.al-green::before {
 	color: #1f9e53 !important;
-}all
+}
 
-/* Small devices (landscape phones, 576px and up) */
+all /* Small devices (landscape phones, 576px and up) */
+
+
+
+
+
+
+
+
 @media ( min-width : 576px) {
 }
 

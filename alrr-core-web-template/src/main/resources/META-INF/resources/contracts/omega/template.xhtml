@@ -28,7 +28,11 @@
 	<h:body styleClass="main-body #{guestPreferences.menuLayout}">
 
 		<div class="wrapper">
-			<ui:include src="topbar.xhtml" />
+
+			<!--  T O P   B A R  -->
+			<ui:insert name="topbar">
+				<ui:include src="topbar.xhtml" />
+			</ui:insert>
 
 			<ui:insert name="sidebar">
 				<ui:include src="sidebar.xhtml" />
