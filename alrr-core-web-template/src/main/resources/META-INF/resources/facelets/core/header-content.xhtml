@@ -1,29 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!--
+/****************************************************************************************
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
+****************************************************************************************/
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:al="http://xmlns.jcp.org/jsf/composite/facelets/core">
 
-<!--  tem que deixar mesmo vazio. Senão gera erro. -->
-<cc:interface>
+	<!--  tem que deixar mesmo vazio. Senão gera erro. -->
+	<cc:interface>
 
-</cc:interface>
+	</cc:interface>
 
-<cc:implementation>
+	<cc:implementation>
 
-	<div class="ui-g nopad" id="manual">
+		<div class="ui-g nopad" id="manual">
 
-		<div class="ui-g-12 ui-g-nopad">
-			<p:commandLink id="lnkInfo" onclick="PF('manualWV').show();"
-				process="@none" styleClass="fa fa-info-circle fa-lg fa-4x"
-				style="font-size:48px; float: right" />
+			<div class="ui-g-12 ui-g-nopad">
+				<p:commandLink id="lnkInfo" onclick="PF('manualWV').show();"
+					process="@none" styleClass="fa fa-info-circle fa-lg fa-4x"
+					style="font-size:48px; float: right" />
+			</div>
+			<al:manual-dialog header="MANUAL DO USUÁRIO" widgetVar="manualWV">
+				<cc:insertChildren />
+			</al:manual-dialog>
+
 		</div>
-		<al:manual-dialog header="MANUAL DO USUÁRIO" widgetVar="manualWV">
-			<cc:insertChildren />
-		</al:manual-dialog>
+	</cc:implementation>
 
-	</div>
-</cc:implementation>
 
-</html>
+</ui:composition>

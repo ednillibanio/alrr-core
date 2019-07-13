@@ -2,21 +2,11 @@
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
-* 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
-*																						*
-*																						*
-*****************************************************************************************
-* Autor:  Ednil Libanio da Costa Junior													*
-* Versão: 1.0.0 																		*
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
 ****************************************************************************************/
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -25,60 +15,54 @@
 	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:alcore="http://al.rr.leg.br/facelets/core"
-	xmlns:o="http://omnifaces.org/ui" lang="pt-br" id="page">
+	xmlns:o="http://omnifaces.org/ui">
 
-<!--
-/****************************************************************************************
-* Autor: Ednil Libanio da Costa Junior													*
-* Data: 29-08-2018																		*
-* 																						*
-*																						*
-****************************************************************************************/ 
--->
-<cc:interface displayName="confirm-dialog"
-	shortDescription="Dialogo de confirmação" name="campo">
-	<cc:attribute name="update" displayName="value"
-		shortDescription="Informe o valor do label do campo." />
+	<cc:interface displayName="confirm-dialog"
+		shortDescription="Dialogo de confirmação" name="campo">
+		<cc:attribute name="update" displayName="value"
+			shortDescription="Informe o valor do label do campo." />
 
-	<cc:attribute name="controller" displayName="controller"
-		shortDescription="Informe o controller da operação." />
+		<cc:attribute name="controller" displayName="controller"
+			shortDescription="Informe o controller da operação." />
 
-	<cc:attribute name="message" displayName="message"
-		shortDescription="Mensagem a ser exibida de confirmação." />
+		<cc:attribute name="message" displayName="message"
+			shortDescription="Mensagem a ser exibida de confirmação." />
 
-</cc:interface>
+	</cc:interface>
 
-<cc:implementation>
-	<p:dialog id="dlgConfirmId" widgetVar="dlgConfirmWV" showEffect="clip"
-		hideEffect="clip" closeOnEscape="true" showHeader="true"
-		header="Editar Feriado" responsive="true" modal="true"
-		resizable="false" closable="true" appendTo="@(body)"
-		fitViewport="true" styleClass="al-dlg-confirm ui-g-6">
+	<cc:implementation>
+		<p:dialog id="dlgConfirmId" widgetVar="dlgConfirmWV" showEffect="clip"
+			hideEffect="clip" closeOnEscape="true" showHeader="true"
+			header="Editar Feriado" responsive="true" modal="true"
+			resizable="false" closable="true" appendTo="@(body)"
+			fitViewport="true" styleClass="al-dlg-confirm ui-g-6">
 
-		<!-- Serve para exibir mensagem de erro -->
-		<div class="ui-g">
-			<div class="ui-g-12 al-dlg-confirm-mensagem">
-				<span>#{cc.attrs.message}</span>
-			</div>
-			<div class="ui-g-12">
-				<div class="ui-g ui-fluid">
-					<div class="ui-g-6 ui-md-3 ui-lg-2 ui-xl-2">
-						<alcore:botao-nao oncomplete="PF('dlgConfirmWV').hide;"
-							immediate="true" />
-					</div>
-					<div class="ui-g-6 ui-md-3 ui-lg-2 ui-xl-2">
-						<p:commandButton id="btn-sim" value="#{core['btn.sim.value']}"
-							title="#{core['btn.sim.title']}" icon="#{core['btn.sim.icon']}"
-							styleClass="#{core['btn.sim.styleClass']}"
-							update="#{cc.attrs.update}"
-							actionListener="#{cc.attrs.controller.renovar()}"
-							action="#{cc.attrs.controller.editar()}" process="@this" />
-					</div>
+			<!-- Serve para exibir mensagem de erro -->
+			<div class="ui-g">
+				<div class="ui-g-12 al-dlg-confirm-mensagem">
+					<span>#{cc.attrs.message}</span>
 				</div>
+				<div class="ui-g-12">
+					<div class="ui-g ui-fluid">
+						<div class="ui-g-6 ui-md-3 ui-lg-2 ui-xl-2">
+							<alcore:botao-nao oncomplete="PF('dlgConfirmWV').hide;"
+								immediate="true" />
+						</div>
+						<div class="ui-g-6 ui-md-3 ui-lg-2 ui-xl-2">
+							<p:commandButton id="btn-sim" value="#{core['btn.sim.value']}"
+								title="#{core['btn.sim.title']}" icon="#{core['btn.sim.icon']}"
+								styleClass="#{core['btn.sim.styleClass']}"
+								update="#{cc.attrs.update}"
+								actionListener="#{cc.attrs.controller.renovar()}"
+								action="#{cc.attrs.controller.editar()}" process="@this" />
+						</div>
+					</div>
 
+				</div>
 			</div>
-		</div>
 
-	</p:dialog>
-</cc:implementation>
-</html>
+		</p:dialog>
+	</cc:implementation>
+
+
+</ui:composition>

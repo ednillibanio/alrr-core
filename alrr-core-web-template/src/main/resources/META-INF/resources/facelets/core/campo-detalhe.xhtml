@@ -1,5 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!--
+/****************************************************************************************
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
+****************************************************************************************/
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:p="http://primefaces.org/ui"
@@ -7,27 +14,29 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:o="http://omnifaces.org/ui"
-	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough" lang="pt-br">
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough">
 
-<cc:interface displayName="Campo Detalhe"
-	shortDescription="Campo de exibição de informação. Não tem opção de editar valor."
-	name="campo-detalhe">
-	<cc:attribute name="label" displayName="label"
-		shortDescription="Informe o valor do label do campo." />
+	<cc:interface displayName="Campo Detalhe"
+		shortDescription="Campo de exibição de informação. Não tem opção de editar valor."
+		name="campo-detalhe">
+		<cc:attribute name="label" displayName="label"
+			shortDescription="Informe o valor do label do campo." />
 
-	<cc:attribute name="value" displayName="value"
-		shortDescription="Informe o valor do campo do atributo da entidade." />
-</cc:interface>
-
-
-<cc:implementation>
+		<cc:attribute name="value" displayName="value"
+			shortDescription="Informe o valor do campo do atributo da entidade." />
+	</cc:interface>
 
 
-	<h:panelGroup>
-		<p:outputLabel value="#{cc.attrs.label}" />
-		<p:inputText value="#{cc.attrs.value}" disabled="true" />
-	</h:panelGroup>
+	<cc:implementation>
 
 
-</cc:implementation>
-</html>
+		<h:panelGroup>
+			<p:outputLabel value="#{cc.attrs.label}" />
+			<p:inputText value="#{cc.attrs.value}" disabled="true" />
+		</h:panelGroup>
+
+
+	</cc:implementation>
+
+
+</ui:composition>

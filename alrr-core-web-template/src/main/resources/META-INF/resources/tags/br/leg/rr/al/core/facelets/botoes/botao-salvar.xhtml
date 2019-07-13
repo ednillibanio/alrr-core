@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
-* 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
-*****************************************************************************************
 * @author:	Ednil Libanio da Costa Junior												*
 * @since:	1.0.0																		*
 ****************************************************************************************/
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
@@ -21,20 +13,20 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:o="http://omnifaces.org/ui">
 
-<!-- 
+	<!-- 
 	Item necessário para que funcione o action do primefaces de forma correta. 
 	A partir daqui, na declaração do atributo no taglib basta informar a assinatura
 	do método.
 -->
-<o:methodParam name="method" value="#{action}" />
+	<o:methodParam name="method" value="#{action}" />
 
-<c:if test="${ empty id }">
-	<c:set var="id" value="btn-salvar" />
-</c:if>
-<p:commandButton id="#{id}" value="#{core['btn.salvar.value']}"
-	title="#{core['btn.salvar.title']}" icon="#{core['btn.salvar.icon']}"
-	styleClass="#{core['btn.salvar.styleClass']}"
-	validateClient="#{validateClient}" update="#{update}"
-	action="#{method}" process="#{process}" onclick="#{onclick}" />
+	<c:if test="${ empty id }">
+		<c:set var="id" value="btn-salvar" />
+	</c:if>
+	<p:commandButton id="#{id}" value="#{core['btn.salvar.value']}"
+		title="#{core['btn.salvar.title']}" icon="#{core['btn.salvar.icon']}"
+		styleClass="#{core['btn.salvar.styleClass']}"
+		validateClient="#{validateClient}" update="#{update}"
+		action="#{method}" process="#{process}" onclick="#{onclick}" />
 
-</html>
+</ui:composition>

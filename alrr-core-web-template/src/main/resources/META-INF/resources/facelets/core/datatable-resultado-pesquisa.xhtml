@@ -1,84 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
-* 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
 ****************************************************************************************/
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<cc:interface>
-	<cc:attribute name="controller" required="true" />
-	<cc:attribute name="filename" type="java.lang.String" />
-	<cc:attribute name="dataTableRendered" type="java.lang.Boolean"
-		default="true" />
-	<cc:attribute name="tabindex" type="java.lang.Integer" required="false" />
-	<cc:facet name="contextmenu" />
-</cc:interface>
+	<cc:interface>
+		<cc:attribute name="controller" required="true" />
+		<cc:attribute name="filename" type="java.lang.String" />
+		<cc:attribute name="dataTableRendered" type="java.lang.Boolean"
+			default="true" />
+		<cc:attribute name="tabindex" type="java.lang.Integer"
+			required="false" />
+		<cc:facet name="contextmenu" />
+	</cc:interface>
 
 
-<cc:implementation>
+	<cc:implementation>
 
-	<!-- <p:spacer height="35" /> -->
-	<p:outputPanel rendered="#{cc.attrs.dataTableRendered}">
-		<div class="card">
-			<!-- <p:separator /> -->
-			<p:dataTable id="result" tabindex="#{cc.attrs.tabindex}"
-				value="#{cc.attrs.controller.dataModel}" var="var" paginator="true"
-				rows="15" selection="#{cc.attrs.controller.entity}"
-				rowsPerPageTemplate="9,15,30,45" selectionMode="single"
-				emptyMessage="Nenhum registro encontrado" reflow="true"
-				draggableColumns="true" paginatorPosition="top"
-				paginatorAlwaysVisible="true" styleClass="result">
+		<!-- <p:spacer height="35" /> -->
+		<p:outputPanel rendered="#{cc.attrs.dataTableRendered}">
+			<div class="card">
+				<!-- <p:separator /> -->
+				<p:dataTable id="result" tabindex="#{cc.attrs.tabindex}"
+					value="#{cc.attrs.controller.dataModel}" var="var" paginator="true"
+					rows="15" selection="#{cc.attrs.controller.entity}"
+					rowsPerPageTemplate="9,15,30,45" selectionMode="single"
+					emptyMessage="Nenhum registro encontrado" reflow="true"
+					draggableColumns="true" paginatorPosition="top"
+					paginatorAlwaysVisible="true" styleClass="result">
 
-				<!--  Componentes para imprimir o resultado da pesquisa.  -->
-				<f:facet name="header">
-					<h:outputLabel value="Resultado" />
-					<p:commandLink style="float:right" ajax="false">
-						<p:graphicImage library="images" name="excel.png" width="24" />
-						<p:dataExporter type="xls" target="result"
-							fileName="#{cc.attrs.filename}" />
-					</p:commandLink>
-					<p:commandLink style="float:right" ajax="false">
-						<p:graphicImage library="images" name="pdf.png" width="24" />
-						<p:dataExporter type="pdf" target="result"
-							fileName="#{cc.attrs.filename}" />
-					</p:commandLink>
-					<p:commandLink style="float:right" ajax="false">
-						<p:graphicImage library="images" name="csv.png" width="24" />
-						<p:dataExporter type="csv" target="result"
-							fileName="#{cc.attrs.filename}" />
-					</p:commandLink>
-					<p:commandLink style="float:right" ajax="false">
-						<p:graphicImage library="images" name="xml.png" width="24" />
-						<p:dataExporter type="xml" target="result"
-							fileName="#{cc.attrs.filename}" />
-					</p:commandLink>
-				</f:facet>
+					<!--  Componentes para imprimir o resultado da pesquisa.  -->
+					<f:facet name="header">
+						<h:outputLabel value="Resultado" />
+						<p:commandLink style="float:right" ajax="false">
+							<p:graphicImage library="images" name="excel.png" width="24" />
+							<p:dataExporter type="xls" target="result"
+								fileName="#{cc.attrs.filename}" />
+						</p:commandLink>
+						<p:commandLink style="float:right" ajax="false">
+							<p:graphicImage library="images" name="pdf.png" width="24" />
+							<p:dataExporter type="pdf" target="result"
+								fileName="#{cc.attrs.filename}" />
+						</p:commandLink>
+						<p:commandLink style="float:right" ajax="false">
+							<p:graphicImage library="images" name="csv.png" width="24" />
+							<p:dataExporter type="csv" target="result"
+								fileName="#{cc.attrs.filename}" />
+						</p:commandLink>
+						<p:commandLink style="float:right" ajax="false">
+							<p:graphicImage library="images" name="xml.png" width="24" />
+							<p:dataExporter type="xml" target="result"
+								fileName="#{cc.attrs.filename}" />
+						</p:commandLink>
+					</f:facet>
 
 
-				<!-- Deve sempre vir antes das colunas -->
-				<p:ajax event="contextMenu" update="@(.contextmenu)"
-					oncomplete="PF('contextmenuVar').show(currentEvent);" />
+					<!-- Deve sempre vir antes das colunas -->
+					<p:ajax event="contextMenu" update="@(.contextmenu)"
+						oncomplete="PF('contextmenuVar').show(currentEvent);" />
 
-				<!-- BLOCO DE INSERÇÃO DAS COLUNAS DO COMPONENTE DATATABLE -->
-				<cc:insertChildren />
+					<!-- BLOCO DE INSERÇÃO DAS COLUNAS DO COMPONENTE DATATABLE -->
+					<cc:insertChildren />
 
-			</p:dataTable>
-		</div>
-		<cc:renderFacet name="contextmenu" />
+				</p:dataTable>
+			</div>
+			<cc:renderFacet name="contextmenu" />
 
-	</p:outputPanel>
-</cc:implementation>
-</html>
+		</p:outputPanel>
+	</cc:implementation>
+
+
+</ui:composition>
 

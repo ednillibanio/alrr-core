@@ -1,5 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!--
+/****************************************************************************************
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
+****************************************************************************************/
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:p="http://primefaces.org/ui"
@@ -9,48 +16,50 @@
 	xmlns:o="http://omnifaces.org/ui"
 	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough" lang="pt-br">
 
-<cc:interface displayName="Campo"
-	shortDescription="Informe os atributos para configurar um campo no formulário."
-	name="campo">
+	<cc:interface displayName="Campo"
+		shortDescription="Informe os atributos para configurar um campo no formulário."
+		name="campo">
 
-	<cc:attribute name="panelgroupId" displayName="panelgroupId"
-		default="campo"
-		shortDescription="Informe o Id do componente panelGroup." />
+		<cc:attribute name="panelgroupId" displayName="panelgroupId"
+			default="campo"
+			shortDescription="Informe o Id do componente panelGroup." />
 
-	<cc:attribute name="panelGroupStyleClass"
-		displayName="panelGroupStyleClass"
-		shortDescription="Informa o styleClass do componente panelGroup" />
+		<cc:attribute name="panelGroupStyleClass"
+			displayName="panelGroupStyleClass"
+			shortDescription="Informa o styleClass do componente panelGroup" />
 
-	<cc:attribute name="rendered" displayName="rendered"
-		shortDescription="Indica se o panelGroup deve ser rendered ou não" />
+		<cc:attribute name="rendered" displayName="rendered"
+			shortDescription="Indica se o panelGroup deve ser rendered ou não" />
 
-	<cc:attribute name="value" displayName="value"
-		shortDescription="Informe o valor do label do campo." />
+		<cc:attribute name="value" displayName="value"
+			shortDescription="Informe o valor do label do campo." />
 
-	<cc:attribute name="title" displayName="title"
-		shortDescription="Informe o titulo do label do campo." />
+		<cc:attribute name="title" displayName="title"
+			shortDescription="Informe o titulo do label do campo." />
 
-	<cc:attribute name="for" displayName="for"
-		shortDescription="Informe o id do campo que será referenciado." />
+		<cc:attribute name="for" displayName="for"
+			shortDescription="Informe o id do campo que será referenciado." />
 
-</cc:interface>
-
-
-<cc:implementation>
+	</cc:interface>
 
 
-	<h:panelGroup id="#{cc.attrs.panelgroupId}"
-		styleClass="#{cc.attrs.panelGroupStyleClass}"
-		rendered="#{cc.attrs.rendered}">
-
-		<p:outputLabel value="#{cc.attrs.value}" for="#{cc.attrs.for}"
-			title="#{cc.attrs.title}" />
-		<cc:insertChildren />
-
-		<p:message for="#{cc.attrs.for}" id="msg-#{cc.attrs.fors}"
-			display="tooltip" />
-	</h:panelGroup>
+	<cc:implementation>
 
 
-</cc:implementation>
-</html>
+		<h:panelGroup id="#{cc.attrs.panelgroupId}"
+			styleClass="#{cc.attrs.panelGroupStyleClass}"
+			rendered="#{cc.attrs.rendered}">
+
+			<p:outputLabel value="#{cc.attrs.value}" for="#{cc.attrs.for}"
+				title="#{cc.attrs.title}" />
+			<cc:insertChildren />
+
+			<p:message for="#{cc.attrs.for}" id="msg-#{cc.attrs.fors}"
+				display="tooltip" />
+		</h:panelGroup>
+
+
+	</cc:implementation>
+
+
+</ui:composition>
