@@ -2,21 +2,11 @@
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
-* 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
-*																						*
-*																						*
-*****************************************************************************************
-* Autor:  Ednil Libanio da Costa Junior													*
-* Versão: 1.0.0 																		*
+* @author:  Ednil Libanio da Costa Junior												*
+* @since:   1.0.0 																		*
 ****************************************************************************************/
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -28,47 +18,49 @@
 	xmlns:o="http://omnifaces.org/ui"
 	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough" lang="pt-br">
 
-<p:dialog widgetVar="#{dlgWidgetVar}" showEffect="clip"
-	hideEffect="clip" showHeader="true" closable="false"
-	header="Processando Transação" responsive="true" modal="true"
-	resizable="false" appendTo="@(body)" fitViewport="true"
-	styleClass="al-dlg-confirm">
+	<p:dialog widgetVar="#{dlgWidgetVar}" showEffect="clip"
+		hideEffect="clip" showHeader="true" closable="false"
+		header="Processando Transação" responsive="true" modal="true"
+		resizable="false" appendTo="@(body)" fitViewport="true"
+		styleClass="al-dlg-confirm">
 
-	<o:methodParam name="listener" value="#{cancelarActionListener}" />
-	<o:methodParam name="ajax" value="#{ajaxListener}" />
-	<p:growl id="growl" />
-	<!-- ####################################### -->
-	<!--   C O N T E Ú D O   D O   D I A L O G   -->
-	<!-- ####################################### -->
-	<div class="ui-g">
-		<div class="ui-g-12">
-			<span>#{progressText}</span>
-		</div>
-		<div class="ui-g-12">
-			<p:progressBar widgetVar="#{progressBarWidgetVar}" ajax="true"
-				value="#{progressValue}" labelTemplate="{value}%" global="false">
-				<p:ajax event="complete" listener="#{ajax}" update="growl"
-					oncomplete="#{oncomplete}" />
-			</p:progressBar>
-		</div>
-		<div class="ui-md-4 ui-lg-4 ui-xl-4 nopad-horizontal" />
-		<div
-			class="ui-sm-12 ui-xs-12 ui-md-4 ui-lg-4 ui-xl-4 nopad-horizontal ui-fluid">
-			<!-- <alcore:botao-cancelar
+		<o:methodParam name="listener" value="#{cancelarActionListener}" />
+		<o:methodParam name="ajax" value="#{ajaxListener}" />
+		<p:growl id="growl" />
+		<!-- ####################################### -->
+		<!--   C O N T E Ú D O   D O   D I A L O G   -->
+		<!-- ####################################### -->
+		<div class="ui-g">
+			<div class="ui-g-12">
+				<span>#{progressText}</span>
+			</div>
+			<div class="ui-g-12">
+				<p:progressBar widgetVar="#{progressBarWidgetVar}" ajax="true"
+					value="#{progressValue}" labelTemplate="{value}%" global="false">
+					<p:ajax event="complete" listener="#{ajax}" update="growl"
+						oncomplete="#{oncomplete}" />
+				</p:progressBar>
+			</div>
+			<div class="ui-md-4 ui-lg-4 ui-xl-4 nopad-horizontal" />
+			<div
+				class="ui-sm-12 ui-xs-12 ui-md-4 ui-lg-4 ui-xl-4 nopad-horizontal ui-fluid">
+				<!-- <alcore:botao-cancelar
 				onclick="PF('dlgCancelarImportacaoWV').show();" /> -->
 
-			<p:commandButton value="Sim" action="#{listener}"
-				oncomplete="#{cancelarOncomplete}" proccess="@this" async="true" />
-		</div>
-		<div class="
+				<p:commandButton value="Sim" action="#{listener}"
+					oncomplete="#{cancelarOncomplete}" proccess="@this" async="true" />
+			</div>
+			<div class="
 				ui-md-4 ui-lg-4 ui-xl-4 nopad-horizontal" />
-	</div>
+		</div>
 
-	<!-- DIALOG QUE CONFIRMA O CANCELAMENTO DO PROCESSAMENTO DA TRANSAÇÃO -->
-	<alcore:dialog-confirmar widgetVar="dlgCancelarImportacaoWV"
-		header="Cancelamento da importação dos municípios"
-		message="Deseja cancelar a importação dos municípios?"
-		confirmarActionListener="#{listener}"
-		onclickNao="PF('dlgCancelarImportacaoWV').hide();" />
-</p:dialog>
-</html>
+		<!-- DIALOG QUE CONFIRMA O CANCELAMENTO DO PROCESSAMENTO DA TRANSAÇÃO -->
+		<alcore:dialog-confirmar widgetVar="dlgCancelarImportacaoWV"
+			header="Cancelamento da importação dos municípios"
+			message="Deseja cancelar a importação dos municípios?"
+			confirmarActionListener="#{listener}"
+			onclickNao="PF('dlgCancelarImportacaoWV').hide();" />
+	</p:dialog>
+
+
+</ui:composition>

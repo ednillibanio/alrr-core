@@ -1,702 +1,717 @@
 <?xml version="1.0"?>
-<facelet-taglib version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
- <namespace>http://al.rr.leg.br/facelets/core</namespace>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para editar os dados da entidade selecionada. 
+<facelet-taglib version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+	<namespace>http://al.rr.leg.br/facelets/core</namespace>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para editar os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-editar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-editar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para excluir entidade selecionada. 
+		<tag-name>menuitem-editar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-editar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para excluir entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-excluir</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-excluir.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para exibir os dados da entidade selecionada. 
+		<tag-name>menuitem-excluir</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-excluir.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para exibir os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-detalhes</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-detalhes.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para atualizar/refresh os dados da entidade selecionada. 
+		<tag-name>menuitem-detalhes</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-detalhes.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para atualizar/refresh os dados da entidade selecionada. 
 Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-renovar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-renovar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para ativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-ativar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-ativar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Serve para renderizar o componente somente caso seja true a condição.</description>
-   <name>rendered</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para desativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
-  <tag-name>menuitem-desativar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-desativar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Serve para renderizar o componente somente caso seja true a condição.</description>
-   <name>rendered</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para limpar os campos de um formulário de uma view ou de um dialog.</description>
-  <tag-name>botao-limpar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-limpar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>tabindex</name>
-   <required>false</required>
-   <type>java.lang.Integer</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para pesquisr as entidades que satisfaçam os valores dos filtros informados.</description>
-  <tag-name>botao-pesquisar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-pesquisar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo html tabindex.</description>
-   <name>tabindex</name>
-   <required>false</required>
-   <type>java.lang.Integer</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. Geralmente é usado para cancelar uma transação.</description>
-  <tag-name>botao-cancelar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-cancelar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
-   <name>immediate</name>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para confirmar uma operação.</description>
-  <tag-name>botao-confirmar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-confirmar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo validateClient do componente commandBunton do primefaces.</description>
-   <name>validateClient</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. Geralmente é usado para fechar um dialog.</description>
-  <tag-name>botao-fechar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-fechar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
-   <name>immediate</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo outcome do componente commandBunton do primefaces.</description>
-   <name>outcome</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para salvar os valores preenchidos nos formulário. Serve tanto para uma nova entidade quanto para manutenção dos dados existentes.</description>
-  <tag-name>botao-salvar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-salvar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo validateClient do componente commandBunton do primefaces.</description>
-   <name>validateClient</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. Pode seer usado para adicionar uma entidade filha a uma entidade pai, por exemplo. Ou adicinoar uma entidade numa lista de entidades.</description>
-  <tag-name>botao-adicionar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-adicionar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. Pode ser usado para remover uma entidade filha a uma entidade pai, por exemplo. Ou remover uma entidade numa lista de entidades.</description>
-  <tag-name>botao-remover</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-remover.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para confirmar alguma ação.</description>
-  <tag-name>botao-sim</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-sim.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método actionListener do componente commandBunton do primefaces.</description>
-   <name>actionListener</name>
-   <method-signature>void actionListener()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>false</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <name>type</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces.</description>
-  <tag-name>botao-nao</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-nao.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
-   <name>immediate</name>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces
+		<tag-name>menuitem-renovar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-renovar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para ativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
+		<tag-name>menuitem-ativar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-ativar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Serve para renderizar o componente somente caso seja true a condição.</description>
+			<name>rendered</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o menuitem do primefaces e pode ser usado ou chamado dentro do componente primefaces contextMenu para desativar a entidade selecionada. Geralmente o usa no contextmenu que é usado no datatable do resultado da pesquisa.</description>
+		<tag-name>menuitem-desativar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/menuitems/menuitem-desativar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente menuitem do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente menuitem do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente menuitem do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Serve para renderizar o componente somente caso seja true a condição.</description>
+			<name>rendered</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para limpar os campos de um formulário de uma view ou de um dialog.</description>
+		<tag-name>botao-limpar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-limpar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>tabindex</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para pesquisr as entidades que satisfaçam os valores dos filtros informados.</description>
+		<tag-name>botao-pesquisar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-pesquisar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo html tabindex.</description>
+			<name>tabindex</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. Geralmente é usado para cancelar uma transação.</description>
+		<tag-name>botao-cancelar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-cancelar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
+			<name>immediate</name>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para confirmar uma operação.</description>
+		<tag-name>botao-confirmar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-confirmar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo validateClient do componente commandBunton do primefaces.</description>
+			<name>validateClient</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. Geralmente é usado para fechar um dialog.</description>
+		<tag-name>botao-fechar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-fechar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente 
+			commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton 
+			do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo immediate do componente commandBunton 
+			do primefaces.</description>
+			<name>immediate</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton 
+			do primefaces.</description>
+			<name>process</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo outcome do componente commandBunton 
+			do primefaces.</description>
+			<name>outcome</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para salvar os valores preenchidos nos formulário. Serve tanto para uma nova entidade quanto para manutenção dos dados existentes.</description>
+		<tag-name>botao-salvar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-salvar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente 
+			commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton 
+			do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String
+				action()
+			</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo 
+			que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process 
+			do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo 
+			que preenche o atributo validateClient do componente commandBunton do primefaces.</description>
+			<name>validateClient</name>
+		</attribute>
+		<attribute>
+			<description>Atributo 
+			que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. Pode seer usado para adicionar uma entidade filha a uma entidade pai, por exemplo. Ou adicinoar uma entidade numa lista de entidades.</description>
+		<tag-name>botao-adicionar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-adicionar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. Pode ser usado para remover uma entidade filha a uma entidade pai, por exemplo. Ou remover uma entidade numa lista de entidades.</description>
+		<tag-name>botao-remover</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-remover.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para confirmar alguma ação.</description>
+		<tag-name>botao-sim</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-sim.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método actionListener do componente commandBunton do primefaces.</description>
+			<name>actionListener</name>
+			<method-signature>void actionListener()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>type</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces.</description>
+		<tag-name>botao-nao</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-nao.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo immediate do componente commandBunton do primefaces.</description>
+			<name>immediate</name>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces
 Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma nova entidade.</description>
-  <tag-name>botao-novo</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-novo.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
-   <name>value</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
-   <name>title</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>false</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo styleClass do componente commandBunton do primefaces.</description>
-   <name>styleClass</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo html tabindex.</description>
-   <name>tabindex</name>
-   <required>false</required>
-   <type>java.lang.Integer</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
-   <name>icon</name>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces
+		<tag-name>botao-novo</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-novo.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
+			<name>value</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
+			<name>title</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo styleClass do componente commandBunton do primefaces.</description>
+			<name>styleClass</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo html tabindex.</description>
+			<name>tabindex</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
+			<name>icon</name>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces
 É usado para atualizar os dados na view.</description>
-  <tag-name>botao-renovar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-renovar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo html tabindex.</description>
-   <name>tabindex</name>
-   <required>false</required>
-   <type>java.lang.Integer</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo rendered do componente commandBunton do primefaces.</description>
-   <name>rendered</name>
-   <required>false</required>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para transformar a primeira letra de cada palavra em maiúscula.</description>
-  <tag-name>botao-capitalizar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-capitalizar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método actionListener do componente commandBunton do primefaces.</description>
-   <name>actionListener</name>
-   <method-signature>void actionListener()</method-signature>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para atualizar os valores de uma entidade.</description>
-  <tag-name>botao-atualizar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-atualizar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>true</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o blockUI do primefaces. É usado para bloquear a tela e notificar que a operação está sendo executada. Enquanto estiver executando a operação, o componente informado para ser bloqueado, ficará inacessível.</description>
-  <tag-name>ajax-loading</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/ajax-loading.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo block do componente blockUI do primefaces.</description>
-   <name>block</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo trigger do componente blockUI do primefaces.</description>
-   <name>trigger</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o validateOneOrMore do omnifaces É usado para informar que pelo menos um campo deve ser preenchido.</description>
-  <tag-name>validateOneOrMore</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/validateOneOrMore.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo components do componente.</description>
-   <name>components</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces. É usado para funcionalidades de importação.</description>
-  <tag-name>botao-importar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-importar.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo widgetVar do componente commandBunton do primefaces.</description>
-   <name>widgetVar</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
-   <name>value</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
-   <name>title</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-  </attribute>
- </tag>
- <tag>
-  <tag-name>dialog-processar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-processar.xhtml</source>
-  <attribute>
-   <description>Preenche o atributo widgetVar do dialog processar.</description>
-   <name>dlgWidgetVar</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo widgetVar do componente progressBar.</description>
-   <name>progressBarWidgetVar</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o texto que informa que a transação está em execução. Por exemplo: "Importando municípios do IBGE..."</description>
-   <name>progressText</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo value do componente progressBar.</description>
-   <name>progressValue</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo listener do componente ajax do progressBar.</description>
-   <name>ajaxListener</name>
-   <method-signature>void listener()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo oncomplete do componente ajax do progressBar.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo onclick do botão cancelar.</description>
-   <name>cancelarOnclick</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo actionListener do botão cancelar.</description>
-   <name>cancelarActionListener</name>
-   <method-signature>void actionListener()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Preenche o atributo oncomplete do botão cancelar.</description>
-   <name>cancelarOncomplete</name>
-   <type>java.lang.String</type>
-  </attribute>
- </tag>
- <tag>
-  <tag-name>dialog-confirmar</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-confirmar.xhtml</source>
- </tag>
- <tag>
-  <description>Este componente implementa o commandButton do primefaces
+		<tag-name>botao-renovar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-renovar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo html tabindex.</description>
+			<name>tabindex</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo rendered do componente commandBunton do primefaces.</description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para transformar a primeira letra de cada palavra em maiúscula.</description>
+		<tag-name>botao-capitalizar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-capitalizar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método actionListener do componente commandBunton do primefaces.</description>
+			<name>actionListener</name>
+			<method-signature>void actionListener()</method-signature>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para atualizar os valores de uma entidade.</description>
+		<tag-name>botao-atualizar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-atualizar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o blockUI do primefaces. É usado para bloquear a tela e notificar que a operação está sendo executada. Enquanto estiver executando a operação, o componente informado para ser bloqueado, ficará inacessível.</description>
+		<tag-name>ajax-loading</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/ajax-loading.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo block do componente blockUI do primefaces.</description>
+			<name>block</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo trigger do componente blockUI do primefaces.</description>
+			<name>trigger</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o validateOneOrMore do omnifaces É usado para informar que pelo menos um campo deve ser preenchido.</description>
+		<tag-name>validateOneOrMore</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/validateOneOrMore.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo components do componente.</description>
+			<name>components</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces. É usado para funcionalidades de importação.</description>
+		<tag-name>botao-importar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-importar.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo widgetVar do componente commandBunton do primefaces.</description>
+			<name>widgetVar</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
+			<name>value</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
+			<name>title</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>dialog-processar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-processar.xhtml</source>
+		<attribute>
+			<description>Preenche o atributo widgetVar do dialog processar.</description>
+			<name>dlgWidgetVar</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo widgetVar do componente progressBar.</description>
+			<name>progressBarWidgetVar</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o texto que informa que a transação está em execução. Por exemplo: "Importando municípios do IBGE..."</description>
+			<name>progressText</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo value do componente progressBar.</description>
+			<name>progressValue</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo listener do componente ajax do progressBar.</description>
+			<name>ajaxListener</name>
+			<method-signature>void listener()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo oncomplete do componente ajax do progressBar.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo onclick do botão cancelar.</description>
+			<name>cancelarOnclick</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo actionListener do botão cancelar.</description>
+			<name>cancelarActionListener</name>
+			<method-signature>void actionListener()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Preenche o atributo oncomplete do botão cancelar.</description>
+			<name>cancelarOncomplete</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>dialog-confirmar</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/dialogs/dlg-confirmar.xhtml</source>
+	</tag>
+	<tag>
+		<description>Este componente implementa o commandButton do primefaces
 Geralmente é usado para chamar uma nova view ou um dialog de cadastro de uma nova entidade.</description>
-  <tag-name>botao-preencher</tag-name>
-  <source>tags/br/leg/rr/al/core/facelets/botoes/botao-preencher.xhtml</source>
-  <attribute>
-   <description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
-   <name>id</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
-   <name>value</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
-   <name>title</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
-   <name>action</name>
-   <method-signature>java.lang.String action()</method-signature>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
-   <name>update</name>
-   <required>false</required>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
-   <name>process</name>
-   <type>java.lang.String</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
-   <name>oncomplete</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo styleClass do componente commandBunton do primefaces.</description>
-   <name>styleClass</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo html tabindex.</description>
-   <name>tabindex</name>
-   <required>false</required>
-   <type>java.lang.Integer</type>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
-   <name>onclick</name>
-  </attribute>
-  <attribute>
-   <description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
-   <name>icon</name>
-  </attribute>
- </tag>
+		<tag-name>botao-preencher</tag-name>
+		<source>tags/br/leg/rr/al/core/facelets/botoes/botao-preencher.xhtml</source>
+		<attribute>
+			<description>Atributo que preenche o atributo id do componente commandBunton do primefaces.</description>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo value do componente commandBunton do primefaces.</description>
+			<name>value</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo title do componente commandBunton do primefaces.</description>
+			<name>title</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o método action do componente commandBunton do primefaces.</description>
+			<name>action</name>
+			<method-signature>java.lang.String action()</method-signature>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo update do componente commandBunton do primefaces.</description>
+			<name>update</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo process do componente commandBunton do primefaces.</description>
+			<name>process</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo oncomplete do componente commandBunton do primefaces.</description>
+			<name>oncomplete</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo styleClass do componente commandBunton do primefaces.</description>
+			<name>styleClass</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo html tabindex.</description>
+			<name>tabindex</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo onclick do componente commandBunton do primefaces.</description>
+			<name>onclick</name>
+		</attribute>
+		<attribute>
+			<description>Atributo que preenche o atributo icon do componente commandBunton do primefaces.</description>
+			<name>icon</name>
+		</attribute>
+	</tag>
 </facelet-taglib>
