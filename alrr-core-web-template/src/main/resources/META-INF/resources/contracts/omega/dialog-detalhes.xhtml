@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <!--
-/****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
+*****************************************************************************************
+* @author:	Ednil Libanio da Costa Junior												*
+* @since:	1.0.0 																		*
 * 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
+* Template do componente Dialog usado para apenas exibir dados nÃ£o editaveis.			*
 *																						*
-****************************************************************************************/
+****************************************************************************************/ 
 -->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -24,15 +21,7 @@
 	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
 	xmlns:o="http://omnifaces.org/ui" lang="pt-br" id="page">
 
-<!--
-*****************************************************************************************
-* @autor:	Ednil Libanio da Costa Junior												*
-* @since:	1.0.0 																		*
-* 																						*
-* Template do componente Dialog usado para apenas exibir dados nÃ£o editaveis.			*
-*																						*
-****************************************************************************************/ 
--->
+
 <p:dialog id="#{dlgid}" widgetVar="#{widgetVar}" showEffect="clip"
 	hideEffect="clip" closeOnEscape="true" showHeader="true"
 	responsive="true" modal="true" resizable="false" closable="false"
@@ -64,7 +53,7 @@
 					<div class="ui-g">
 						<div class="ui-md-3 ui-g-3 ui-xl-3" />
 						<div class="ui-g-12 ui-md-6 ui-g-6 ui-xl-6">
-							<!--   B O T Ãƒ O:   F E C H A R   -->
+							<!--   B O T Ã O O:   F E C H A R   -->
 							<alcore:botao-fechar id="btnfechar"
 								oncomplete="PF('#{widgetVar}').hide();" immediate="true" />
 						</div>

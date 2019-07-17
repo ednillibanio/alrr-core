@@ -6,16 +6,9 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:of="http://omnifaces.org/functions">
 
-<h:head>
-	<f:facet name="first">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-	</f:facet>
-	<title>PrimeFaces Omega</title>
-</h:head>
+
+<ui:decorate template="head.xhtml" />
+
 
 <h:body styleClass="exception-body">
 	<div class="exception-wrapper error">
@@ -46,8 +39,8 @@
 				#{requestScope['javax.servlet.error.message']}</li>
 			<li>Exception UUID:
 				#{requestScope['org.omnifaces.exception_uuid']}</li>
-			<li>Stack trace: <pre>#{of:printStackTrace(requestScope['javax.servlet.error.exception'])}</pre>
-			</li>
+			<!-- <li>Stack trace: <pre>#{of:printStackTrace(requestScope['javax.servlet.error.exception'])}</pre>
+			</li> -->
 		</ul>
 		<div class="login-footer">PrimeFaces Omega</div>
 	</div>

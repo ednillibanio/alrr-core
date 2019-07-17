@@ -2,21 +2,11 @@
 <!DOCTYPE html>
 <!--
 /****************************************************************************************
-* ALE-RR Licença																		*
-* Copyright (C) 2018, ALE-RR															*
-* Boa Vista, RR - Brasil																*
-* Todos os direitos reservados.															*
-* 																						*
-* Este programa é propriedade da Assembleia Legislativa do Estado de Roraima e 			*
-* não é permitida a distribuição, alteração ou cópia da mesma sem prévia autoriazação.	*
-*																						*
-*																						*
-*****************************************************************************************
 * @author	Ednil Libanio da Costa Junior												*
 * @since 	1.0.0 																		*
 ****************************************************************************************/
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -26,48 +16,46 @@
 	xmlns:alrr="http://xmlns.jcp.org/jsf/composite/components/commons"
 	xmlns:o="http://omnifaces.org/ui">
 
-<p:dialog id="#{dlgid}" widgetVar="#{widgetVar}" showEffect="clip"
-	hideEffect="clip" closeOnEscape="true" showHeader="true"
-	responsive="true" modal="true" resizable="false" closable="false"
-	appendTo="@(body)" header="#{panelheader}"
-	styleClass="#{empty styleClass ? 'ui-fluid al-dialog dlg' : styleClass}"
-	fitViewport="true">
+	<p:dialog id="#{dlgid}" widgetVar="#{widgetVar}" showEffect="clip"
+		hideEffect="clip" closeOnEscape="true" showHeader="true"
+		responsive="true" modal="true" resizable="false" closable="false"
+		appendTo="@(body)" header="#{panelheader}"
+		styleClass="#{empty styleClass ? 'ui-fluid al-dialog dlg' : styleClass}"
+		fitViewport="true">
 
 
-	<!-- <p:panel> -->
-	<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
-		columns="#{columns}" columnClasses="#{columnClasses}"
-		styleClass="ui-panelgrid-blank" layout="grid">
+		<!-- <p:panel> -->
+		<p:panelGrid id="#{empty gridid ? 'grid' : gridid}"
+			columns="#{columns}" columnClasses="#{columnClasses}"
+			styleClass="ui-panelgrid-blank" layout="grid">
 
-		<ui:insert name="dialog-content" />
+			<ui:insert name="dialog-content" />
 
-	</p:panelGrid>
-
-
+		</p:panelGrid>
 
 
 
-	<div class="ui-g ui-fluid">
+		<div class="ui-g ui-fluid">
 
-		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
+			<div class="ui-md-2 ui-lg-3 ui-xl-4" />
 
-		<!-- BOTÃO QUE FICA DO LADO ESQUERDO DO PANEL -->
-		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
-			<!-- B O T Ã O:   F E C H A R -->
-			<ui:insert name="btn-esquerda" />
+			<!-- BOTÃO QUE FICA DO LADO ESQUERDO DO PANEL -->
+			<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+				<!-- B O T Ã O:   F E C H A R -->
+				<ui:insert name="btn-esquerda" />
+			</div>
+
+			<!-- BOTÃO QUE FICA DO LADO DIREITO DO PANEL -->
+			<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
+				<!-- B O T Ã O:   S A L V A R -->
+				<ui:insert name="btn-direita" />
+			</div>
+
+			<div class="ui-md-2 ui-lg-3 ui-xl-4" />
 		</div>
 
-		<!-- BOTÃO QUE FICA DO LADO DIREITO DO PANEL -->
-		<div class="ui-g-12 ui-md-4 ui-lg-3 ui-xl-2">
-			<!-- B O T Ã O:   S A L V A R -->
-			<ui:insert name="btn-direita" />
-		</div>
-
-		<div class="ui-md-2 ui-lg-3 ui-xl-4" />
-	</div>
-
-	<!--   R O D A P É   D O   D I A L O G   -->
-	<!-- <f:facet name="footer">
+		<!--   R O D A P É   D O   D I A L O G   -->
+		<!-- <f:facet name="footer">
 
 			<ui:insert name="dialog-footer">
 
@@ -92,5 +80,5 @@
 
 	</p:panel>
  -->
-</p:dialog>
-</html>
+	</p:dialog>
+</ui:composition>

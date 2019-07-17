@@ -18,6 +18,10 @@
 			<base-name>br.leg.rr.al.core.componentes</base-name>
 			<var>core</var>
 		</resource-bundle>
+		<resource-bundle>
+			<base-name>br.leg.rr.al.core.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
 	</application>
 	<factory>
 		<exception-handler-factory>org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory</exception-handler-factory>

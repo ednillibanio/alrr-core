@@ -8,31 +8,14 @@
 <f:view encoding="UTF-8">
 	<ui:decorate template="head.xhtml">
 		<ui:define name="javascripts">
-		
+			<h:outputScript name="primefaces_pt_br.js" library="js" />
 		</ui:define>
 	</ui:decorate>
 
 
 	</ui:fragment>
-	<h:head>
-		<f:facet name="first">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<meta name="viewport"
-				content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-			<meta name="apple-mobile-web-app-capable" content="yes" />
-		</f:facet>
 
-		<h:outputScript name="nanoscroller.js" library="js" />
-		<h:outputScript name="layout.js" library="js" />
-		<h:outputScript name="primefaces_pt_br.js" library="js" />
-
-		<ui:insert name="head">
-			<title>Assembleia Legislativa de Roraima</title>
-		</ui:insert>
-	</h:head>
-
-	<h:body styleClass="main-body #{guestPreferences.menuLayout}">
+	<h:body styleClass="main-body">
 
 		<div class="wrapper">
 
@@ -66,10 +49,6 @@
 			</f:facet>
 		</p:ajaxStatus>
 
-		<h:outputStylesheet name="animate.css" library="css" />
-		<h:outputStylesheet name="nanoscroller.css" library="css" />
-		<h:outputStylesheet name="layout.css" library="css" />
-		<h:outputStylesheet name="alrr.css" library="css" />
 	</h:body>
 </f:view>
 </html>
