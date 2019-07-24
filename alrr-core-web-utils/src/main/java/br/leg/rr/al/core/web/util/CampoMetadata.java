@@ -20,13 +20,16 @@ public class CampoMetadata<T> {
 	}
 
 	/**
-	 * @param required the required to set
+	 * Default valor é <code>true</code>.
+	 * 
+	 * @param required valor a ser definido.
 	 */
 	public void setRequired(Boolean required) {
 		this.required = required;
 	}
 
 	/**
+	 * 
 	 * @return the disabled
 	 */
 	public Boolean getDisabled() {
@@ -34,6 +37,7 @@ public class CampoMetadata<T> {
 	}
 
 	/**
+	 * Default valor é <code>false</code>.
 	 * @param disabled the disabled to set
 	 */
 	public void setDisabled(Boolean disabled) {
